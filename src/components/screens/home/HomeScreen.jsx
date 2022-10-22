@@ -10,7 +10,6 @@ import { Testimonials } from './testimonials/Testimonials'
 export const HomeScreen = () => {
     return (
         <>
-            <h1>Travel Agency</h1>
             <Navbar />
             <Hero />
             <Services />

@@ -1,0 +1,37 @@
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.toggle {
+    display: none;
+}
+
+.navbar-container > ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-container > ul > li a {
+    color: var(--thm-gray);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: var(--trasition);
+}
+
+.navbar-container>ul li a:hover {
+    color: var(--thm-black);
+}
+
