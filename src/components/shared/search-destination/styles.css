@@ -1,6 +1,37 @@
 .form-conatiner-styes {
     background-color: var(--thm-base);
     padding: 1rem;
-    border-radius: var(--thm-border-radius);
+    /* border-radius: var(--thm-border-radius); */
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
     width: 100%;
+}
+
+
+/* ####### NavBar Styles ########## */
+.navbar-search {
+    display: flex;
+    gap: 0.15rem;
+}
+
+.btn-conatiner > button {
+    padding: 0.7rem 1.1rem;
+    border-radius: 0.5rem 0.2rem 0 0 ;
+    border: 0;
+    background-color: rgb(228, 228, 228);
+    font-size: 1.1rem;
+    color: #3c3c3c;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.05rem;
+    transition: all 200ms ease;
+}
+
+.hotels > button {
+    border-radius: 0.2rem 0.5rem 0 0;
+}
+
+.active > button {
+    background-color: rgb(255, 255, 255);
+    font-weight: 700;
+    box-shadow: rgb(245 245 245) 0px 0px 5px 2px  inset;
 }

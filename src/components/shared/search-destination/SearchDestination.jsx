@@ -1,21 +1,36 @@
 import React from 'react'
+import { useState } from 'react'
+import { SearchFlights } from './search-flights/SearchFlights'
 import { SearchHotels } from './search-hotels/SearchHotels'
 import './styles.css'
 
 export const SearchDestination = () => {
+
+    const [activeChoise, setActiveChoise] = useState('hotel')
+
     return (
         <div className='search-destination-conatiner'>
             <nav className="navbar-search">
-                <div className='btn-conatiner'>
-                    <button>Flights</button>
+                <div className={activeChoise === 'flight' 
+                    ? 'btn-conatiner flights active' 
+                    : 'btn-conatiner flights'}
+                >
+                    <button
+                        onClick={() => setActiveChoise('flight')}
+                    >Flight</button>
                 </div>
-                <div className='btn-conatiner'>
-                    <button>Hotels</button>
+                <div className={activeChoise === 'hotel'
+                    ? 'btn-conatiner active hotels'
+                    : 'btn-conatiner hotels'}
+                >
+                    <button
+                        onClick={() => setActiveChoise('hotel')}
+                    >Hotel</button>
                 </div>
             </nav>
 
             <div className="form-conatiner-styes">
-                <SearchHotels />
+                {activeChoise === 'hotel' ? <SearchHotels/> : <SearchFlights/>}
             </div>
         </div>
     )
