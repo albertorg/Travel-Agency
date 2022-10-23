@@ -1,0 +1,6 @@
+.form-conatiner-styes {
+    background-color: var(--thm-base);
+    padding: 1rem;
+    border-radius: var(--thm-border-radius);
+    width: 100%;
+}

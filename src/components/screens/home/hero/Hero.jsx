@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import homeimage from '../../../../assets/hero.png'
+import { SearchDestination } from '../../../shared/search-destination/SearchDestination'
 
 export const Hero = () => {
   return (
@@ -14,7 +15,7 @@ export const Hero = () => {
           <h2>Where Would You Like To Go?</h2>
         </div>
         <div className='search'>
-          {/* Put here form for search hotels and flights */}
+          <SearchDestination />
         </div>
       </div>  
     </section>
