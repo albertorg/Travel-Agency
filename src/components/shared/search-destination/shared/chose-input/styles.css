@@ -1,0 +1,51 @@
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+    background-color: var(--thm-gray-form);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.autocomplete-input {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2.6rem;
+    padding: 0 3rem;
+    background-color: transparent;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.autocomplete-input:focus {
+    box-shadow: rgb(0 99 190) 0px 0px 0px 2px inset;
+}
+
+.icon-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: rgb(140, 140, 146);
+}
+
+.bed-icon-conatiner {
+    left: 0.5rem;
+    position: absolute;
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    font-size: 1.7rem;
+    /* margin-left: 1rem; */
+}
+
+.close-icon-container {
+    right: 0.5rem;
+    position: absolute;
+    cursor: pointer;
+}
