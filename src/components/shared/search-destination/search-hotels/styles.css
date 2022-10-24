@@ -5,6 +5,7 @@ form label {
     color: rgb(140, 140, 146);
     margin-bottom: 0.25rem;
     text-align: left;
+    cursor: pointer;
 }
 
 .autocomplete {
