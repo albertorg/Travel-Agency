@@ -29,7 +29,7 @@ export const SearchDestination = () => {
                 </div>
             </nav>
 
-            <div className="form-conatiner-styes">
+            <div className="form-container-styes">
                 {activeChoise === 'hotel' ? <SearchHotels/> : <SearchFlights/>}
             </div>
         </div>

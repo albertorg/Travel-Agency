@@ -1,49 +1,44 @@
 import React from 'react'
+import { Combobox, ComboboxPopover, useComboboxState, ComboboxCancel } from 'ariakit/combobox'
 import './styles.css'
-import { AiFillCloseCircle } from 'react-icons/ai'
+// import { AiFillCloseCircle } from 'react-icons/ai'
+import { ItemsList } from './ItemsList'
 
-export const ChoseInput = ({ label, text, Icon }) => {
+export const ChoseInput = ({ label, text, Icon, IconList }) => {
+
+    const combobox = useComboboxState({gutter: 4, sameWidth: true, flip: 'bottom'})
+
     return (
-        <>
+        <div className='destination-container'>
             <label htmlFor='destination'>{label}</label>
             <div className='autocomplete-container'>
 
-                <input type="text"
-                    id='destination'
+                <Combobox 
                     className='autocomplete-input'
+                    state={combobox}
                     placeholder={text}
-                    role='combobox'
-                    // spellCheck='false'
-                    aria-haspopup='listbox'
-                    aria-autocomplete='list' //
-                    aria-expanded='true'  //
-                    aria-controls='destination-listbox' //
-                    autoComplete='off'
-                    aria-activedescendant='1'
-                // value='Este'
                 />
 
-                <ul
-                    role='listbox'
-                    id='destination-listbox'
-                >
-                    <li role='option' id='1' aria-selected='true'>Item 1</li>
-                    <li role='option' id='2' aria-selected='false'>Item 2</li>
-                    <li role='option' id='3' aria-selected='false'>Item 3</li>
-                    <li role='option' id='4' aria-selected='false'>Item 4</li>
-                    <li role='option' id='5' aria-selected='false'>Item 5</li>
-
-                </ul>
-
                 <div className="bed-icon-conatiner icon-center">
-                    {Icon}
+                    <Icon/>
                 </div>
 
                 <div className="close-icon-container icon-center">
-                    <AiFillCloseCircle />
+                    <ComboboxCancel state={combobox} className='combobox-cancel'/>
                 </div>
+
             </div>
 
-        </>
+            {
+                combobox.open && (
+                    <ComboboxPopover state={combobox}
+                        className='combobox-list'
+                    >
+                        <ItemsList IconList={IconList} />
+                    </ComboboxPopover>
+                )
+            }
+
+        </div>
     )
 }
