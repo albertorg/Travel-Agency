@@ -88,6 +88,7 @@
     padding: 0.75rem 1rem;
     cursor: pointer;
     border-radius: var(--thm-border-radius);
+    transition: all 0.25s ease;
 }
 
 .combobox-item:hover {
