@@ -1,11 +1,11 @@
 import React from 'react'
 import './styles.css'
-import homeimage from '../../../../assets/hero.png'
+import homeimage from '../../../../assets/maldives 1920x600.png'
 import { SearchDestination } from '../../../shared/search-destination/SearchDestination'
 
 export const Hero = () => {
   return (
-    <section>
+    <header>
       <div className="background">
         <img src={homeimage} alt="hotel vacations"/>
       </div>
@@ -18,6 +18,6 @@ export const Hero = () => {
           <SearchDestination />
         </div>
       </div>  
-    </section>
+    </header>
   )
 }

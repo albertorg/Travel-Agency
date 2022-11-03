@@ -1,16 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './styles.css'
 import { BiBed } from 'react-icons/bi'
 import { ChoseInput } from '../shared/chose-input/ChoseInput'
 import { FaHotel } from 'react-icons/fa'
 import axios from 'axios'
 import { xSignature } from '../../../../helpers/signature-generator'
-import { useEffect } from 'react'
-const CryptoJS = require("crypto-js");
+
 
 export const SearchHotels = () => {
-
-  const [data, setData] = useState()
 
 
     const other = () => {
