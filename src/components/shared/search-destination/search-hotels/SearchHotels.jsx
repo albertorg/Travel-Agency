@@ -29,10 +29,10 @@ export const SearchHotels = () => {
       };
 
       axios(config)
-        .then(function (response) {
+        .then((response) => {
           console.log(JSON.stringify(response.data));
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         }) 
       
