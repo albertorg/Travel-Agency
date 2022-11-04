@@ -3,8 +3,11 @@ import { Combobox, ComboboxPopover, useComboboxState, ComboboxCancel } from 'ari
 import './styles.css'
 // import { AiFillCloseCircle } from 'react-icons/ai'
 import { ItemsList } from './ItemsList'
+import { useForm } from '../../../../../hooks/useForm'
+
 
 export const ChoseInput = ({ label, text, Icon, IconList }) => {
+
 
     const combobox = useComboboxState({gutter: 4, sameWidth: true, flip: 'bottom'})
 
@@ -34,7 +37,9 @@ export const ChoseInput = ({ label, text, Icon, IconList }) => {
                     <ComboboxPopover state={combobox}
                         className='combobox-list'
                     >
-                        <ItemsList IconList={IconList} />
+                        <React.Suspense fallback={<div>Loading...</div>}>
+                            <ItemsList IconList={IconList} query={combobox.value}/>
+                        </React.Suspense>
                     </ComboboxPopover>
                 )
             }

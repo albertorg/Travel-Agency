@@ -1,27 +1,57 @@
 import React from 'react'
 import { ComboboxItem } from 'ariakit/combobox'
 import './styles.css'
+import { useAxios } from '../../../../../hooks/useAxios'
 // import { ImLocation } from 'react-icons/im'
 
-export const ItemsList = ({IconList}) => {
+export const ItemsList = ({ IconList, query }) => {
 
-    const list = ["Alberto", 'Raymundo', 'Alejandro', 'Ernesto', 'Frank']
+    const params = {
+        text: query ? query : 'jggkl'
+    }
 
-  return (
-    <>
-        {list.map((item) => (
-            <ComboboxItem key={item} value={item} className='combobox-item'>
-                <div className='icon-list-conatiner'>
-                    <IconList/>
-                </div>
+    console.log(query)
 
-                <div className="text-list-container">
-                    {item}
-                </div>
-            </ComboboxItem> 
-        ))}
-    </>
-  )
+    const config = {
+        url: 'http://localhost:4000/api/hotels/filter/',
+        params,
+        headers: { "Content-Type": "application/json" }
+    }
+
+    const { data } = useAxios(config)
+    const hotels = data && data.hotels 
+
+        
+
+    console.log(hotels)
+
+    return (
+        <>
+
+            {hotels === null || query === ''
+                ? < ComboboxItem key={1} value='Search All' className='combobox-item' >
+                    <div className='icon-list-conatiner'>
+                        <IconList />
+                    </div>
+
+                    <div className="text-list-container">
+                        Search All
+                    </div>
+                </ComboboxItem >
+                : hotels.map((hotel) => (
+                    <ComboboxItem key={hotel._id} value={hotel.name.content} className='combobox-item'>
+                        <div className='icon-list-conatiner'>
+                            <IconList />
+                        </div>
+
+                        <div className="text-list-container">
+                            {hotel.name.content}
+                        </div>
+                    </ComboboxItem>
+                ))
+            }
+        </>
+    )
 }
 
 
