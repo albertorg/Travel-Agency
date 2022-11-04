@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComboboxItem } from 'ariakit/combobox'
+import { ComboboxItem, ComboboxItemValue } from 'ariakit/combobox'
 import './styles.css'
 import { useAxios } from '../../../../../hooks/useAxios'
 // import { ImLocation } from 'react-icons/im'
@@ -10,8 +10,6 @@ export const ItemsList = ({ IconList, query }) => {
         text: query ? query : 'jggkl'
     }
 
-    console.log(query)
-
     const config = {
         url: 'http://localhost:4000/api/hotels/filter/',
         params,
@@ -20,10 +18,6 @@ export const ItemsList = ({ IconList, query }) => {
 
     const { data } = useAxios(config)
     const hotels = data && data.hotels 
-
-        
-
-    console.log(hotels)
 
     return (
         <>
@@ -39,13 +33,18 @@ export const ItemsList = ({ IconList, query }) => {
                     </div>
                 </ComboboxItem >
                 : hotels.map((hotel) => (
-                    <ComboboxItem key={hotel._id} value={hotel.name.content} className='combobox-item'>
+                    <ComboboxItem 
+                        key={hotel._id} 
+                        value={hotel.name.content} 
+                        className='combobox-item'
+                        
+                        >
                         <div className='icon-list-conatiner'>
                             <IconList />
                         </div>
 
                         <div className="text-list-container">
-                            {hotel.name.content}
+                            <ComboboxItemValue value={hotel.name.content} />
                         </div>
                     </ComboboxItem>
                 ))

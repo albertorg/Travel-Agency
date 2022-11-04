@@ -17,7 +17,7 @@ export const useAxios = (config) => {
     const res = await axios(config)
     const data = await res.data
 
-    console.log(data)
+    // console.log(data)
 
     setState({
       data,
