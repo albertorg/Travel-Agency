@@ -1,0 +1,15 @@
+.date-picker-container {
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+}
+
+.btn-pick-container {
+    /* min-width: 0px; */
+    display: flex;
+    flex-direction: column;
+    min-width: 6.37rem;
+}

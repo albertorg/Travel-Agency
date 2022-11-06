@@ -3,7 +3,7 @@ form label {
     white-space: nowrap;
     font-size: 1.1rem;
     color: rgb(140, 140, 146);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
     text-align: left;
     cursor: pointer;
 }
@@ -12,5 +12,30 @@ form label {
     width: 100%;
 }
 
+.input-commun-style {
+    position: relative;
+    width: 100%;
+    background-color: var(--thm-gray-form);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    border-radius: 4px;
+    height: 2.6rem;
+    padding: 0 0.4rem;
+    border: none;
+    outline: none;
+    font-size: 1.03rem;
+    font-weight: 700;
+    cursor: pointer;
+}
 
+.input-commun-style:focus {
+    box-shadow: rgb(0 99 190) 0px 0px 0px 2px inset;
+}
 
+form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+}
