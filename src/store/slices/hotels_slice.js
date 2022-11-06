@@ -4,29 +4,37 @@ const initialState = {
     isLoading: false,
     selected: {},
     hotels: [],
+    fullList: {},
+    hotelsDetails: []
 }
 
 export const hotelsSlice = createSlice({
     name: 'hotels',
     initialState,
     reducers: {
-        startLoadingHotels: (state) => {
+        startLoading: (state) => {
             state.isLoading = true
         },
-        setHotels: (state, action) => {
-            console.log(action)
+        setHotels: (state, { payload }) => {
+            state.hotels = payload
+            state.isLoading = false
         },
-        setSelected: (state, action) => {
-            console.log(action)
+        setSelected: (state, { payload }) => {
+            state.selected = payload
+        },
+        setFullLList: (state, { payload }) => {
+            state.fullList = payload
+            state.isLoading = false
         }
     },
 })
 
 // Action creators are generated for each case reducer function
 export const { 
-    startLoadingHotels,
+    startLoading,
     setHotels,
-    setSelected
+    setSelected,
+    setFullLList
     
  } = hotelsSlice.actions
 

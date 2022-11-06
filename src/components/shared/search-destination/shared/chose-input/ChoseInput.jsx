@@ -1,15 +1,23 @@
 import React from 'react'
 import { Combobox, ComboboxPopover, useComboboxState, ComboboxCancel } from 'ariakit/combobox'
-import './styles.css'
-// import { AiFillCloseCircle } from 'react-icons/ai'
 import { ItemsList } from './ItemsList'
-import { useForm } from '../../../../../hooks/useForm'
+import { useDispatch } from 'react-redux'
+import { setSelected } from '../../../../../store/slices/hotels_slice'
+import './styles.css'
 
 
 export const ChoseInput = ({ label, text, Icon, IconList }) => {
 
     const combobox = useComboboxState({ gutter: 4, sameWidth: true, flip: 'bottom' })
 
+    const dispatch = useDispatch()
+
+    const handleClickCancel = () => {
+        combobox.setOpen(false)
+        dispatch(setSelected({}))
+    }
+
+    
     return (
         <div className='destination-container'>
             <label htmlFor='destination'>{label}</label>
@@ -28,7 +36,7 @@ export const ChoseInput = ({ label, text, Icon, IconList }) => {
                 <div className="close-icon-container icon-center">
                     <ComboboxCancel
                         state={combobox}
-                        onClick={combobox.hide}
+                        onClick={ handleClickCancel }
                         className='combobox-cancel' />
                 </div>
 

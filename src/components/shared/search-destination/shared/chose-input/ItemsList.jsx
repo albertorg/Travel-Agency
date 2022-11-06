@@ -1,53 +1,75 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { ComboboxItem, ComboboxItemValue } from 'ariakit/combobox'
+import { getFullList } from '../../../../../store/thunks/hotels-thunks'
 import './styles.css'
-import { useAxios } from '../../../../../hooks/useAxios'
-// import { ImLocation } from 'react-icons/im'
+import { setSelected } from '../../../../../store/slices/hotels_slice'
+import { ImLocation } from 'react-icons/im'
 
 export const ItemsList = ({ IconList, query }) => {
 
-    const params = {
-        text: query ? query : 'jggkl'
+    const dispatch = useDispatch()
+    const { fullList } = useSelector(state => state.hotels)
+
+
+    useEffect(() => {
+        dispatch(getFullList(query))
+
+    }, [query])
+
+
+    const handleClickItem = (item) => {
+        dispatch(setSelected(item))
     }
 
-    const config = {
-        url: 'http://localhost:4000/api/hotels/filter/',
-        params,
-        headers: { "Content-Type": "application/json" }
-    }
+    const strConvert = (str) => {
+        const splitStr = str.split(" ").map(word => {
+            if (word === '') return             // check if string is empty ej: 'Varadero '
+            return word[0] + word.slice(1).toLowerCase()
+        })
 
-    const { data } = useAxios(config)
-    const hotels = data && data.hotels 
+        return splitStr.join(" ")
+    }
 
     return (
         <>
 
-            {hotels === null || query === ''
-                ? < ComboboxItem key={1} value='Search All' className='combobox-item' >
-                    <div className='icon-list-conatiner'>
-                        <IconList />
-                    </div>
-
-                    <div className="text-list-container">
-                        Search All
-                    </div>
-                </ComboboxItem >
-                : hotels.map((hotel) => (
-                    <ComboboxItem 
-                        key={hotel._id} 
-                        value={hotel.name.content} 
-                        className='combobox-item'
-                        
-                        >
+            {
+                query === ''
+                    ? < ComboboxItem key={1} value='Search All' className='combobox-item' >
                         <div className='icon-list-conatiner'>
                             <IconList />
                         </div>
 
                         <div className="text-list-container">
-                            <ComboboxItemValue value={hotel.name.content} />
+                            <b>Search All</b>
                         </div>
-                    </ComboboxItem>
-                ))
+                    </ComboboxItem >
+                    : fullList.map((item) => (
+                        <ComboboxItem
+                            key={item._id}
+                            value={item.name.content}
+                            className='combobox-item'
+                            onClick={() => handleClickItem(item)}
+                        >
+                            <div className='icon-list-conatiner'>
+                                {
+                                    isNaN(item.code) ? <ImLocation /> : <IconList />
+                                }
+                            </div>
+
+                            <div className="text-list-container">
+                                <ComboboxItemValue />
+                                <span className='regionText'>
+                                    {
+                                        typeof (item.code) === 'string'
+                                            ? 'Cuba'
+                                            : strConvert(item.city.content)
+                                    }
+                                </span>
+                            </div>
+                        </ComboboxItem>
+                    ))
             }
         </>
     )

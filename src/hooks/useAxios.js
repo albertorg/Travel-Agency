@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+
 
 
 export const useAxios = (config) => {
@@ -10,14 +10,10 @@ export const useAxios = (config) => {
     hasError: null
   })
 
-  // console.log(config)
-
   const getAxios = async () => {
 
     const res = await axios(config)
     const data = await res.data
-
-    // console.log(data)
 
     setState({
       data,
@@ -25,8 +21,6 @@ export const useAxios = (config) => {
     })
 
   }
-
-  // console.log(config.params.text)
 
   useEffect(() => {
     getAxios()

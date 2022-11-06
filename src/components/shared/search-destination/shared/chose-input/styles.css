@@ -23,7 +23,7 @@
     border-radius: 4px;
     border: none;
     outline: none;
-    font-size: 0.96rem;
+    font-size: 1.04rem;
     font-weight: 700;
     cursor: pointer;
 }
@@ -107,6 +107,11 @@
     background-color: var(--thm-base);
 }
 
+.combobox-item [data-user-value] {
+    font-weight: 700;
+    font-size: 1.13rem;    
+}
+
 .icon-list-conatiner {
     width: 2rem;
     height: 2rem;
@@ -120,5 +125,14 @@
 }
 
 .text-list-container {
-    font-size: 1rem;  
+    font-size: 1.1rem; 
+    line-height: 1.32rem; 
+    text-align: left;
+}
+
+.regionText {
+    display: block;
+    font-size: 0.93rem;
+    color: #8c8c92;
+    /* text-align: left; */
 }
