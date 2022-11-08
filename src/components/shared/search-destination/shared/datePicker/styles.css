@@ -8,8 +8,8 @@
 }
 
 .btn-pick-container {
-    /* min-width: 0px; */
     display: flex;
     flex-direction: column;
-    min-width: 6.37rem;
+    min-width: 6.40rem;
 }
+
