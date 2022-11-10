@@ -36,3 +36,7 @@ form {
     grid-column-gap: 16px;
     grid-row-gap: 16px;
 }
+
+.btn-search-container {
+    place-self: end stretch;
+}

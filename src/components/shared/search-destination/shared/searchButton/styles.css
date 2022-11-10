@@ -21,7 +21,3 @@
     box-shadow: rgb(214 60 0) 0px 0px 0px 0px inset;
     transition: all 0.2s ease 0s;
 }
-
-.test {
-    place-self: end stretch;
-}

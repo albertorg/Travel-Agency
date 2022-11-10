@@ -20,10 +20,11 @@ export const DatePicker = () => {
         <div className='date-picker-container'>
             <div className='btn-pick-container'>
                 <div className='label-pick'>
-                    <label htmlFor="">Check-in</label>
+                    <label htmlFor="check-in">Check-in</label>
                 </div>
                 <button 
                     type='button' 
+                    id='check-in'
                     className='input-commun-style'
                     onClick={() => setOpen(!open)}
                 >
@@ -33,10 +34,11 @@ export const DatePicker = () => {
 
             <div className='btn-pick-container'>
                 <div className='label-pick'>
-                    <label htmlFor="">Check-out</label>
+                    <label htmlFor="check-out">Check-out</label>
                 </div>
                 <button 
                     type='button' 
+                    id='check-out'
                     className='input-commun-style'
                     onClick={() => setOpen(!open)}
                 >

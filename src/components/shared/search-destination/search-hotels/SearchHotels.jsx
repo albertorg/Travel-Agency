@@ -33,7 +33,7 @@ export const SearchHotels = () => {
         <DatePicker />
       </div>
 
-      <div className='test'>
+      <div className='btn-search-container'>
         <SearchButton text='Search' handleClick={handleSearchSubmit}/>
       </div>
 
