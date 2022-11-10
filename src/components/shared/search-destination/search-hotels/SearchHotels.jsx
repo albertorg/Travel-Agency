@@ -6,10 +6,14 @@ import { FaHotel } from 'react-icons/fa'
 // import axios from 'axios'
 // import { xSignature } from '../../../../helpers/signature-generator'
 import { DatePicker } from '../shared/datePicker/DatePicker'
+import { SearchButton } from '../shared/searchButton/SearchButton'
 
 
 export const SearchHotels = () => {
 
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+  }
 
 
   return (
@@ -27,6 +31,10 @@ export const SearchHotels = () => {
 
       <div className="dates-container">
         <DatePicker />
+      </div>
+
+      <div className='test'>
+        <SearchButton text='Search' handleClick={handleSearchSubmit}/>
       </div>
 
     </form>

@@ -1,0 +1,27 @@
+.btn-primary {
+    width: 100%;
+    padding: 0px;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 40px;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    background: var(--thm-primary);
+    box-shadow: var(--thm-primary) 0px 0px 0px 0px inset;
+    cursor: pointer;
+    outline: none;
+    place-self: end stretch;
+    transition: all 0.2s ease 0s;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background: rgb(214, 60, 0);
+    box-shadow: rgb(214 60 0) 0px 0px 0px 0px inset;
+    transition: all 0.2s ease 0s;
+}
+
+.test {
+    place-self: end stretch;
+}

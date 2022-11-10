@@ -44,9 +44,10 @@ export const DatePicker = () => {
                 </button>
             </div>
 
-            <div className='date-range-conatiner'>
+            <div className='date-range-conatiner' >
                 {open &&
                     <DateRange
+                        onBlur={() => setOpen(false)}
                         className='date-picker'
                         editableDateInputs={true}
                         months={1}
