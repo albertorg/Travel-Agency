@@ -16,7 +16,8 @@
 .btn-pick-container > button {
     text-align: left;
     white-space: nowrap;
-    padding: 0 0.8rem;
+    padding: 0 0.8rem 0;
+    min-width: 7.26rem;
 }
 
 .date-range-conatiner {

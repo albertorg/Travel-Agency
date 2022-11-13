@@ -1,6 +1,6 @@
 import { add, format } from 'date-fns'
 import React, { useState } from 'react'
-import { DateRange } from 'react-date-range'
+import { DateRange,  } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './styles.css'
@@ -46,7 +46,7 @@ export const DatePicker = () => {
                 </button>
             </div>
 
-            <div className='date-range-conatiner' >
+            <div className='date-range-conatiner'>
                 {open &&
                     <DateRange
                         onBlur={() => setOpen(false)}
@@ -61,6 +61,7 @@ export const DatePicker = () => {
                         onChange={item => setDate([item.selection])}
                         moveRangeOnFirstSelection={false}
                         ranges={date}
+                        onOutsideClick={() => console.log('changed focus')}
                     />
                 }
             </div>
