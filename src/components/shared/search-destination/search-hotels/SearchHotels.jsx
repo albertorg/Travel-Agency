@@ -29,12 +29,10 @@ export const SearchHotels = () => {
 
       </div>
 
-      <div className="dates-container">
-        <DatePicker />
-      </div>
+      <DatePicker />
 
       <div className='btn-search-container'>
-        <SearchButton text='Search' handleClick={handleSearchSubmit}/>
+        <SearchButton text='Search' handleClick={handleSearchSubmit} />
       </div>
 
     </form>
