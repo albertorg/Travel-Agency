@@ -2,14 +2,13 @@ import { add, format } from 'date-fns'
 import React, { useState } from 'react'
 import { DateRange, } from 'react-date-range'
 import { BsCalendarRange } from 'react-icons/bs'
+import { Popover } from '@headlessui/react'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './styles.css'
-import { Popover } from '@headlessui/react'
 
 export const DatePicker = () => {
 
-    const [open, setOpen] = useState(false)
     const [date, setDate] = useState([
         {
             startDate: new Date(),
@@ -28,7 +27,6 @@ export const DatePicker = () => {
                 <Popover.Button
                     id='check-in'
                     className='input-commun-style'
-                    onClick={() => setOpen(!open)}
                 >
                     <div className="bed-icon-conatiner icon-center" id='calendar_icon'>
                         <BsCalendarRange />
