@@ -15,7 +15,7 @@ export const ItemsList = ({ IconList, query }) => {
     useEffect(() => {
         dispatch(getFullList(query))
 
-    }, [query])
+    }, [query, dispatch])
 
 
     const handleClickItem = (item) => {

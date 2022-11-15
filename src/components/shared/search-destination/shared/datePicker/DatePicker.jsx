@@ -1,6 +1,7 @@
 import { add, format } from 'date-fns'
 import React, { useState } from 'react'
 import { DateRange, } from 'react-date-range'
+import { BsCalendarRange } from 'react-icons/bs'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './styles.css'
@@ -18,42 +19,23 @@ export const DatePicker = () => {
     ])
 
     return (
-        <Popover>
+        <Popover className='date-picker-container'>
 
-            <Popover.Button className='date-picker-container'>
-
-                <div className='btn-pick-container'>
-                    <div className='label-pick'>
-                        <label htmlFor="check-in">Check-in</label>
-                    </div>
-                    <button
-                        // type='button'
-                        id='check-in'
-                        className='input-commun-style'
-                    // onClick={() => setOpen(!open)}
-                    >
-                        {`${format(date[0].startDate, 'eee d MMM')} `}
-                    </button>
-                </div>
-
-                <div className='btn-pick-container'>
-                    <div className='label-pick'>
-                        <label htmlFor="check-out">Check-out</label>
-                    </div>
-                    <button
-                        // type='button'
-                        id='check-out'
-                        className='input-commun-style'
-                    // onClick={() => setOpen(!open)}
-                    >
-                        {format(date[0].endDate, 'eee d MMM')}
-                    </button>
-                </div>
+            <div className='btn-pick-container'>
                 
-            </Popover.Button>
-
-            
-            
+                <label htmlFor="check-in">Choose when</label>
+               
+                <Popover.Button
+                    id='check-in'
+                    className='input-commun-style'
+                    onClick={() => setOpen(!open)}
+                >
+                    <div className="bed-icon-conatiner icon-center" id='calendar_icon'>
+                        <BsCalendarRange />
+                    </div>
+                    {`${format(date[0].startDate, 'eee d MMM ')} — ${format(date[0].endDate, ' eee d MMM')}`}
+                </Popover.Button>
+            </div>
 
             <Popover.Panel className='date-range-conatiner'>
 
@@ -70,7 +52,6 @@ export const DatePicker = () => {
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                 />
-
 
             </Popover.Panel>
 

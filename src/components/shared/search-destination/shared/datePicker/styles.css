@@ -1,24 +1,28 @@
 .date-picker-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
     position: relative;
     gap: 1rem;
-    grid-auto-columns: auto;
-    grid-auto-flow: column;
+    background-color: transparent;
 }
 
 .btn-pick-container {
     display: flex;
-    flex-direction: column;
-    min-width: 6.4rem;
+    flex-direction: column; 
 }
 
 .btn-pick-container > button {
     text-align: left;
     white-space: nowrap;
-    padding: 0 0.8rem 0;
-    min-width: 7.26rem;
-    background: red;
+    padding: 0 0.8rem 0 3rem;
+    position: relative;
+    width: 100%;
+    background-color: var(--thm-gray-form);
+    display: flex;
+    align-items: center;
+}
+
+#calendar_icon {
+    font-size: 1.3rem;
 }
 
 .date-range-conatiner {
