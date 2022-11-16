@@ -7,10 +7,10 @@
 
 .btn-pick-container {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
-.btn-pick-container > button {
+.btn-pick-container>button {
     text-align: left;
     white-space: nowrap;
     padding: 0 0.8rem 0 3rem;
@@ -42,5 +42,12 @@
     font-size: 14px;
 }
 
-
-
+.adults_set_container {
+    display: flex;
+    flex-direction: row;
+    /* -webkit-box-pack: justify; */
+    justify-content: space-between;
+    /* -webkit-box-align: center; */
+    align-items: center;
+    gap: 12px;
+}

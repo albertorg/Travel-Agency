@@ -21,24 +21,51 @@ export const Travelers = () => {
     return (
         <Popover className='travelers_container'>
             <Popover.Button className='input-commun-style btn_travelers' >
-                <div>
+
+                <div className="bed-icon-conatiner icon-center" >
                     <VscPerson />
                 </div>
 
-                { textButtonTravelers() }
-
-                <div>
-                    <MdArrowDropDown/>
+                <div className="bed-icon-conatiner icon-center icon_arrow_down" id='icon_arrow_down'>
+                    <MdArrowDropDown />
                 </div>
+
+                <span className='text_btn_travelers'>
+                    {textButtonTravelers()}
+                </span>
+
+
             </Popover.Button>
 
 
-            <Popover.Panel className="absolute z-10">
-                <div className="grid grid-cols-2">
-                    <a href="/analytics">Analytics</a>
-                    <a href="/engagement">Engagement</a>
-                    <a href="/security">Security</a>
-                    <a href="/integrations">Integrations</a>
+            <Popover.Panel className="panel_travelers_container">
+                <div className="select_travelers_container">
+                    <span className='header_group'>
+                        Room 1
+                    </span>
+
+                    <div className='adults_set_container'>
+                        <div className='info_text'>
+                            <span className='description_adults'>Adults</span>
+                            <span className='info_adults'>12+</span>
+                        </div>
+
+                        <div className='couter_container'>
+                            <button className='btn_add'>_</button>
+                            <span className='adults_cant'>
+                                {`${travelers.adults}`}
+                            </span>
+                            <button className='btn_add'>+</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        Kids
+                    </div>
+                </div>
+
+                <div>
+                    <button>Add room</button>
                 </div>
 
             </Popover.Panel>

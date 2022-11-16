@@ -1,9 +1,56 @@
-
-
+.travelers_container {
+    position: relative;
+}
 
 .btn_travelers {
-    text-align: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 15.5rem;
+}
+
+.text_btn_travelers {
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    position: relative;
+    text-align: left;
+}
+
+#icon_arrow_down {
+    right: 0.5rem;
+    left: auto;
+    font-size: 2rem;
+}
+
+
+/* ######### POPOVER PANEL ABSOLUTE ######### */
+
+.panel_travelers_container {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+    min-width: 18.75rem;
+    /* width: auto; */
+    top: 100%;
+    /* right: 0; */
+    /* overflow: visible; */
+    margin-top: .5rem;
+    box-shadow: rgb(0 0 0 / 4%) 0px 10px 20px, rgb(0 0 0 / 4%) 0px 2px 10px, rgb(0 0 0 / 2%) 0px 0px 4px;
+    z-index: 2;
+}
+
+.select_travelers_container {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.header_group {
+    line-height: 1.25rem;
+    color: rgb(60, 60, 60);
+    font-weight: 700;
+    font-size: 1.13rem;
+    text-align: left;
 }
