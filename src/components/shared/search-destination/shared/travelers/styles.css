@@ -31,10 +31,7 @@
     border-radius: 1rem;
     padding: 1rem;
     min-width: 18.75rem;
-    /* width: auto; */
     top: 100%;
-    /* right: 0; */
-    /* overflow: visible; */
     margin-top: .5rem;
     box-shadow: rgb(0 0 0 / 4%) 0px 10px 20px, rgb(0 0 0 / 4%) 0px 2px 10px, rgb(0 0 0 / 2%) 0px 0px 4px;
     z-index: 2;
@@ -53,4 +50,67 @@
     font-weight: 700;
     font-size: 1.13rem;
     text-align: left;
+}
+
+.info_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 12px;
+    line-height: 1.5rem;
+}
+
+.description_adults {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    color: rgb(60, 60, 60);
+}
+
+.info_adults {
+    text-align: left;
+}
+
+.couter_container {
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+}
+
+.btn_add {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    color: rgb(0 99 190);
+    background: transparent;
+    width: 1.7rem;
+    height: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.adults_cant {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.2rem;
+    color: rgb(60, 60, 60);
+}
+
+.btn_add_room_container {
+    text-align: right;
+}
+
+.btn_add_room_container > button {
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--thm-primary);
+    background: transparent;
+    transition: all 0.2s ease 0s;
 }
