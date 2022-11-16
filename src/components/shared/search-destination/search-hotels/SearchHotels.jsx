@@ -1,12 +1,11 @@
 import React from 'react'
-import './styles.css'
 import { BiBed } from 'react-icons/bi'
 import { ChoseInput } from '../shared/chose-input/ChoseInput'
 import { FaHotel } from 'react-icons/fa'
-// import axios from 'axios'
-// import { xSignature } from '../../../../helpers/signature-generator'
 import { DatePicker } from '../shared/datePicker/DatePicker'
 import { SearchButton } from '../shared/searchButton/SearchButton'
+import { Travelers } from '../shared/travelers/Travelers'
+import './styles.css'
 
 
 export const SearchHotels = () => {
@@ -34,6 +33,8 @@ export const SearchHotels = () => {
       <div className='btn-search-container'>
         <SearchButton text='Search' handleClick={handleSearchSubmit} />
       </div>
+
+      <Travelers />
 
     </form>
   )

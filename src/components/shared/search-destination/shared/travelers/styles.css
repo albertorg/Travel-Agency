@@ -1,0 +1,9 @@
+
+
+
+.btn_travelers {
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+}

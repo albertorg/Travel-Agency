@@ -1,6 +1,6 @@
 import { add, format } from 'date-fns'
 import React, { useState } from 'react'
-import { DateRange, } from 'react-date-range'
+import { DateRange } from 'react-date-range'
 import { BsCalendarRange } from 'react-icons/bs'
 import { Popover } from '@headlessui/react'
 import 'react-date-range/dist/styles.css'
