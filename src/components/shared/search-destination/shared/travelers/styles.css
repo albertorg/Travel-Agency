@@ -44,6 +44,11 @@
     margin-bottom: 1rem;
 }
 
+.border_style {
+    border-top: 1px solid rgb(234, 234, 235);
+    padding-top: 1rem;
+}
+
 .header_group {
     display: flex;
     justify-content: space-between;

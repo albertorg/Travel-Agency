@@ -28,7 +28,14 @@ export const Room = () => {
         <>
             {
                 occupancies.map((item, index) => (
-                    <div className="select_travelers_container" key={index}>
+                    <div 
+                        className= {
+                            index > 0 
+                                ? 'select_travelers_container border_style'
+                                : 'select_travelers_container'
+                        } 
+                        key={index}
+                    >
 
                         <div className='header_group'>
                             <span className='display_room'>
