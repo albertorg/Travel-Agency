@@ -2,8 +2,10 @@ import React from 'react'
 import { TiMinus } from 'react-icons/ti'
 import { GoPlus } from 'react-icons/go'
 import { useCounter } from '../../../../../hooks/useCounter'
+import { Popover } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteRoom } from '../../../../../store/slices/hotels_slice'
+import { IoIosArrowDown } from 'react-icons/io'
 
 export const Room = () => {
 
@@ -36,7 +38,6 @@ export const Room = () => {
                         } 
                         key={index}
                     >
-
                         <div className='header_group'>
                             <span className='display_room'>
                                 {`Room ${index + 1}`}
@@ -74,7 +75,29 @@ export const Room = () => {
 
                         </div>
 
-                        <div className='adults_set_container'>
+                        <Popover className='children_set_container'>
+
+                            <Popover.Button className='btn_display_panel'>
+                                <span>Add a child</span>
+                                <div className='icon_arrowDawn_container'>
+                                    <IoIosArrowDown/>
+                                </div>
+                            </Popover.Button>
+
+                            {/* <Popover.Panel className="absolute z-10">
+                                <div className="grid grid-cols-2">
+                                    <a href="/analytics">Analytics</a>
+                                    <a href="/engagement">Engagement</a>
+                                    <a href="/security">Security</a>
+                                    <a href="/integrations">Integrations</a>
+                                </div>
+
+                                <img src="/solutions.jpg" alt="" />
+                            </Popover.Panel> */}
+
+                        </Popover>
+
+                        {/* <div className='adults_set_container'>
 
                             <div className='info_text'>
                                 <span className='description_adults'>Childs</span>
@@ -93,7 +116,7 @@ export const Room = () => {
                                 </button>
                             </div>
 
-                        </div>
+                        </div> */}
                     </div>
                 ))
             }
