@@ -19,11 +19,9 @@ export const Travelers = () => {
 
     const handleAddRoom = (e) => {
         e.preventDefault()
-        if (occupancies.length < 4) {
-            dispatch(addRoom())
-        }
+        dispatch(addRoom())
     }
-       
+
 
     return (
         <Popover className='travelers_container'>
@@ -46,14 +44,18 @@ export const Travelers = () => {
 
 
             <Popover.Panel className="panel_travelers_container">
-                
+
                 <Room />
 
-                <div className='btn_add_room_container'>
-                    <button className='btn_add_room' onClick={handleAddRoom}>
-                        Add room
-                    </button>
-                </div>
+                {
+                    occupancies.length < 4 &&
+                        <div className='btn_add_room_container'>
+                            <button className='btn_add_room' onClick={handleAddRoom}>
+                                Add room
+                            </button>
+                        </div>
+                }
+
 
             </Popover.Panel>
         </Popover>
