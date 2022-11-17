@@ -5,8 +5,26 @@ const initialState = {
     selected: {},
     hotels: [],
     fullList: {},
-    hotelsDetails: []
+    hotelsDetails: [],
+    booking: {
+        stay: {
+            checkIn: '',
+            checkOut: ''
+        },
+        occupancies: [
+            {
+                rooms: 1,
+                adults: 1,
+                children: 0
+            }
+        ],
+        hotels: {
+            hotel: []
+        },
+        total: 1
+    }
 }
+
 
 export const hotelsSlice = createSlice({
     name: 'hotels',
@@ -25,7 +43,27 @@ export const hotelsSlice = createSlice({
         setFullLList: (state, { payload }) => {
             state.fullList = payload
             state.isLoading = false
-        }
+        },
+        setAdults: ({ booking }, { payload }) => {
+            booking.occupancies[payload.index].adults += payload.value
+            booking.total += payload.value
+        },
+        setChildren: ({ booking }, { payload }) => {
+            booking.occupancies[payload.index].children += payload.value
+            booking.total += payload.value
+        },
+        addRoom: ({ booking }) => {
+            booking.occupancies.push({
+                rooms: 1,
+                adults: 1,
+                children: 0
+            })
+            booking.total += 1 
+        },
+        deleteRoom: ({ booking }, { payload }) => {
+            booking.occupancies.splice(payload.index, 1)
+            booking.total -= payload.value 
+        },
     },
 })
 
@@ -34,7 +72,11 @@ export const {
     startLoading,
     setHotels,
     setSelected,
-    setFullLList
+    setFullLList,
+    setAdults,
+    setChildren,
+    addRoom,
+    deleteRoom
     
  } = hotelsSlice.actions
 

@@ -1,55 +1,53 @@
-import { useState } from "react"
+import { useSelector, useDispatch } from 'react-redux'
+import { setAdults, setChildren } from "../store/slices/hotels_slice"
 
 
 export const useCounter = () => {
 
-    const [travelers, setTravelers] = useState({
-        rooms: 1,
-        adults: 1,
-        children: 0
-    })
+    const dispatch = useDispatch()
+    const { total, occupancies } = useSelector(state => state.hotels.booking)
 
-    const handlePlusAdult = (e) => {
+    const handlePlusAdult = (e, index) => {
         e.preventDefault()
 
-        if (travelers.adults < 10) {
-            setTravelers({
-                ...travelers,
-                adults: travelers.adults + 1
-            })
+        if (total < 10 ) {
+            dispatch(setAdults({
+                index,
+                value: 1
+            }))
         }
     }
 
-    const handleMinusAdult = (e) => {
+    const handleMinusAdult = (e, index) => {
         e.preventDefault()
 
-        if (travelers.adults > 1) {
-            setTravelers({
-                ...travelers,
-                adults: travelers.adults - 1
-            })
+        if (total > 1 && occupancies[index].adults > 1 ) {
+            dispatch(setAdults({
+                index,
+                value: -1
+            }))
         }
     }
 
-    const handlePlusChild = (e) => {
+    const handlePlusChild = (e, index) => {
         e.preventDefault()
 
-        if (travelers.children < 10) {
-            setTravelers({
-                ...travelers,
-                children: travelers.children + 1
-            })
+        if (total < 10) {
+            dispatch(setChildren({
+                index,
+                value: 1
+            }))
         }
     }
 
-    const handleMinusChild = (e) => {
+    const handleMinusChild = (e, index) => {
         e.preventDefault()
 
-        if (travelers.children > 0) {
-            setTravelers({
-                ...travelers,
-                children: travelers.children - 1
-            })
+        if (total > 1 && occupancies[index].children > 0) {
+            dispatch(setChildren({
+                index,
+                value: -1
+            }))
         }
     }
 
@@ -58,6 +56,5 @@ export const useCounter = () => {
         handleMinusChild,
         handlePlusAdult,
         handlePlusChild,
-        travelers
     ]
 }
