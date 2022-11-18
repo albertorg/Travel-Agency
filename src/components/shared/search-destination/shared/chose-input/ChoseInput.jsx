@@ -6,7 +6,7 @@ import { setSelected } from '../../../../../store/slices/hotels_slice'
 import './styles.css'
 
 
-export const ChoseInput = ({ label, text, Icon, IconList }) => {
+export const ChoseInput = ({ label, text, Icon, IconList, rangeRef }) => {
 
     const combobox = useComboboxState({ gutter: 4, sameWidth: true, flip: 'bottom' })
 
@@ -47,7 +47,11 @@ export const ChoseInput = ({ label, text, Icon, IconList }) => {
                     <ComboboxPopover state={combobox}
                         className='combobox-list'
                     >
-                        <ItemsList IconList={IconList} query={combobox.value} />
+                        <ItemsList 
+                            IconList={IconList} 
+                            query={combobox.value} 
+                            rangeRef={rangeRef}
+                        />
                     </ComboboxPopover>
                 )
             }

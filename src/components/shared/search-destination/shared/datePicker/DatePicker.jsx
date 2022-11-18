@@ -9,9 +9,11 @@ import 'react-date-range/dist/theme/default.css'
 import './styles.css'
 import { setDates } from '../../../../../store/slices/hotels_slice'
 
-export const DatePicker = () => {
+export const DatePicker = ({ btnTravelersRef, rangeRef }) => {
 
     const dispatch = useDispatch()
+
+    
 
     const [date, setDate] = useState([
         {
@@ -28,9 +30,20 @@ export const DatePicker = () => {
         }
 
         dispatch(setDates({stay}))
-      
     }, [date, dispatch])
     
+    const handleOnChange = (selection) => {
+
+        if (selection.endDate === selection.startDate) {
+            selection.endDate = add(selection.startDate, { days: 1 })
+        }
+        setDate([selection])
+        
+    }
+
+    const handleRangeFocusChange = (focus) => {
+        focus[1] === 0 && btnTravelersRef.current.click()
+    }
 
     return (
         <Popover className='date-picker-container'>
@@ -42,6 +55,7 @@ export const DatePicker = () => {
                 <Popover.Button
                     id='check-in'
                     className='input-commun-style'
+                    ref={rangeRef}
                 >
                     <div className="bed-icon-conatiner icon-center" id='calendar_icon'>
                         <BsCalendarRange />
@@ -61,9 +75,10 @@ export const DatePicker = () => {
                     showPreview={true}
                     direction="horizontal"
                     showMonthAndYearPickers={false}
-                    onChange={item => setDate([item.selection])}
+                    onChange={item => handleOnChange(item.selection)}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
+                    onRangeFocusChange={focus => handleRangeFocusChange(focus)}
                 />
 
             </Popover.Panel>

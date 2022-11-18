@@ -6,7 +6,7 @@ import './styles.css'
 import { setSelected } from '../../../../../store/slices/hotels_slice'
 import { ImLocation } from 'react-icons/im'
 
-export const ItemsList = ({ IconList, query }) => {
+export const ItemsList = ({ IconList, query, rangeRef }) => {
 
     const dispatch = useDispatch()
     const { fullList } = useSelector(state => state.hotels)
@@ -20,6 +20,8 @@ export const ItemsList = ({ IconList, query }) => {
 
     const handleClickItem = (item) => {
         dispatch(setSelected(item))
+        rangeRef.current.focus()
+        // rangeRef.current.click()
     }
 
     const strConvert = (str) => {

@@ -40,3 +40,21 @@ form {
 .btn-search-container {
     place-self: end stretch;
 }
+
+
+/* ########### info price ######## */
+
+.info_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-self: center end;
+    color: #8c8c92
+}
+
+.info_container span {
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+}

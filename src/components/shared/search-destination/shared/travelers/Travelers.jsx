@@ -8,7 +8,7 @@ import './styles.css'
 import { addRoom } from '../../../../../store/slices/hotels_slice'
 
 
-export const Travelers = () => {
+export const Travelers = ({ btnTravelersRef }) => {
 
     const dispatch = useDispatch()
     const { total, occupancies } = useSelector(state => state.hotels.booking)
@@ -25,7 +25,7 @@ export const Travelers = () => {
 
     return (
         <Popover className='travelers_container'>
-            <Popover.Button className='input-commun-style btn_travelers' >
+            <Popover.Button ref={btnTravelersRef} className='input-commun-style btn_travelers' >
 
                 <div className="bed-icon-conatiner icon-center" >
                     <VscPerson />
