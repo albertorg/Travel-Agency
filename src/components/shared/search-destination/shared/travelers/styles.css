@@ -198,3 +198,46 @@
     font-weight: 700;
     pointer-events: none;
 }
+
+/* ########## Child  show age ########*/
+
+.child_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    line-height: 1.5rem;
+}
+
+.age_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.age_container span:first-of-type {
+    color: rgb(60, 60, 60);
+}
+
+.delete_icon_conatiner {
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.delete_icon_conatiner button {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: rgb(128, 128, 128);
+    background-color: transparent;
+    cursor: pointer;
+}

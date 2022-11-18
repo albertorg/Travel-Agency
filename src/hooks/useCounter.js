@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { setAdults, setChildren } from "../store/slices/hotels_slice"
+import { removeChild, setAdults, setChildren } from "../store/slices/hotels_slice"
 
 
 export const useCounter = () => {
@@ -40,20 +40,16 @@ export const useCounter = () => {
         }
     }
 
-    const handleMinusChild = (e, index) => {
-        e.preventDefault()
-
-        if (total > 1 && occupancies[index].children > 0) {
-            dispatch(setChildren({
+    const handleRemoveChild = (index, indexChild) => {
+            dispatch(removeChild({
                 index,
-                value: -1
+                indexChild
             }))
-        }
     }
 
     return [
         handleMinusAdult,
-        handleMinusChild,
+        handleRemoveChild,
         handlePlusAdult,
         handleAddChild,
     ]

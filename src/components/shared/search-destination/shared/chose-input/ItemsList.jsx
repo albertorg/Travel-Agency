@@ -24,7 +24,7 @@ export const ItemsList = ({ IconList, query }) => {
 
     const strConvert = (str) => {
         const splitStr = str.split(" ").map(word => {
-            if (word === '') return             // check if string is empty ej: 'Varadero '
+            if (word === '') return ''             // check if string is empty ej: 'Varadero '
             return word[0] + word.slice(1).toLowerCase()
         })
 

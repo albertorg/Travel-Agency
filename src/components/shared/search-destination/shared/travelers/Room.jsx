@@ -1,11 +1,11 @@
 import React from 'react'
 import { TiMinus } from 'react-icons/ti'
 import { GoPlus } from 'react-icons/go'
+import { IoIosArrowDown, IoMdCloseCircle } from 'react-icons/io'
 import { useCounter } from '../../../../../hooks/useCounter'
 import { Popover } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteRoom } from '../../../../../store/slices/hotels_slice'
-import { IoIosArrowDown } from 'react-icons/io'
 
 const AGES = [
     'Age at time of checkin', '1 year', '2 years', 
@@ -20,7 +20,7 @@ export const Room = () => {
 
     const [
         handleMinusAdult,
-        handleMinusChild,
+        handleRemoveChild,
         handlePlusAdult,
         handleAddChild,
     ] = useCounter()
@@ -35,6 +35,12 @@ export const Room = () => {
     const setAge = (age, close, index) => {
         close()
         handleAddChild(index, age)
+    }
+
+    const removeChild = (e, index, indexChild) => {
+        e.preventDefault()
+        handleRemoveChild(index, indexChild)
+
     }
 
     return (
@@ -60,7 +66,7 @@ export const Room = () => {
                                         className='btn_add_room'
                                         onClick={e => handleRemoveRoom(e, index, item)}
                                     >
-                                        Delete
+                                        Remove
                                     </button>
                             }
                         </div>
@@ -85,6 +91,24 @@ export const Room = () => {
                             </div>
 
                         </div>
+
+                        {
+                            occupancies[index].paxes.length > 0 &&
+                            occupancies[index].paxes.map((item, indexChild) => (
+                                <div className='child_container' key={indexChild}>
+                                    <div className='age_container'>
+                                        <span>Child</span>
+                                        <span>{`${item.age} years`}</span>
+                                    </div>
+
+                                    <div className='delete_icon_conatiner'>
+                                        <button onClick={e => removeChild(e, index, indexChild)}>
+                                            <IoMdCloseCircle />
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        }
 
                         {
                             total < 10 &&

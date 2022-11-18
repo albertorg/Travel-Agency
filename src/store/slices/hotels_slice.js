@@ -57,6 +57,11 @@ export const hotelsSlice = createSlice({
                 age: payload.age
             })
         },
+        removeChild: ({ booking }, { payload }) => {
+            booking.occupancies[payload.index].paxes.splice(payload.indexChild, 1)
+            booking.total -= 1
+            booking.occupancies[payload.index].children -= 1 
+        },
         addRoom: ({ booking }) => {
             booking.occupancies.push({
                 rooms: 1,
@@ -81,6 +86,7 @@ export const {
     setFullLList,
     setAdults,
     setChildren,
+    removeChild,
     addRoom,
     deleteRoom
     
