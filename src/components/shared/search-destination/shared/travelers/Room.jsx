@@ -8,14 +8,14 @@ import { deleteRoom } from '../../../../../store/slices/hotels_slice'
 import { IoIosArrowDown } from 'react-icons/io'
 
 const AGES = [
-    'Age at time of cheking', '1 years', '2 years', 
+    'Age at time of checkin', '1 year', '2 years', 
     '3 years', '4 years', '5 years', '6 years', '7 years', '8 years', 
     '9 years', '10 years', '11 years'   
 ]
 
 export const Room = () => {
 
-    const { occupancies } = useSelector(state => state.hotels.booking)
+    const { total, occupancies } = useSelector(state => state.hotels.booking)
     const dispatch = useDispatch()
 
     const [
@@ -86,34 +86,39 @@ export const Room = () => {
 
                         </div>
 
-                        <Popover className='children_set_container'>
+                        {
+                            total < 10 &&
+                            <Popover className='children_set_container'>
 
-                            <Popover.Button className='btn_display_panel'>
-                                <span>Add a child</span>
-                                <div className='icon_arrowDawn_container'>
-                                    <IoIosArrowDown/>
-                                </div>
-                            </Popover.Button>
+                                <Popover.Button className='btn_display_panel'>
+                                    <span>Add a child</span>
+                                    <div className='icon_arrowDawn_container'>
+                                        <IoIosArrowDown />
+                                    </div>
+                                </Popover.Button>
 
-                            <Popover.Panel className="chouse_age_container">
-                                {({ close }) => (
-                                    <ul className='age_list'>
-                                        {
-                                            AGES.map((item, indexAge) => (
-                                                <li 
-                                                    onClick={() => setAge(indexAge, close, index)} 
-                                                    key={indexAge}
-                                                >
-                                                    {item}
-                                                </li>
-                                            ))
-                                        }
-                                    </ul>
-                                )}
-                            </Popover.Panel>
+                                <Popover.Panel className="chouse_age_container">
+                                    {({ close }) => (
+                                        <ul className='age_list'>
+                                            {
+                                                AGES.map((item, indexAge) => (
+                                                    <li
+                                                        onClick={() => setAge(indexAge, close, index)}
+                                                        key={indexAge}
+                                                    >
+                                                        {item}
+                                                    </li>
+                                                ))
+                                            }
+                                        </ul>
+                                    )}
+                                </Popover.Panel>
 
-                        </Popover>
+                            </Popover>
+                        }
+
                         
+
                     </div>
                 ))
             }
