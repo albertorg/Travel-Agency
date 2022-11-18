@@ -1,13 +1,17 @@
 import { add, format } from 'date-fns'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DateRange } from 'react-date-range'
 import { BsCalendarRange } from 'react-icons/bs'
+import { useDispatch } from 'react-redux'
 import { Popover } from '@headlessui/react'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './styles.css'
+import { setDates } from '../../../../../store/slices/hotels_slice'
 
 export const DatePicker = () => {
+
+    const dispatch = useDispatch()
 
     const [date, setDate] = useState([
         {
@@ -16,6 +20,17 @@ export const DatePicker = () => {
             key: 'selection'
         }
     ])
+
+    useEffect(() => {
+        const stay = {
+            checkIn: format( date[0].startDate, 'yyyy-MM-dd' ),
+            checkOut: format( date[0].endDate, 'yyyy-MM-dd')
+        }
+
+        dispatch(setDates({stay}))
+      
+    }, [date, dispatch])
+    
 
     return (
         <Popover className='date-picker-container'>

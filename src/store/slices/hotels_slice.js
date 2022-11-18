@@ -45,6 +45,9 @@ export const hotelsSlice = createSlice({
             state.fullList = payload
             state.isLoading = false
         },
+        setDates: ({ booking }, { payload }) => {
+            booking.stay = payload.stay
+        },
         setAdults: ({ booking }, { payload }) => {
             booking.occupancies[payload.index].adults += payload.value
             booking.total += payload.value
@@ -88,7 +91,8 @@ export const {
     setChildren,
     removeChild,
     addRoom,
-    deleteRoom
+    deleteRoom, 
+    setDates
     
  } = hotelsSlice.actions
 
