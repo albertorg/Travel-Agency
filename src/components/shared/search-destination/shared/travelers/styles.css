@@ -143,6 +143,7 @@
     border-radius: 8px;
     background: rgb(245, 245, 245);
     cursor: pointer;
+    outline: none;
 }
 
 .btn_display_panel > span {
@@ -154,4 +155,46 @@
     font-size: 1.2rem;
     width: 1.2rem;
     height: 1.2rem;
+}
+
+.chouse_age_container {
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 4%) 0px 10px 20px, rgb(0 0 0 / 4%) 0px 2px 10px, rgb(0 0 0 / 2%) 0px 0px 4px;
+    z-index: 2;
+}
+
+.age_list {
+    display: block;
+    overflow: auto;
+    min-height: 3.25rem;
+    max-height: 21.2rem;
+    list-style-type: none;
+    text-align: left;
+}
+
+.age_list li {
+    padding: 0px 1.2rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1.1rem;
+    color: rgb(60, 60, 60);
+    cursor: pointer;
+    transition: color 0.2s ease 0s;
+}
+
+.age_list li:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.age_list li:first-of-type {
+    margin-top: .5rem;
+    cursor: default;
+    font-weight: 700;
+    pointer-events: none;
 }

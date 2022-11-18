@@ -7,6 +7,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteRoom } from '../../../../../store/slices/hotels_slice'
 import { IoIosArrowDown } from 'react-icons/io'
 
+const AGES = [
+    'Age at time of cheking', '1 years', '2 years', 
+    '3 years', '4 years', '5 years', '6 years', '7 years', '8 years', 
+    '9 years', '10 years', '11 years'   
+]
+
 export const Room = () => {
 
     const { occupancies } = useSelector(state => state.hotels.booking)
@@ -24,6 +30,10 @@ export const Room = () => {
         const value = item.adults + item.children
 
         dispatch(deleteRoom({index, value}))
+    }
+
+    const setAge = (age, close) => {
+        close()
     }
 
     return (
@@ -84,16 +94,19 @@ export const Room = () => {
                                 </div>
                             </Popover.Button>
 
-                            {/* <Popover.Panel className="absolute z-10">
-                                <div className="grid grid-cols-2">
-                                    <a href="/analytics">Analytics</a>
-                                    <a href="/engagement">Engagement</a>
-                                    <a href="/security">Security</a>
-                                    <a href="/integrations">Integrations</a>
-                                </div>
-
-                                <img src="/solutions.jpg" alt="" />
-                            </Popover.Panel> */}
+                            <Popover.Panel className="chouse_age_container">
+                                {({ close }) => (
+                                    <ul className='age_list'>
+                                        {
+                                            AGES.map((item, index) => (
+                                                <li onClick={() => setAge(index, close)} key={index}>
+                                                    {item}
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                )}
+                            </Popover.Panel>
 
                         </Popover>
 
