@@ -29,13 +29,13 @@ export const useCounter = () => {
         }
     }
 
-    const handlePlusChild = (e, index) => {
-        e.preventDefault()
+    const handleAddChild = (index, age) => {
 
         if (total < 10) {
             dispatch(setChildren({
                 index,
-                value: 1
+                value: 1,
+                age
             }))
         }
     }
@@ -55,6 +55,6 @@ export const useCounter = () => {
         handleMinusAdult,
         handleMinusChild,
         handlePlusAdult,
-        handlePlusChild,
+        handleAddChild,
     ]
 }

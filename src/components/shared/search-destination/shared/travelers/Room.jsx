@@ -22,7 +22,7 @@ export const Room = () => {
         handleMinusAdult,
         handleMinusChild,
         handlePlusAdult,
-        handlePlusChild,
+        handleAddChild,
     ] = useCounter()
 
     const handleRemoveRoom = (e, index, item) => {
@@ -32,8 +32,9 @@ export const Room = () => {
         dispatch(deleteRoom({index, value}))
     }
 
-    const setAge = (age, close) => {
+    const setAge = (age, close, index) => {
         close()
+        handleAddChild(index, age)
     }
 
     return (
@@ -98,8 +99,11 @@ export const Room = () => {
                                 {({ close }) => (
                                     <ul className='age_list'>
                                         {
-                                            AGES.map((item, index) => (
-                                                <li onClick={() => setAge(index, close)} key={index}>
+                                            AGES.map((item, indexAge) => (
+                                                <li 
+                                                    onClick={() => setAge(indexAge, close, index)} 
+                                                    key={indexAge}
+                                                >
                                                     {item}
                                                 </li>
                                             ))
@@ -109,27 +113,7 @@ export const Room = () => {
                             </Popover.Panel>
 
                         </Popover>
-
-                        {/* <div className='adults_set_container'>
-
-                            <div className='info_text'>
-                                <span className='description_adults'>Childs</span>
-                                <span className='info_adults'>12-</span>
-                            </div>
-
-                            <div className='couter_container'>
-                                <button className='btn_add' onClick={e => handleMinusChild(e, index)}>
-                                    <TiMinus />
-                                </button>
-                                <span className='adults_cant'>
-                                    {`${occupancies[index].children}`}
-                                </span>
-                                <button className='btn_add' onClick={e => handlePlusChild(e, index)}>
-                                    <GoPlus />
-                                </button>
-                            </div>
-
-                        </div> */}
+                        
                     </div>
                 ))
             }

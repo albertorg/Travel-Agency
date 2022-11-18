@@ -15,7 +15,8 @@ const initialState = {
             {
                 rooms: 1,
                 adults: 1,
-                children: 0
+                children: 0,
+                paxes: []
             }
         ],
         hotels: {
@@ -51,6 +52,10 @@ export const hotelsSlice = createSlice({
         setChildren: ({ booking }, { payload }) => {
             booking.occupancies[payload.index].children += payload.value
             booking.total += payload.value
+            booking.occupancies[payload.index].paxes.push({
+                type: 'CH',
+                age: payload.age
+            })
         },
         addRoom: ({ booking }) => {
             booking.occupancies.push({
