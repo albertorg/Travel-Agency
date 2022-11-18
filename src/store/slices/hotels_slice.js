@@ -61,7 +61,8 @@ export const hotelsSlice = createSlice({
             booking.occupancies.push({
                 rooms: 1,
                 adults: 1,
-                children: 0
+                children: 0,
+                paxes: []
             })
             booking.total += 1 
         },

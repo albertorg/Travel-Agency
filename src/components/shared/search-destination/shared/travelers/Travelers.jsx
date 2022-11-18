@@ -48,7 +48,7 @@ export const Travelers = () => {
                 <Room />
 
                 {
-                    occupancies.length < 4 &&
+                    (occupancies.length < 4 && total < 10) &&
                         <div className='btn_add_room_container'>
                             <button className='btn_add_room' onClick={handleAddRoom}>
                                 Add room
