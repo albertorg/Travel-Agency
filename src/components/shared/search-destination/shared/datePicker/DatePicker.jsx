@@ -1,18 +1,20 @@
 import { add, format } from 'date-fns'
 import React, { useEffect, useState } from 'react'
+import useWindowDimensions from '../../../../../hooks/useWindowDimensions '
 import { DateRange } from 'react-date-range'
 import { BsCalendarRange } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
+import { setDates } from '../../../../../store/slices/hotels_slice'
 import { Popover } from '@headlessui/react'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './styles.css'
-import { setDates } from '../../../../../store/slices/hotels_slice'
 
 export const DatePicker = ({ btnTravelersRef, rangeRef }) => {
 
     const dispatch = useDispatch()
 
+    const { width } = useWindowDimensions()
     
 
     const [date, setDate] = useState([
@@ -69,7 +71,7 @@ export const DatePicker = ({ btnTravelersRef, rangeRef }) => {
                 <DateRange
                     className='date-picker'
                     editableDateInputs={true}
-                    months={1}
+                    months={width > 990 ? 2 : 1}
                     minDate={new Date()}
                     showDateDisplay={false}
                     showPreview={true}
