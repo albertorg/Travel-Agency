@@ -3,6 +3,7 @@
     position: relative;
     gap: 1rem;
     background-color: transparent;
+    grid-area: calendar;
 }
 
 .btn-pick-container {
@@ -48,4 +49,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+}
+
+@media screen and (max-width: 700px) {
+    #range_label {
+        display: none;
+    }
 }

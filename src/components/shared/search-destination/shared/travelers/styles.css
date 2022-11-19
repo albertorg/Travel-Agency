@@ -1,5 +1,6 @@
 .travelers_container {
     position: relative;
+    grid-area: persons;
 }
 
 .btn_travelers {
@@ -240,4 +241,10 @@
     color: rgb(128, 128, 128);
     background-color: transparent;
     cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .btn_travelers {
+        min-width: 100%;
+    }
 }

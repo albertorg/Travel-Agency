@@ -6,7 +6,7 @@ import './styles.css'
 import { setSelected } from '../../../../../store/slices/hotels_slice'
 import { ImLocation } from 'react-icons/im'
 
-export const ItemsList = ({ IconList, query, rangeRef }) => {
+export const ItemsList = ({ IconList, query, rangeRef}) => {
 
     const dispatch = useDispatch()
     const { fullList } = useSelector(state => state.hotels)
@@ -19,14 +19,18 @@ export const ItemsList = ({ IconList, query, rangeRef }) => {
 
 
     const handleClickItem = (item) => {
+        console.log('called')
         dispatch(setSelected(item))
-        rangeRef.current.focus()
+        
+        // try to change de focus to date-range
+        
         // rangeRef.current.click()
+        // rangeRef.current.focus()
     }
 
     const strConvert = (str) => {
         const splitStr = str.split(" ").map(word => {
-            if (word === '') return ''             // check if string is empty ej: 'Varadero '
+            if (word === '') return ''         // check if string is empty ej: 'Varadero '
             return word[0] + word.slice(1).toLowerCase()
         })
 
@@ -38,7 +42,7 @@ export const ItemsList = ({ IconList, query, rangeRef }) => {
 
             {
                 query === ''
-                    ? < ComboboxItem key={1} value='Search All' className='combobox-item' >
+                    ? < ComboboxItem key={1} value='Search All' className='combobox-item'>
                         <div className='icon-list-conatiner'>
                             <IconList />
                         </div>
@@ -46,7 +50,7 @@ export const ItemsList = ({ IconList, query, rangeRef }) => {
                         <div className="text-list-container">
                             <b>Search All</b>
                         </div>
-                    </ComboboxItem >
+                    </ComboboxItem  >
                     : fullList.map((item) => (
                         <ComboboxItem
                             key={item._id}

@@ -50,7 +50,7 @@ export const DatePicker = ({ btnTravelersRef, rangeRef }) => {
 
             <div className='btn-pick-container'>
                 
-                <label htmlFor="check-in">Choose when</label>
+                <label htmlFor="check-in" id='range_label'>Choose when</label>
                
                 <Popover.Button
                     id='check-in'
