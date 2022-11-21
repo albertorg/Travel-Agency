@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ComboboxItem, ComboboxItemValue } from 'ariakit/combobox'
-import { getFullList } from '../../../../../store/thunks/hotels-thunks'
+import { getFullList, getHotelsCityList } from '../../../../../store/thunks/hotels-thunks'
 import './styles.css'
 import { setSelected } from '../../../../../store/slices/hotels_slice'
 import { ImLocation } from 'react-icons/im'
@@ -17,10 +17,16 @@ export const ItemsList = ({ IconList, query, rangeRef}) => {
 
     }, [query, dispatch])
 
-
     const handleClickItem = (item) => {
-        console.log('called')
         dispatch(setSelected(item))
+
+        const destinationCode = () => (
+            item.destinationCode 
+                ? item.destinationCode
+                : item.code
+        )
+        
+        dispatch(getHotelsCityList(destinationCode()))
         
         // try to change de focus to date-range
         

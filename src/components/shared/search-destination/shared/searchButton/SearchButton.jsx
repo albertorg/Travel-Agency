@@ -3,7 +3,7 @@ import './styles.css'
 
 export const SearchButton = ({ text, handleClick }) => {
     return (
-        <button
+        <button 
             className='btn-primary'
             type="submit"
             onClick={handleClick}

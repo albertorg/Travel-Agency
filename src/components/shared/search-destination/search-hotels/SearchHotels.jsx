@@ -8,12 +8,22 @@ import { SearchButton } from '../shared/searchButton/SearchButton'
 import { Travelers } from '../shared/travelers/Travelers'
 import './styles.css'
 import { useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from "react-router-dom"
+import { SearchScreen } from '../../../screens/search/SerachScreen'
 
 
 export const SearchHotels = () => {
 
+  const dispatch = useDispatch()
+  const { booking } = useSelector(state => state.hotels)
+  const navigate = useNavigate()
+
   const handleSearchSubmit = (e) => {
     e.preventDefault()
+    navigate('/search')
+    // dispatch()
+    
   }
 
   const btnTravelersRef = useRef()
@@ -48,7 +58,8 @@ export const SearchHotels = () => {
           Minimum price guarantee
         </span>
       </div>
-
+      
     </form>
+    
   )
 }

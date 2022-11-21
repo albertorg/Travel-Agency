@@ -1,15 +1,14 @@
 import axios from 'axios'
-import { setFullLList, setHotels, startLoading } from "../slices/hotels_slice"
+import { setFullLList, setHotels, setHotelsCodes, startLoading } from "../slices/hotels_slice"
 
 
-
-export const getHotelsList = (query) => {
+export const getHotelsCityList = (destinationCode) => {
     return async(dispatch, getState) => {
 
         dispatch(startLoading())
          
         const params = {
-            text: query 
+            destinationCode 
         }
 
         const config = {
@@ -19,9 +18,13 @@ export const getHotelsList = (query) => {
         }
 
         const { data } = await axios(config)
-        console.log(data)
+        
+        let codes = []
+        data.hotels.map(hotel => (
+            codes.push(hotel.code)
+        ))
 
-        dispatch( setHotels(data.hotels) )
+        dispatch( setHotelsCodes(codes) )
     }
 }
 
@@ -33,7 +36,7 @@ export const getFullList = (query) => {
         // TODO: Make Fetch
         const params = {
             text: query,
-            fields: 'city' 
+            // fields: 'city coordinates destinationCode ' 
         }
 
         const configHotels = {
