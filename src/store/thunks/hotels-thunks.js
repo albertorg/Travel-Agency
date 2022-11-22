@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { xSignature } from '../../helpers/signature-generator'
 import { setFullLList, setHotels, setHotelsCodes, startLoading } from "../slices/hotels_slice"
 
 
@@ -57,5 +58,29 @@ export const getFullList = (query) => {
         const fullList = dataDest.destinations.concat(datahotels.hotels)
 
         dispatch(setFullLList(fullList))
+    }
+}
+
+export const getAvailability = () => {
+    return async (dispatch, getState) => {
+        dispatch(startLoading())
+
+        const body = getState().hotels.booking 
+
+        const config = {
+            method: 'post',
+            url: `/hotel-api/1.0/hotels`,
+            headers: {
+                'Api-key': process.env.REACT_APP_API_KEY,
+                'X-Signature': xSignature(),
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: body
+        }
+
+        const {data} = await axios(config)
+
+        dispatch(setHotels(data.hotels.hotels))
     }
 }

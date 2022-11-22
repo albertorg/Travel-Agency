@@ -6,24 +6,22 @@ import { FaHotel } from 'react-icons/fa'
 import { DatePicker } from '../shared/datePicker/DatePicker'
 import { SearchButton } from '../shared/searchButton/SearchButton'
 import { Travelers } from '../shared/travelers/Travelers'
-import './styles.css'
 import { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from "react-router-dom"
-import { SearchScreen } from '../../../screens/search/SerachScreen'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from "react-router-dom"
+import { getAvailability } from '../../../../store/thunks/hotels-thunks'
+import './styles.css'
 
 
 export const SearchHotels = () => {
 
   const dispatch = useDispatch()
-  const { booking } = useSelector(state => state.hotels)
   const navigate = useNavigate()
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     navigate('/search')
-    // dispatch()
-    
+    dispatch(getAvailability())
   }
 
   const btnTravelersRef = useRef()

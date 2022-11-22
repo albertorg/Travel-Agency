@@ -4,7 +4,7 @@ const initialState = {
     isLoading: false,
     selected: {},
     hotels: [],
-    fullList: {},
+    fullList: [],
     hotelsDetails: [],
     booking: {
         stay: {

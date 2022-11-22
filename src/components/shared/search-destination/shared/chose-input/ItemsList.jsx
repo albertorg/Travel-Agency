@@ -5,6 +5,7 @@ import { getFullList, getHotelsCityList } from '../../../../../store/thunks/hote
 import './styles.css'
 import { setSelected } from '../../../../../store/slices/hotels_slice'
 import { ImLocation } from 'react-icons/im'
+import { formatString } from '../../../../../helpers/formatString'
 
 export const ItemsList = ({ IconList, query, rangeRef}) => {
 
@@ -32,15 +33,6 @@ export const ItemsList = ({ IconList, query, rangeRef}) => {
         
         // rangeRef.current.click()
         // rangeRef.current.focus()
-    }
-
-    const strConvert = (str) => {
-        const splitStr = str.split(" ").map(word => {
-            if (word === '') return ''         // check if string is empty ej: 'Varadero '
-            return word[0] + word.slice(1).toLowerCase()
-        })
-
-        return splitStr.join(" ")
     }
 
     return (
@@ -76,7 +68,7 @@ export const ItemsList = ({ IconList, query, rangeRef}) => {
                                     {
                                         typeof (item.code) === 'string'
                                             ? 'Cuba'
-                                            : strConvert(item.city.content)
+                                            : formatString(item.city.content)
                                     }
                                 </span>
                             </div>
