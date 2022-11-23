@@ -4,6 +4,11 @@
   src: url(./assets/fonts/Reey-Regular.otf);
 }
 
+/* styles for carousel */
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+
 * {
   margin: 0;
   padding: 0;

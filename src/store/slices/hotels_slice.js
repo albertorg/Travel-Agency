@@ -5,7 +5,6 @@ const initialState = {
     selected: {},
     hotels: [],
     fullList: [],
-    hotelsDetails: [],
     booking: {
         stay: {
             checkIn: '',

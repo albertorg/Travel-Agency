@@ -63,11 +63,13 @@ export const getFullList = (query) => {
 
 export const getAvailability = () => {
     return async (dispatch, getState) => {
-        dispatch(startLoading())
+        dispatch(setHotels([]))
+        dispatch(startLoading()) 
 
-        const body = getState().hotels.booking 
-
-        const config = {
+        const codes = []
+        const hotels = []
+        
+        const configAvailable = {
             method: 'post',
             url: `/hotel-api/1.0/hotels`,
             headers: {
@@ -76,11 +78,34 @@ export const getAvailability = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: body
+            data: getState().hotels.booking
         }
 
-        const {data} = await axios(config)
+        const configHotelsDetails = {
+            url: 'http://localhost:4000/api/hotels/details/',
+            params: {
+                codes
+            },
+            headers: { "Content-Type": "application/json" }
+        }
 
-        dispatch(setHotels(data.hotels.hotels))
+        const {data} = await axios(configAvailable)
+
+        data.hotels.hotels.map(hotel => {
+            codes.push(hotel.code)
+        })
+
+        const { data: dataDetails } = await axios(configHotelsDetails)
+        console.log(dataDetails)
+
+        data.hotels.hotels.map((hotel, index) => {
+            hotels.push({
+                ...hotel,
+                details: dataDetails.hotels[index]
+            })
+        })
+        
+
+        dispatch(setHotels(hotels))
     }
 }

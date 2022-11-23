@@ -6,7 +6,11 @@ import { AiFillStar } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import { differenceInCalendarDays, format, parseISO } from 'date-fns'
 import { formatString } from '../../../../helpers/formatString'
+import { Carousel } from 'react-responsive-carousel';
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import './styles.css'
+import { Slider } from '../../../shared/slider/Slider'
 
 
 export const CardHotelList = ({ hotel }) => {
@@ -20,15 +24,43 @@ export const CardHotelList = ({ hotel }) => {
         return `${numNight} night・${range}`
     }
 
+    const orderImages = () => {
+        let ordered = [...hotel.details.images].sort((a, b) => (
+            a.visualOrder - b.visualOrder
+        ))
+        return ordered 
+    }
+
+
     return (
         <li className='card_hotel_container'>
             <div className='slider_card_container'>
 
+                <Slider slides={orderImages()} />
+
+                {/* <Carousel
+                    showThumbs={false}
+                    showStatus={false}
+                    dynamicHeight={false}
+                >
+                    {
+                        orderImages().map(img => (
+                            <div className='img_slider_container'>
+                                <img 
+                                    src={`http://photos.hotelbeds.com/giata/bigger/${img.path}`} 
+                                    alt='Hotel Imagen'
+                                    key={img.visualOrder} 
+                                />
+                            </div>
+                        ))
+                    }
+                    
+                </Carousel> */}
             </div>
             
             <div className='info_card_container'>
                 <span className='destination_name_list'>
-                    {`${hotel.destinationName}, Cuba`}
+                    {`${hotel.zoneName}, ${hotel.destinationName}, Cuba`}
                 </span>
                 <h3 className='hotel_name_list'>
                     {hotel.name}
