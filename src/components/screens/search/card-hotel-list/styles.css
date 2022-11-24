@@ -2,15 +2,15 @@
 .card_hotel_container {
     display: flex;
     flex-direction: row;
-    min-height: 15.75rem;
-    height: 15.8rem;
+    height: 15.7rem;
     background-color: #fff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04),
         0px 2px 10px rgba(0, 0, 0, 0.04),
         0px 0px 4px rgba(0, 0, 0, 0.02);
     border-radius: .5rem;
     position: relative;
-    margin-bottom: 1rem;    
+    margin-bottom: 1rem; 
+    margin-right: .6rem;   
 }
 
 .card_hotel_container:hover .arrow_styles {
@@ -80,7 +80,7 @@
 }
 
 .price_info span:first-of-type {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
 }
 

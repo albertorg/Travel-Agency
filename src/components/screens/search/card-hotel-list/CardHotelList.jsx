@@ -5,12 +5,9 @@ import { GiCoffeeCup } from 'react-icons/gi'
 import { AiFillStar } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import { differenceInCalendarDays, format, parseISO } from 'date-fns'
-import { formatString } from '../../../../helpers/formatString'
-import { Carousel } from 'react-responsive-carousel';
-
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import './styles.css'
+import { formatString } from '../../../../helpers/formatString' // requires a loader
 import { Slider } from '../../../shared/slider/Slider'
+import './styles.css'
 
 
 export const CardHotelList = ({ hotel }) => {
@@ -35,27 +32,7 @@ export const CardHotelList = ({ hotel }) => {
     return (
         <li className='card_hotel_container'>
             <div className='slider_card_container'>
-
                 <Slider slides={orderImages()} />
-
-                {/* <Carousel
-                    showThumbs={false}
-                    showStatus={false}
-                    dynamicHeight={false}
-                >
-                    {
-                        orderImages().map(img => (
-                            <div className='img_slider_container'>
-                                <img 
-                                    src={`http://photos.hotelbeds.com/giata/bigger/${img.path}`} 
-                                    alt='Hotel Imagen'
-                                    key={img.visualOrder} 
-                                />
-                            </div>
-                        ))
-                    }
-                    
-                </Carousel> */}
             </div>
             
             <div className='info_card_container'>
