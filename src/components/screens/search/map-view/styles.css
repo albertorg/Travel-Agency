@@ -1,0 +1,68 @@
+/* ///////// Marker ////////// */
+
+.price-tag {
+    /* background-color: red; */
+    position: relative;
+    height: 1rem;
+    width: 1rem;
+
+
+}
+
+.price_marker {
+    position: absolute;
+    top: -91%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    min-width: 40px;
+    border-radius: .5rem;
+    color: #3c3c3c;
+    font-size: 14px;
+    padding: 6px 8px;
+    font-weight: 700;
+    white-space: noWrap;
+    transform: translate(-50%, -50%);
+}
+
+.price_marker::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 0);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #4285F4;
+}
+
+
+.bounce {
+    animation-name: bounce;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+    background-color: #4286f4;
+    color: #fff;
+}
+
+
+
+@keyframes bounce {
+
+    0% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-50%, -70%);
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
