@@ -15,8 +15,11 @@ export const SearchScreen = () => {
       <div className='cards_hotels_list_container'>
         <ul className='list_hotels'>
           {
-            hotels.map(hotel => (
-              <CardHotelList key={hotel.code} hotel={hotel} />
+            hotels.map((hotel, index)=> (
+              <CardHotelList 
+                key={index} 
+                hotel={hotel} 
+                index={index}/>
             ))
           }
         </ul>

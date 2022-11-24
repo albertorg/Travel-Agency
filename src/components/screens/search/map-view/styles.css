@@ -25,6 +25,9 @@
     font-weight: 700;
     white-space: noWrap;
     transform: translate(-50%, -50%);
+    filter: drop-shadow(rgba(0, 0, 0, 0.04) 0px 4px 8px) 
+        drop-shadow(rgba(0, 0, 0, 0.19) 0px 0px 2px) 
+        drop-shadow(rgba(0, 0, 0, 0.341) 0px 0px 1px);
 }
 
 .price_marker::after {
@@ -37,7 +40,7 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid #4285F4;
+    border-top: 8px solid #fff;
 }
 
 
@@ -45,9 +48,23 @@
     animation-name: bounce;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
-    animation-duration: 1.5s;
+    animation-duration: 1.35s;
     background-color: #4286f4;
     color: #fff;
+    z-index: 2;
+}
+
+.bounce::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 0);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #4285F4; 
 }
 
 
@@ -58,8 +75,8 @@
         transform: translate(-50%, -50%);
     }
 
-    50% {
-        transform: translate(-50%, -70%);
+    55% {
+        transform: translate(-50%, -78%);
     }
 
     100% {
