@@ -20,8 +20,8 @@ export const SearchHotels = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    navigate('/search')
     dispatch(getAvailability())
+    navigate('/search')
   }
 
   const btnTravelersRef = useRef()

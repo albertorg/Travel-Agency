@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { xSignature } from '../../helpers/signature-generator'
-import { setFullLList, setHotels, setHotelsCodes, startLoading } from "../slices/hotels_slice"
+import { cleanHotels, setFullLList, setHotels, setHotelsCodes, startLoading } from "../slices/hotels_slice"
 
 
 export const getHotelsCityList = (destinationCode) => {
@@ -63,8 +63,8 @@ export const getFullList = (query) => {
 
 export const getAvailability = () => {
     return async (dispatch, getState) => {
-        dispatch(setHotels([]))
         dispatch(startLoading()) 
+        dispatch(cleanHotels())
 
         const codes = []
         const hotels = []
@@ -96,7 +96,6 @@ export const getAvailability = () => {
         })
 
         const { data: dataDetails } = await axios(configHotelsDetails)
-        console.log(dataDetails)
 
         data.hotels.hotels.map((hotel, index) => {
             hotels.push({

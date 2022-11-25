@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import GoogleMapReact from 'google-map-react'
+import React, { useState, useEffect } from 'react'
+import GoogleMapReact, {In} from 'google-map-react'
 import { useSelector } from 'react-redux'
 import { Marker } from './Marker';
 import './styles.css'
@@ -9,31 +9,46 @@ export const MapView = () => {
 
     const { hotels } = useSelector(state => state.hotels)
     const { indexCardHover } = useSelector(state => state.map)
+    const [center, setCenter] = useState(null)
 
-    const [center, setCenter] = useState({ 
-        lat: 21.1249, 
-        lng: -75.8291 
-    })
-    const [zoom, setZoom] = useState(11)
+    const defaultProps = {
+        center: {
+            lat: 21.1249,
+            lng: -75.8291
+        },
+        zoom: 11
+    }
+
+    useEffect(() => {
+        if (hotels.length !== 0) {
+            setCenter({
+                lat: parseFloat(hotels[0].latitude),
+                lng: parseFloat(hotels[0].longitude)
+            })
+        }
+    }, [hotels])
+
 
     return (
         <GoogleMapReact
             bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
-            defaultCenter={center}
-            defaultZoom={zoom}
+            defaultCenter={defaultProps.center}
+            defaultZoom={defaultProps.zoom}
+            zoom={11}
+            center={center}
         >
             {
                 hotels.map((hotel, index) => (
                     <Marker
                         lat={hotel.latitude}
                         lng={hotel.longitude}
-                        text={`${ parseInt(hotel.minRate) } €`}
+                        text={`${parseInt(hotel.minRate)} €`}
                         key={index}
                         animate={index === indexCardHover}
                     />
                 ))
             }
-            
+
         </GoogleMapReact>
     )
 }

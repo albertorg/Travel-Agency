@@ -37,6 +37,9 @@ export const hotelsSlice = createSlice({
             state.hotels = payload
             state.isLoading = false
         },
+        cleanHotels: (state) => {
+            state.hotels = []
+        },
         setSelected: (state, { payload }) => {
             state.selected = payload
         },
@@ -46,7 +49,7 @@ export const hotelsSlice = createSlice({
         },
         setHotelsCodes: (state, { payload }) => {
             state.booking.hotels.hotel = payload
-            state.isLoading = false
+            // state.isLoading = false
         },
         setDates: ({ booking }, { payload }) => {
             booking.stay = payload.stay
@@ -88,6 +91,7 @@ export const hotelsSlice = createSlice({
 export const { 
     startLoading,
     setHotels,
+    cleanHotels,
     setSelected,
     setFullLList,
     setHotelsCodes,
