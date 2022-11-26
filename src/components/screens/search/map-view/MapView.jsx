@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import GoogleMapReact, {In} from 'google-map-react'
+import GoogleMapReact from 'google-map-react'
 import { useSelector } from 'react-redux'
 import { Marker } from './Marker';
 import './styles.css'
@@ -45,6 +45,7 @@ export const MapView = () => {
                         text={`${parseInt(hotel.minRate)} €`}
                         key={index}
                         animate={index === indexCardHover}
+                        index={index}
                     />
                 ))
             }

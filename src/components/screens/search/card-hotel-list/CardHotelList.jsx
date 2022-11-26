@@ -76,7 +76,7 @@ export const CardHotelList = ({ hotel, index }) => {
                     {formatString(hotel.rooms[0].rates[0].boardName)}
                 </div>
                 <div className='price_info'>
-                    <span>{`$${parseInt(hotel.minRate)}`}</span>
+                    <span>{`€ ${parseInt(hotel.minRate)}`}</span>
                     <span> /total</span>
                 </div>
             </div>
