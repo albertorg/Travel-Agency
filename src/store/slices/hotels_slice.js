@@ -13,7 +13,7 @@ const initialState = {
         occupancies: [
             {
                 rooms: 1,
-                adults: 1,
+                adults: 2,
                 children: 0,
                 paxes: []
             }
@@ -21,7 +21,7 @@ const initialState = {
         hotels: {
             hotel: []
         },
-        total: 1
+        total: 2
     }
 }
 
