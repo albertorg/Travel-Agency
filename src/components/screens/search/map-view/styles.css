@@ -108,12 +108,16 @@
 
 /* /////////// Info Window //////////// */
 
+.price-tag > div {
+    z-index: 1 !important;   /* overwrite defaul property  */
+}
 
 
 .tooltip {
     border-radius: .5rem;
     background-color: #fff;
     filter: drop-shadow( 0 1px 3px rgb(0 0 0 / 30%));
+    z-index: 99999;
 }
 
 .info_window_container {
