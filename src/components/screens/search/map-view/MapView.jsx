@@ -48,6 +48,7 @@ export const MapView = () => {
                         index={index}
                     />
                 ))
+                
             }
 
         </GoogleMapReact>
