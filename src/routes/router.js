@@ -3,6 +3,7 @@ import { ErrorScreen } from "../components/screens/404/ErrorScreen";
 import { AboutScreen } from "../components/screens/about-as/AboutScreen";
 import { ContactScreen } from "../components/screens/contact/ContactScreen";
 import { HomeScreen } from "../components/screens/home/HomeScreen";
+import { HotelDetails } from "../components/screens/hotel-details/HotelDetails";
 import { SearchScreen } from "../components/screens/search/SerachScreen";
 
 export const router = createBrowserRouter([
@@ -22,5 +23,9 @@ export const router = createBrowserRouter([
     {
         path: "/about",
         element: <AboutScreen />
+    },
+    {
+        path: "/hotel-details",
+        element: <HotelDetails />
     },
 ])

@@ -6,6 +6,7 @@ import {
 } from "ariakit/popover"
 import { AiFillStar } from 'react-icons/ai' 
 import './styles.css'
+import { Link } from 'react-router-dom'
 
 export const InfoWindow = ({index}) => {
 
@@ -13,7 +14,7 @@ export const InfoWindow = ({index}) => {
     const path = `http://photos.hotelbeds.com/giata/${hotels[index].details.images[1].path}`
 
     return (
-        <div className='info_window_container'>
+        <Link to='/hotel-details' className='info_window_container'>
             <div className='img_container'>
                 <img src={path} alt="Hotel image" />
             </div>
@@ -34,6 +35,6 @@ export const InfoWindow = ({index}) => {
                     </div>
                 </PopoverDescription>
             </div>
-        </div>
+        </Link>
     )
 }

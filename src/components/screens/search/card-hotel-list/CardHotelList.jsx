@@ -9,6 +9,7 @@ import { formatString } from '../../../../helpers/formatString' // requires a lo
 import { Slider } from '../../../shared/slider/Slider'
 import './styles.css'
 import { setIndexCard } from '../../../../store/slices/map-slice'
+import { Link } from 'react-router-dom'
 
 
 export const CardHotelList = ({ hotel, index }) => {
@@ -30,11 +31,11 @@ export const CardHotelList = ({ hotel, index }) => {
         return ordered 
     }
 
-    const EventMouseEnter = (event) => {
+    const EventMouseEnter = () => {
         dispatch(setIndexCard(index))
     }
 
-    const EventMouseLeave = (event) => {
+    const EventMouseLeave = () => {
         dispatch(setIndexCard(null))
     }
 
@@ -48,7 +49,7 @@ export const CardHotelList = ({ hotel, index }) => {
                 <Slider slides={orderImages()} />
             </div>
             
-            <div className='info_card_container' >
+            <Link to='/hotel-details' className='info_card_container' >
                 <span className='destination_name_list'>
                     {`${hotel.zoneName}, ${hotel.destinationName}, Cuba`}
                 </span>
@@ -79,7 +80,7 @@ export const CardHotelList = ({ hotel, index }) => {
                     <span>{`€ ${parseInt(hotel.minRate)}`}</span>
                     <span> /total</span>
                 </div>
-            </div>
+            </Link>
         </li>
     )
 }

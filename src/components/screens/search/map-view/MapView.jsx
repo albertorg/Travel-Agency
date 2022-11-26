@@ -16,7 +16,7 @@ export const MapView = () => {
             lat: 21.1249,
             lng: -75.8291
         },
-        zoom: 11
+        zoom: 13
     }
 
     useEffect(() => {
@@ -34,7 +34,6 @@ export const MapView = () => {
             bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
-            zoom={11}
             center={center}
         >
             {
