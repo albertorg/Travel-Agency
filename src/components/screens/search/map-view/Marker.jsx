@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 
 export const Marker = ({ text, animate, index }) => {
 
-    const popover = usePopoverState({ gutter: -7 })
+    const popover = usePopoverState({ gutter: -6 })
     const [highlight, setHighlight] = useState('price_marker')
 
     useEffect(() => {
