@@ -15,6 +15,8 @@ export const SearchScreen = () => {
     setIsOpen(!isOpen)
   }
 
+  
+
   return (
     <main className='search_screen_container'>
 

@@ -5,13 +5,16 @@ import {
     PopoverHeading,
 } from "ariakit/popover"
 import { AiFillStar } from 'react-icons/ai' 
-import './styles.css'
 import { Link } from 'react-router-dom'
+import { orderImages } from '../../../../helpers/order-images'
+import './styles.css'
 
 export const InfoWindow = ({index}) => {
 
     const { hotels } = useSelector(state => state.hotels)
-    const path = `http://photos.hotelbeds.com/giata/${hotels[index].details.images[1].path}`
+
+    const images = orderImages(hotels[index], 1)
+    const path = `http://photos.hotelbeds.com/giata/${images[0].path}`
 
     return (
         <Link to='/hotel-details' className='info_window_container'>

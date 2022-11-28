@@ -6,10 +6,12 @@ import { AiFillStar } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { differenceInCalendarDays, format, parseISO } from 'date-fns'
 import { formatString } from '../../../../helpers/formatString' // requires a loader
-import { Slider } from '../../../shared/slider/Slider'
-import './styles.css'
+// import { Slider } from '../../../shared/slider/Slider'
+import { Slider } from '../../../shared/slider-v2/Slider'
 import { setIndexCard } from '../../../../store/slices/map-slice'
+import { orderImages } from '../../../../helpers/order-images'
 import { Link } from 'react-router-dom'
+import './styles.css'
 
 
 export const CardHotelList = ({ hotel, index }) => {
@@ -22,13 +24,6 @@ export const CardHotelList = ({ hotel, index }) => {
         const range = `${format(parseISO(checkIn), 'd MMM')} - ${format(parseISO(checkOut), 'd MMM')}`
         
         return `${numNight} night・${range}`
-    }
-
-    const orderImages = () => {
-        let ordered = [...hotel.details.images].sort((a, b) => (
-            a.visualOrder - b.visualOrder
-        ))
-        return ordered 
     }
 
     const EventMouseEnter = () => {
@@ -46,7 +41,7 @@ export const CardHotelList = ({ hotel, index }) => {
             onMouseLeave={EventMouseLeave}    
         >
             <div className='slider_card_container'>
-                <Slider slides={orderImages()} />
+                <Slider slides={orderImages(hotel, 10)} />
             </div>
             
             <Link to='/hotel-details' className='info_card_container' >
