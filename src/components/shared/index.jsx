@@ -17,6 +17,8 @@ function touchY(event) {
     return event.touches[0].clientY;
 }
 
+
+
 class ReactTouchEvents extends React.Component {
     touchStarted = false;
     touchMoved = false;
