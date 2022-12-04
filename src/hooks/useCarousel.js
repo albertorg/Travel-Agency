@@ -1,40 +1,36 @@
-import { useState } from 'react'
-import { MdNextPlan } from 'react-icons/md'
+import { useRef, useState } from 'react'
 
 
-export const useTouch = (slides) => {
+export const useCarousel = (slides) => {
 
-
+    const refCarousel = useRef()
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [touchStart, setTouchStart] = useState(null)
-    const [newPosition, setNewPosition] = useState(null)
     const [touch, setTouch] = useState({
         currentEvent: false,
-        touchStartLocation: null,
+        touchStart: null,
         newPosition: 0
     })
 
-    // var screen = document.documentElement.clientWidth
-
-    const basicStyle = {
-        transform: 'translate3d(' + (-currentIndex * 100) + '%, 0, 0)',
-    }
+    const basicStyle = { transform: 'translate3d(' + (-currentIndex * 100) + '%, 0, 0)' }
     const moveStyle = {
         transition: 'none',
-        transform: 'translate3d(' + (-newPosition * 100) + '%, 0, 0)'
+        transform: 'translate3d(' + (-touch.newPosition * 100) + '%, 0, 0)'
     }
 
-    const handleTouchStart = (e) => {
-        setTouchStart(e.touches[0].clientX) 
+    const handleTouchStart = (e) => { 
+        setTouch({
+            ...touch,
+            touchStart: e.touches[0].clientX 
+        })
     }
 
     const handleTouchMove = (e) => {
         const lastPosition = e.touches[0].clientX
-        setNewPosition(getPosition(lastPosition))
 
         setTouch({
             ...touch,
             currentEvent: true,
+            newPosition: getPosition(lastPosition)
         })
     }
 
@@ -57,8 +53,8 @@ export const useTouch = (slides) => {
     }
 
     const getPosition = (lastTouch) => {
-        const diff = touchStart - lastTouch
-        return currentIndex + diff / 330
+        const diff = touch.touchStart - lastTouch
+        return currentIndex + diff / refCarousel.current.clientWidth
     }
 
     const goToPrevious = () => {
@@ -85,6 +81,7 @@ export const useTouch = (slides) => {
         onTouchStart: handleTouchStart,
         onTouchEnd: handleTouchEnd,
         onTouchMove: handleTouchMove,
+        ref: refCarousel,
         style: touch.currentEvent ? moveStyle : basicStyle
     }
 

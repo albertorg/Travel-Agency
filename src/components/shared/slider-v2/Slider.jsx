@@ -1,14 +1,11 @@
 import React from 'react'
-import { useState } from 'react'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
-import { useTouch } from '../../../hooks/useTouch'
+import { useCarousel } from '../../../hooks/useCarousel'
 import './styles.css'
 
 export const Slider = ({ slides }) => {
 
-  const [ state, goToPrevious, goToNext, currentIndex ] = useTouch(slides)
-
-
+  const [ state, goToPrevious, goToNext, currentIndex ] = useCarousel( slides )
 
   return (
     <div className='slider_container' >
