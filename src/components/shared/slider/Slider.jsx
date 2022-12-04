@@ -1,30 +1,16 @@
 import React from 'react'
-import { useState } from 'react'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
+import { useCarousel } from '../../../hooks/useCarousel'
+import { JumpingPoints } from './JumpingPoints'
 import './styles.css'
 
 export const Slider = ({ slides }) => {
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const goToPrevious = (e) => {
-    const isFirstSlide = currentIndex === 0
-    const newIndex = isFirstSlide ? currentIndex : currentIndex - 1
-    setCurrentIndex(newIndex)
-  }
-
-  const goToNext = (e) => {
-    const isLastSlide = currentIndex === slides.length - 1
-    const newIndex = isLastSlide ? currentIndex : currentIndex + 1
-    setCurrentIndex(newIndex)
-  }
-
-
-
+  const [ state, goToPrevious, goToNext, currentIndex ] = useCarousel( slides )
 
   return (
     <div className='slider_container' >
-      <div className='slides_styles' style={{ transform: 'translate3d(calc(' + (-currentIndex * 333) + 'px), 0, 0)' }}>
+      <div className='slides_styles' {...state}>
         {
           slides.map((slide, index) => (
             <img 
@@ -35,12 +21,22 @@ export const Slider = ({ slides }) => {
           ))
         }
       </div>
-      <div className='arrow_styles arrow_left' onClick={goToPrevious} >
-        <MdArrowBackIosNew />
-      </div>
-      <div className='arrow_styles arrow_right' onClick={goToNext}>
-        <MdArrowForwardIos />
-      </div>
+      {
+        currentIndex > 0 && 
+          <div className='arrow_styles arrow_left' onClick={e => goToPrevious(e)} >
+            <MdArrowBackIosNew />
+          </div>
+      }
+      
+      {
+        currentIndex < (slides.length - 1 ) &&
+          <div className='arrow_styles arrow_right' onClick={e => goToNext(e)}>
+            <MdArrowForwardIos />
+          </div>
+      }
+
+      <JumpingPoints slides={slides} currentIndex={currentIndex}/>
+      
     </div>
   )
 }
