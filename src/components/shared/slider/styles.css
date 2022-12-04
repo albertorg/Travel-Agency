@@ -59,41 +59,45 @@
 }
 
 
-
 /* //////////// Jumping Points //////////// */
 
 .points_container {
-    /* background-color: red; */
     position: absolute;
     bottom: 0.5rem;
     display: flex;
-    /* flex-direction: row; */
     width: 100%;
     align-items: center;
     justify-content: center;
     /* max-height: .6rem; */
 }
 
+.overflow_hide_container {
+    /* background-color: red; */
+    /* overflow: hidden; */
+}
+
 .dot_container {
     /* background-color: red; */
-    max-width: 5rem;
-    padding-left: 2rem;
+    max-width: 6rem;
+    padding-left: calc(50% - 0.7rem);
     display: flex;
-    gap: .2rem;
-    /* justify-content: center; */
+    gap: .5rem;
     align-items: center;
-    overflow: hidden;
-    
+    transform: translate3d(0, 0, 0);
+    transition: transform 700ms; 
 }
 
 .dot {
     min-width: .6rem;
     height: .6rem;
-    background-color: rgba(0, 0, 0, 0.592);
+    background-color: rgba(255, 255, 255, 0.651);
     border-radius: 50%;
+    transition: min-width 300ms;
 }
 
 .current {
-    min-width: 1.3rem;
+    min-width: 1.4rem;
     border-radius: .3rem;
+    background-color: #fff;
+    transition: min-width 500ms;
 }
