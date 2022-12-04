@@ -12,6 +12,7 @@
     border-radius: .5rem;
     display: flex;
     flex-direction: row;
+    /* overflow: auto; */
 
     transform: translate3d(0, 0, 0);
     transition: transform 600ms;
