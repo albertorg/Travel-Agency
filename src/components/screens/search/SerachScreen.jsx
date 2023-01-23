@@ -5,6 +5,7 @@ import { CardHotelList } from './card-hotel-list/CardHotelList'
 import { MapView } from './map-view/MapView'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 import './styles.css'
+import { EmptyCard } from './card-hotel-list/EmptyCard'
 
 export const SearchScreen = () => {
 
@@ -18,12 +19,16 @@ export const SearchScreen = () => {
   return (
     <main className='search_screen_container'>
 
+      
+
       {
         isOpen &&
           <div className='cards_hotels_list_container'>
             <ul className='list_hotels'>
+              <EmptyCard />
               {
                 hotels.map((hotel, index) => (
+                  
                   <CardHotelList
                     key={index}
                     hotel={hotel}
