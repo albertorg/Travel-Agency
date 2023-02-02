@@ -1,16 +1,23 @@
-import React from 'react'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { CardHotelList } from './card-hotel-list/CardHotelList'
 import { MapView } from './map-view/MapView'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
-import './styles.css'
+import { getAvailability } from '../../../store/thunks/hotels-thunks'
 import { EmptyCard } from './card-hotel-list/EmptyCard'
+import './styles.css'
 
 export const SearchScreen = () => {
 
+  const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(true)
-  const { hotels } = useSelector(state => state.hotels)
+  const { hotels, isLoading } = useSelector(state => state.hotels)
+  console.log(isLoading )
+
+  useEffect(() => {
+    dispatch(getAvailability())
+  }, [])
+  
 
   const handleClick = () => {
     setIsOpen(!isOpen)
@@ -19,13 +26,11 @@ export const SearchScreen = () => {
   return (
     <main className='search_screen_container'>
 
-      
-
       {
-        isOpen &&
+        (isOpen && !isLoading) &&
           <div className='cards_hotels_list_container'>
             <ul className='list_hotels'>
-              <EmptyCard />
+              {/* <EmptyCard hotel={hotels[0]}/> */}
               {
                 hotels.map((hotel, index) => (
                   

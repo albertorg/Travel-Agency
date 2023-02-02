@@ -18,19 +18,19 @@ export const EmptyCard = ({ hotel, index }) => {
     const { checkIn, checkOut } = useSelector(state => state.hotels.booking.stay)
     const dispatch = useDispatch()
 
-    const EventMouseEnter = () => {
-        dispatch(setIndexCard(index))
-    }
+    // const EventMouseEnter = () => {
+    //     dispatch(setIndexCard(index))
+    // }
 
-    const EventMouseLeave = () => {
-        dispatch(setIndexCard(null))
-    }
+    // const EventMouseLeave = () => {
+    //     dispatch(setIndexCard(null))
+    // }
 
     return (
         <li
             className='card_hotel_container'
-            onMouseOver={EventMouseEnter}
-            onMouseLeave={EventMouseLeave}
+            // onMouseOver={EventMouseEnter}
+            // onMouseLeave={EventMouseLeave}
         >
             <div className='slider_card_container'>
                 <Slider slides={orderImages(hotel, 10)} />
@@ -48,7 +48,6 @@ export const EmptyCard = ({ hotel, index }) => {
                     &nbsp;&nbsp;
                     {hotel.categoryName}
                 </div>
-               
                 
             </div>
         </li>

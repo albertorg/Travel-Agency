@@ -49,7 +49,7 @@ export const hotelsSlice = createSlice({
         },
         setHotelsCodes: (state, { payload }) => {
             state.booking.hotels.hotel = payload
-            // state.isLoading = false
+            state.isLoading = false
         },
         setDates: ({ booking }, { payload }) => {
             booking.stay = payload.stay
