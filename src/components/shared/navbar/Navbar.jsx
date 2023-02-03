@@ -28,28 +28,5 @@ export const Navbar = () => {
                 </div>
             </div>
         </header>
-        // <nav className='navbar'>
-        //     <div className='container navbar-container'>
-        //         <div className="brand">
-        //             <div className="brand-container">
-        //                 <img src={logo} alt="logo funbook" />
-        //                 funtravels
-        //             </div>
-        //             <div className="toggle"></div>
-        //         </div>
-
-        //         <ul>
-        //             <li>
-        //                 <Link to={'/'}>Home</Link>
-        //             </li>
-        //             <li>
-        //                 <Link to={'about'}>About Us</Link>
-        //             </li>
-        //             <li>
-        //                 <Link to={'contact'}>Contact</Link>
-        //             </li>
-        //         </ul>
-        //     </div>  
-        // </nav>
     )
 }

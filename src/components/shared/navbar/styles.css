@@ -7,10 +7,10 @@ header {
 .header-area {
     height: 100%;
     background-color: red;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
 
