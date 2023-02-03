@@ -7,7 +7,6 @@ export const SearchButton = ({ text, handleClick }) => {
             className='btn-primary'
             type="submit"
             onClick={handleClick}
-            
         >
             {text}
         </button>

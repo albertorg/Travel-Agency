@@ -5,7 +5,7 @@ import { SearchDestination } from '../../../shared/search-destination/SearchDest
 
 export const Hero = () => {
   return (
-    <header>
+    <section className='hero-section'>
       <div className="background">
         <img src={homeimage} alt="hotel vacations"/>
       </div>
@@ -17,7 +17,7 @@ export const Hero = () => {
         <div className='search'>
           <SearchDestination />
         </div>
-      </div>  
-    </header>
+      </div> 
+    </section>
   )
 }

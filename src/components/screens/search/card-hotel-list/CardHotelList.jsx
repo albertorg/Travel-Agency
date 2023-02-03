@@ -38,7 +38,8 @@ export const CardHotelList = ({ hotel, index }) => {
         <li 
             className='card_hotel_container'
             onMouseOver={EventMouseEnter}
-            onMouseLeave={EventMouseLeave}    
+            onMouseLeave={EventMouseLeave}
+            key={index}    
         >
             <div className='slider_card_container'>
                 <Slider slides={orderImages(hotel, 10)} />

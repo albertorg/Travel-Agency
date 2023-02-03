@@ -4,7 +4,7 @@ import { CardHotelList } from './card-hotel-list/CardHotelList'
 import { MapView } from './map-view/MapView'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 import { getAvailability } from '../../../store/thunks/hotels-thunks'
-import { EmptyCard } from './card-hotel-list/EmptyCard'
+// import { EmptyCard } from './card-hotel-list/EmptyCard'
 import './styles.css'
 
 export const SearchScreen = () => {
@@ -12,11 +12,10 @@ export const SearchScreen = () => {
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(true)
   const { hotels, isLoading } = useSelector(state => state.hotels)
-  console.log(isLoading )
 
   useEffect(() => {
     dispatch(getAvailability())
-  }, [])
+  }, [dispatch])
   
 
   const handleClick = () => {
@@ -45,7 +44,11 @@ export const SearchScreen = () => {
       }
 
       <div className="map_container">
-        <MapView />
+        {
+          !isLoading && <MapView /> 
+        }
+        {/* <MapView /> */}
+        
         <button className='btn_hide' onClick={handleClick}>
           {
             isOpen ? <MdArrowBackIosNew /> : <MdArrowForwardIos /> 

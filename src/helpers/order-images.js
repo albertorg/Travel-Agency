@@ -2,7 +2,8 @@
 
 
 export const orderImages = (hotel, limit = null) => {
-    let ordered = [...hotel.details.images].sort((a, b) => (
+    let ordered = []
+    ordered = [...hotel.details.images].sort((a, b) => (
         a.visualOrder - b.visualOrder
     ))
 

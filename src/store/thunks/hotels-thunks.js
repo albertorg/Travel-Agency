@@ -91,18 +91,18 @@ export const getAvailability = () => {
 
         const {data} = await axios(configAvailable)
 
-        data.hotels.hotels.map(hotel => {
+        data.hotels.hotels.map(hotel => (
             codes.push(hotel.code)
-        })
+        ))
 
         const { data: dataDetails } = await axios(configHotelsDetails)
 
-        data.hotels.hotels.map((hotel, index) => {
+        data.hotels.hotels.map((hotel, index) => (
             hotels.push({
                 ...hotel,
                 details: dataDetails.hotels[index]
             })
-        })
+        ))
         
 
         dispatch(setHotels(hotels))
