@@ -19,7 +19,7 @@ export const InfoWindow = ({index}) => {
     return (
         <Link to='/hotel-details' className='info_window_container'>
             <div className='img_container'>
-                <img src={path} alt="Hotel image" />
+                <img src={path} alt="Hotel" />
             </div>
 
             <div className='info_conatiner'>
