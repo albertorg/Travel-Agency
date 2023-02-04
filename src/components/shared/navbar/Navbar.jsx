@@ -1,11 +1,8 @@
 import React from 'react'
-import { Root, List, Item, Trigger, Indicator } from '@radix-ui/react-navigation-menu'
+import { Root, List, Item, Link as LinkUi } from '@radix-ui/react-navigation-menu'
 import { Link } from 'react-router-dom'
 import { AiOutlineUser } from 'react-icons/ai'
 import { HiMenuAlt3 } from 'react-icons/hi'
-import { BiChevronDown } from 'react-icons/bi'
-import { HiOutlineChevronDown } from'react-icons/hi'
-// import logo from "../../../assets/logo.png"
 import logo from '../../../assets/funtravels_logo_small.png'
 import './styles.css'
 
@@ -25,21 +22,30 @@ export const Navbar = () => {
                         <Root className='menu-root'>
                             <List className='menu-list'>
                                 <Item>
-                                    <Link to='/'> Home </Link>
+                                    <LinkUi asChild active={true} className='activeLink'>
+                                        <Link to='/'> Home </Link>     
+                                    </LinkUi>                            
                                 </Item>
                                 <Item>
-                                    <Link to='/'> Destinations </Link>
+                                    <LinkUi asChild>
+                                        <Link to='/'> Destinations </Link>
+                                    </LinkUi>
                                 </Item>
                                 <Item>
-                                    <Link to='/'> Offers </Link>
+                                    <LinkUi asChild>
+                                        <Link to='/'> Offers </Link>
+                                    </LinkUi>
                                 </Item>
                                 <Item>
-                                    <Link to='/about'> About us </Link>
+                                    <LinkUi asChild>
+                                        <Link to='/about'> About us </Link>
+                                    </LinkUi>
                                 </Item>
                                 <Item>
-                                    <Link to='/contact'> Contact </Link>
+                                    <LinkUi asChild>
+                                        <Link to='/contact'> Contact </Link>
+                                    </LinkUi>
                                 </Item>
-                                <Indicator className="menuIndicator" />
                             </List>
                         </Root>
 
