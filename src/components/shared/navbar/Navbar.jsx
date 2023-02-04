@@ -43,6 +43,11 @@ export const Navbar = () => {
                                 </Item>
                                 <Item>
                                     <LinkUi asChild>
+                                        <Link to='/about'> Blog </Link>
+                                    </LinkUi>
+                                </Item>
+                                <Item>
+                                    <LinkUi asChild>
                                         <Link to='/contact'> Contact </Link>
                                     </LinkUi>
                                 </Item>

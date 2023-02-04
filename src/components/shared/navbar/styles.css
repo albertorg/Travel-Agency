@@ -35,7 +35,7 @@ header {
     justify-content: space-between;
     align-items: center;
     font-size: 1.15rem;
-    gap: 1.5rem;  
+    gap: 1.4rem;  
 }
 
 .menu-list a {
@@ -98,5 +98,18 @@ header {
 }
 
 
+@media screen and (max-width: 834px) {
 
+    .menu-list {
+        display: none;
+    }
 
+    .menu-icon {
+        display: block;
+    }
+    
+    .icons-container {
+        margin-left: 2rem;
+    }
+
+}
