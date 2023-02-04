@@ -10,12 +10,11 @@ export const Navbar = () => {
     return (
         <header>
             <div className="header-area container">
-                <div className="brand">
-                    <div className="brand-container">
-                        <img src={logo} alt="logo funbook" />
-                        
-                     </div>  
-                </div>
+
+                <Link to='/' className="brand-container">
+                    <img src={logo} alt="logo funbook" />
+                </Link>
+
 
                 <div className='nav-container'>
                     <div className='navbar-main'>
@@ -23,8 +22,8 @@ export const Navbar = () => {
                             <List className='menu-list'>
                                 <Item>
                                     <LinkUi asChild active={true} className='activeLink'>
-                                        <Link to='/'> Home </Link>     
-                                    </LinkUi>                            
+                                        <Link to='/'> Home </Link>
+                                    </LinkUi>
                                 </Item>
                                 <Item>
                                     <LinkUi asChild>
@@ -62,7 +61,7 @@ export const Navbar = () => {
                             <div className="menu-icon icons-styles">
                                 <HiMenuAlt3 />
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
