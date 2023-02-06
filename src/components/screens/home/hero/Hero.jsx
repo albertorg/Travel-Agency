@@ -11,7 +11,7 @@ export const Hero = () => {
       </div>
       <div className="container hero-content">
         <div className="title">
-          <h1>Booking Aventures</h1>
+          <h1>Booking Adventures</h1>
           <h2>Where Would You Like To Go?</h2>
         </div>
         <div className='search'>

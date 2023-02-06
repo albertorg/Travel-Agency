@@ -1,0 +1,88 @@
+.mobile-nav-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+}
+
+.off-screen {
+    position: absolute;
+    background-color: #263238;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.navbarMobile-container {
+    width: 280px;
+    background-color: #293439;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    overflow-y: auto;
+    padding: 25px 16px;
+    z-index: 5;
+}
+
+
+.border-list {
+    border-bottom: 1px solid rgba(244, 244, 244, 0.06);
+}
+
+.border-list a {
+    color: rgb(235, 235, 235);
+    display: flex;
+    align-items: center;
+    height: 3rem;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+}
+
+.logo-mobile-nav {
+    height: 34px;
+}
+
+.logo-mobile-nav img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.close-icon {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: grey;
+}
+
+.contact-list {
+    margin: 1.4rem 0;
+}
+
+.contact-items:first-of-type {
+    margin-bottom: 15px;
+}
+
+.contact-items {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-icons {
+    display: flex;
+    align-items: center;
+    color: var(--thm-primary);
+    font-size: 1.2rem;
+}

@@ -1,6 +1,8 @@
 header {
     width: 100%;
-    height: 80px;
+    height: 72px;
+    position: relative;
+    background-color: white;  
 }
 
 .header-area {
@@ -39,7 +41,7 @@ header {
 }
 
 .menu-list a {
-    height: 75px;
+    height: 67px;
     font-weight: 500;
     color: var(--thm-black);
     display: flex;
@@ -89,12 +91,8 @@ header {
 
 .menu-icon {
     font-size: 2.5rem;
-    margin-right: .6rem;
+    margin-right: .5rem;
     display: none;
-}
-
-.menu-icon:hover {
-    color: var(--thm-black);
 }
 
 

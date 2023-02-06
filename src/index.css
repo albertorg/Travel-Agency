@@ -54,7 +54,7 @@ body {
 /* ============ GENERAL STYLES ========= */
 .container {
   width: var(--container-width-md);
-  max-width: 1320px;
+  max-width: 1220px;  /*1320 original*/
 }
 
 h1, h2, h3, h4, h5, h6 {
