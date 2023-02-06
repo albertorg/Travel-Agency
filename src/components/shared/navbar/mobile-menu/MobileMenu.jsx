@@ -7,7 +7,7 @@ import { IoMdMail } from 'react-icons/io'
 import { BsTelephoneFill } from 'react-icons/bs'
 import './styles.css'
 
-export const MobileMenu = ({ setActive }) => {
+export const MobileMenu = ({ active, setActive }) => {
 
   const handleActive = () => {
     setActive(false)

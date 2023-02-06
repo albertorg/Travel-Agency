@@ -76,6 +76,7 @@ export const Navbar = () => {
                         {
                             activeMobileMenu && 
                                 <MobileMenu 
+                                    active={activeMobileMenu}
                                     setActive={setActiveMobileMenu}
                                 />
                         }
