@@ -5,6 +5,7 @@ import { Hero } from './hero/Hero'
 import { Recommend } from './recommend/Recommend'
 import { Services } from './services/Services'
 import { Testimonials } from './testimonials/Testimonials'
+import { PopularDestinations } from './popular-destinations/PopularDestinations'
 
 
 export const HomeScreen = () => {
@@ -12,6 +13,7 @@ export const HomeScreen = () => {
         <>
             <Navbar />
             <Hero />
+            <PopularDestinations/>
             <Services />
             <Recommend />
             <Testimonials />
