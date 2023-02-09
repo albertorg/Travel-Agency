@@ -19,7 +19,8 @@
     font-size: 20px;
     line-height: 30px;
     font-family: var(--thm-reey-font);
-    letter-spacing: -0.01em
+    letter-spacing: -0.01em;
+    margin-bottom: .8rem;
 }
 
 .section-title {
@@ -28,8 +29,8 @@
     align-items: center;
     font-weight: 700;
     color: var(--thm-black);
-    font-size: 47px;
-    line-height: 60px;
+    font-size: clamp(1.5rem, 6vw, 46px);
+    line-height: 30px;
     letter-spacing: -0.02em;
 }
 
@@ -92,6 +93,7 @@
     font-size: 1.65rem;
     transition: all .3s ease;
 }
+
 
 @media screen and (max-width: 900px) {
     .first_zone {

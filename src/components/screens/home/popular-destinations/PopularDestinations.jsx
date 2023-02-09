@@ -19,21 +19,18 @@ export const PopularDestinations = () => {
                 <div className="zones_container first_zone">
                     <div className="zone_destination-container">
                         <img src={habana} alt="hoteles en la habana" />
-                        {/* <div className="overlay_dest"></div> */}
                         <div className="name_zone">
                             <h3>La Habana</h3>
                         </div>
                     </div>
                     <div className="zone_destination-container">
                         <img src={varadero} alt="hoteles en varadero" />
-                        {/* <div className="overlay_dest"></div> */}
                         <div className="name_zone">
                             <h3>Varadero</h3>
                         </div>
                     </div>
                     <div className="zone_destination-container">
                         <img src={guardalavaca} alt="hoteles en guardalavaca" />
-                        {/* <div className="overlay_dest"></div> */}
                         <div className="name_zone">
                             <h3>Guardalavaca</h3>
                         </div>
@@ -43,14 +40,12 @@ export const PopularDestinations = () => {
                 <div className="zones_container second_zone">
                     <div className="zone_destination-container">
                         <img src={trinidad} alt="hoteles en trinidad" />
-                        {/* <div className="overlay_dest"></div> */}
                         <div className="name_zone">
                             <h3>Trinidad</h3>
                         </div>
                     </div>
                     <div className="zone_destination-container">
                         <img src={santiago} alt="hoteles en santiago de cuba" />
-                        {/* <div className="overlay_dest"></div> */}
                         <div className="name_zone">
                             <h3>Santiago de Cuba</h3>
                         </div>
