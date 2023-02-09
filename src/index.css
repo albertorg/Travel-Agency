@@ -57,6 +57,11 @@ body {
   max-width: 1220px;  /*1320 original*/
 }
 
+.main_container {
+  width: var(--container-width-md);
+  max-width: 1090px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--thm-black);
 }
@@ -84,6 +89,14 @@ a:visited {
 
   .container {
     width: var(--container-width-sm)
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+  .main_container {
+    width: var(--container-width-sm);
   }
 }
 
