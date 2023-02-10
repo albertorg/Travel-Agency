@@ -1,0 +1,10 @@
+.cardsOffers_container {
+    /* background-color: rgb(219, 183, 183); */
+    width: 100%;
+    margin-top: 2.6rem;
+    display: grid;
+    gap: 2rem;
+    /* grid-template-rows: 22rem; */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+}
