@@ -6,6 +6,11 @@
     font-size: 16px;
     border: 1px solid #ebe6de;
     cursor: pointer;
+    transition: all .3s ease;
+}
+
+.offer_container:hover {
+    transform: scale(1.02);
 }
 
 .imgHotel_container {
@@ -47,7 +52,6 @@
     font-size: 1.3rem;
     color: var(--thm-black);
     font-weight: 600;
-    /* margin-bottom: .1rem; */
 }
 
 .starsHotel_category {

@@ -1,0 +1,72 @@
+
+.different-home {
+    padding: 10px 0;
+    color: #424141;
+}
+
+.different-home h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reasons-container{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    margin-top: 30px;
+    background-color: var(--thm-black);
+    position: relative;
+}
+
+.different-container > p {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.reason-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.reason-container > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    
+}
+
+.icon-reasons {
+    margin-right: 15px;
+    color: var(--thm-primary);
+    font-size: 80px;
+}
+
+
+.reason-content p {
+    font-size: 15px;
+}
+
+
+/*test*/
+.imgMap-container {
+    height: 100%;
+    width: 100%;
+    /* margin: 3rem; */
+    position: absolute;
+    bottom: 0;
+}
+
+.imgMap-container > img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1150px) {
+    .different-container > p {
+        width: 100%
+    }
+}
