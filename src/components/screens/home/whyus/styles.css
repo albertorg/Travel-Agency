@@ -18,17 +18,10 @@
     position: relative;
 }
 
-.different-container > p {
-    text-align: center;
-    width: 70%;
-    margin: 0 auto;
-}
-
 .reason-container {
     display: flex;
     flex-direction: row;
 }
-
 
 .reason-container > div {
     width: 100%;
