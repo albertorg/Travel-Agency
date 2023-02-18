@@ -1,20 +1,53 @@
 
 .different-home {
-    padding: 10px 0;
-    color: #424141;
+    background-color: var(--thm-black);
+    padding: 3.5rem 0;
+    position: relative;
+}
+
+.different-home  p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #a9a8b6;
+}
+
+.different-home > p {
+    text-align: center;
+}
+
+.section-whyus-container {
+    position: relative;
+    width: 100%;
+    padding-left: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.different-home h3 {
+    color: white;
+}
+
+.box-marker {
+    position: absolute;
+    background-color: var(--thm-primary);
+    height: 100%;
+    width: .8rem;
+    top: 0;
+    bottom: 3rem;
+    left: 0;
+    border-radius: 0 .5rem .5rem 0;
 }
 
 .different-home h2 {
-    text-align: center;
     margin-bottom: 20px;
+    color: white;
 }
 
 .reasons-container{
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     margin-top: 30px;
-    background-color: var(--thm-black);
     position: relative;
 }
 
@@ -31,32 +64,26 @@
     
 }
 
+.reason-content p {
+    margin-top: .8rem;
+}
+
 .icon-reasons {
     margin-right: 15px;
     color: var(--thm-primary);
-    font-size: 80px;
+    font-size: 68px;
 }
 
-
-.reason-content p {
-    font-size: 15px;
-}
-
-
-/*test*/
 .imgMap-container {
-    height: 100%;
-    width: 100%;
-    /* margin: 3rem; */
+   background-image: url(../../../../assets/why-choose-right-map.png);
     position: absolute;
     bottom: 0;
+    right: 0;
+    height: 500px;
+    width: 434px;
+    opacity: .1;
 }
 
-.imgMap-container > img {
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-}
 
 @media screen and (max-width: 1150px) {
     .different-container > p {
