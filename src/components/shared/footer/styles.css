@@ -1,0 +1,96 @@
+footer {
+    width: 100%;
+    background: var(--thm-black);
+    padding-top: 3.7rem;
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+.copy-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid rgb(145, 145, 145, 0.5);
+    padding: 0.9rem 0;
+    color: rgb(145, 145, 145);
+}
+
+.copy-container span {
+    font-size: 1rem;
+}
+
+.social-icons .icon {
+    margin-left: 10px;
+    cursor: pointer;
+    color: var(--thm-primary);
+}
+
+.social-icons .icon:hover {
+    color: #fff;
+}
+
+.sections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-list-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-list-container div > img{
+    height: 2.3rem;
+    margin-bottom: .5rem;
+}
+
+.footer-list-container a {
+    color: rgb(145, 145, 145);
+    margin-bottom: 0.4rem;
+    transition: color .4s ease;
+}
+
+.footer-list-container a:hover {
+    color: var(--thm-primary);
+}
+
+.footer-list-container h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.footer-list-container>ul>li {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+#contact li>span {
+    margin-left: 10px;
+    color: rgb(145, 145, 145);
+}
+
+.icons-contact-footer {
+    color: var(--thm-primary)
+}
+
+#contact li {
+    min-width: 15rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+
+/* ============ Media queries (Smal devices) =============== */
+/* @media screen and (max-width: 900px) {
+    .sections-container {
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1rem));
+        width: 90%;
+    }
+} */
