@@ -54,3 +54,23 @@
     opacity: 1;
     transform: scaleY(1);
 }
+
+.cardsArticles_container {
+    width: 100%;
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@media screen and (max-width: 480px) {
+
+    .postTitle-area{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .btn-viewAll {
+        margin-top: 1.6rem;
+    }
+}

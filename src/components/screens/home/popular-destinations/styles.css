@@ -29,7 +29,7 @@
     align-items: center;
     font-weight: 700;
     color: var(--thm-black);
-    font-size: clamp(1.5rem, 6vw, 46px);
+    font-size: clamp(1.73rem, 6vw, 46px);
     line-height: 30px;
     letter-spacing: -0.02em;
 }

@@ -17,12 +17,12 @@ export const Articles = () => {
                         <h2 className="section-title left-text">Latest Blog Articles</h2>
                     </div>
                     <button name='all posts' className='btn-viewAll'>
-                        <Link to='/'>VIEW ALL POSTS</Link>
+                        <Link to='/'>View all posts</Link>
                     </button>
                 </div>
                 
 
-                <div className='cardsOffers_container'>
+                <div className='cardsArticles_container'>
                     {
                         array.map(i => (
                             <Article />
