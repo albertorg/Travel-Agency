@@ -17,7 +17,7 @@ export const Offers = () => {
                 <div className='cardsOffers_container'>
                     {
                        array.map(i => (
-                           <CardOffer />
+                           <CardOffer key={i}/>
                        ))
                     }
                 </div>

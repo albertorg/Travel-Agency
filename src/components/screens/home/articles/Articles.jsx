@@ -1,9 +1,10 @@
 import React from 'react'
+import newsOne from '../../../../data/newsOne'
 import { Link } from 'react-router-dom'
 import { Article } from '../../../shared/card-article/Article'
 import './styles.css'
 
-const array = [1, 2, 3]
+const { newsData } = newsOne;
 
 export const Articles = () => {
     return (
@@ -24,8 +25,8 @@ export const Articles = () => {
 
                 <div className='cardsArticles_container'>
                     {
-                        array.map(i => (
-                            <Article />
+                        newsData.map(news => (
+                            <Article news={news} key={news.id}/>
                         ))
                     }
                 </div>
