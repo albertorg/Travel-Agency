@@ -13,7 +13,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 1px solid rgb(145, 145, 145, 0.5);
+    border-top: 1px solid rgba(160, 158, 158, 0.5);
     padding: 0.9rem 0;
 }
 
@@ -55,7 +55,6 @@ footer {
     margin-bottom: 0.4rem;
     position: relative;
     transition: all .4s ease;
-    
 }
 
 .footer-list-container a:hover {
@@ -107,10 +106,18 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+.companyName {
+    color: var(--thm-primary);
+}
+
 
 /* ============ Media queries (Smal devices) =============== */
 @media screen and (max-width: 792px) {
     .footer-list-container {
         justify-content: flex-start;
+    }
+
+    .show-copy {
+        display: none;
     }
 }

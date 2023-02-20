@@ -89,7 +89,10 @@ export const Footer = () => {
         </div>
 
         <div className='copy-container'>
-          <span>&copy; 2023 Fun Travels</span>
+          <span>
+            &copy; <span className='show-copy'>All Copyright</span> 2023 | 
+            <span className='companyName'> Fun Travels</span>
+          </span>
           <div className='social-icons'>
             <FaFacebookF className='icon' />
             <BsTwitter className='icon' />
