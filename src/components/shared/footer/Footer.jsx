@@ -52,7 +52,7 @@ export const Footer = () => {
 
           <div className='footer-list-container'>
             <div>
-              <h3>Use Policy</h3>
+              <h3>Conditions of use</h3>
               <ul>
                 <li>
                   <Link to='/'>Privacy Policy</Link>
@@ -61,7 +61,7 @@ export const Footer = () => {
                   <Link to='/'>Cookies Policy</Link>
                 </li>
                 <li>
-                  <Link to='/'>Conditions of use</Link>
+                  <Link to='/'>Use Policy</Link>
                 </li>
               </ul>
             </div>
@@ -86,7 +86,6 @@ export const Footer = () => {
               </ul>
             </div>
           </div>
-
         </div>
 
         <div className='copy-container'>
