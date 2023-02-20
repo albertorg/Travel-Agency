@@ -72,6 +72,11 @@
     margin-right: 14px;
     color: var(--thm-primary);
     font-size: 65px;
+    transition: all .5s ease;
+}
+
+.reason-container:hover .icon-reasons {
+    transform: rotateY(180deg);
 }
 
 .imgMap-container {
