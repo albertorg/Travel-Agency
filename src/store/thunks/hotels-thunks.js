@@ -13,7 +13,7 @@ export const getHotelsCityList = (destinationCode) => {
         }
 
         const config = {
-            url: 'http://192.168.1.6:49157/api/hotels/filter/',
+            url: 'https://funtravels.net/api/hotels/filter/',
             params,
             headers: { "Content-Type": "application/json" }
         }
@@ -41,13 +41,13 @@ export const getFullList = (query) => {
         }
 
         const configHotels = {
-            url: 'http://192.168.1.6:49157/api/hotels/filter/',
+            url: 'https://funtravels.net/api/hotels/filter/',
             params,
             headers: { "Content-Type": "application/json" }
         }
 
         const configDest = {
-            url: 'http://192.168.1.6:49157/api/destinations/filter/',
+            url: 'https://funtravels.net/api/destinations/filter/',
             params: { text: query },
             headers: { "Content-Type": "application/json" }
         }
@@ -82,7 +82,7 @@ export const getAvailability = () => {
         }
 
         const configHotelsDetails = {
-            url: 'http://192.168.1.6:49157/api/hotels/details/',
+            url: 'https://funtravels.net/api/hotels/details/',
             params: {
                 codes
             },
