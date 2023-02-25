@@ -4,14 +4,16 @@
     gap: 1rem;
     background-color: transparent;
     grid-area: calendar;
-    /* overflow: hidden; */
+}
+
+.input-commun-style {
+    color: var(--thm-black);
 }
 
 .btn-pick-container {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    /* white-space: nowrap; */
     text-overflow: ellipsis;
 }
 

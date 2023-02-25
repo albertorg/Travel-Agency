@@ -17,7 +17,7 @@ header {
 .brand-container {
     display: flex;
     align-items: center;
-    height: 45px;
+    height: 40px;
 }
 
 .brand-container > img {
@@ -36,7 +36,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     gap: 1.4rem;  
 }
 
@@ -72,14 +72,14 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--thm-primary);
     cursor: pointer;
     transition: var(--trasition);
 }
 
 .user-icon {
-    height: 32.8px;
+    /* height: 32.8px; */
     border: 2px solid var(--thm-primary);
     border-radius: 50%;
 }
@@ -90,7 +90,7 @@ header {
 }
 
 .menu-icon {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin-right: .5rem;
     display: none;
 }
