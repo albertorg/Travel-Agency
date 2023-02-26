@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     isLoading: false,
+    isAvailable: false,
     selected: {},
     hotels: [],
     fullList: [],

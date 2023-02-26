@@ -7,10 +7,9 @@ import './styles.css'
 
 export const MapView = () => {
 
-    const { hotels, isLoading } = useSelector(state => state.hotels)
+    const { hotels } = useSelector(state => state.hotels)
     const { indexCardHover } = useSelector(state => state.map)
     const [center, setCenter] = useState(null)
-    console.log(isLoading)
 
     const defaultProps = {
         center: {
