@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BiBed } from 'react-icons/bi'
 import { BsCheckCircle } from 'react-icons/bs'
 import { ChoseInput } from '../shared/chose-input/ChoseInput'
@@ -7,21 +7,20 @@ import { DatePicker } from '../shared/datePicker/DatePicker'
 import { SearchButton } from '../shared/searchButton/SearchButton'
 import { Travelers } from '../shared/travelers/Travelers'
 import { useRef } from 'react'
-// import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom"
-// import { getAvailability } from '../../../../store/thunks/hotels-thunks'
 import './styles.css'
 
 
 export const SearchHotels = () => {
 
-  // const dispatch = useDispatch()
+  const [validated, setValidated] = useState(true)
   const navigate = useNavigate()
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    // dispatch(getAvailability())
-    navigate('/search')
+    if (validated) {
+      navigate('/search')
+    }else console.log('imposible')
   }
 
   const btnTravelersRef = useRef()
@@ -36,7 +35,6 @@ export const SearchHotels = () => {
           text='Where you want to go?'
           Icon={BiBed}
           IconList={FaHotel}
-          rangeRef={rangeRef}
         />
 
       </div>

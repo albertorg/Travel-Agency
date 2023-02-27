@@ -47,7 +47,6 @@ export const SearchScreen = () => {
         {
           !isLoading && <MapView /> 
         }
-        {/* <MapView /> */}
         
         <button className='btn_hide' onClick={handleClick}>
           {
