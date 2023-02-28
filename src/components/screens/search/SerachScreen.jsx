@@ -4,7 +4,7 @@ import { CardHotelList } from './card-hotel-list/CardHotelList'
 import { MapView } from './map-view/MapView'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 import { getAvailability } from '../../../store/thunks/hotels-thunks'
-// import { EmptyCard } from './card-hotel-list/EmptyCard'
+import { EmptyCard } from './card-hotel-list/EmptyCard'
 import './styles.css'
 
 export const SearchScreen = () => {
@@ -29,7 +29,7 @@ export const SearchScreen = () => {
         (isOpen && !isLoading) &&
           <div className='cards_hotels_list_container'>
             <ul className='list_hotels'>
-              {/* <EmptyCard hotel={hotels[0]}/> */}
+              <EmptyCard />
               {
                 hotels.map((hotel, index) => (
                   

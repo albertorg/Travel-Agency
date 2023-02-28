@@ -35,10 +35,9 @@ export const getFullList = (query) => {
 
         dispatch(startLoading())
 
-        // TODO: Make Fetch
         const params = {
             text: query,
-            // fields: 'city coordinates destinationCode ' 
+            fields: 'images categoryCode'   
         }
 
         const configHotels = {
@@ -108,7 +107,7 @@ export const getAvailability = () => {
         ))
 
 
-        // console.log(hotels)
+        // Sort hotel list
         hotels = orderHotelList(hotels, hotelCode)
         
         dispatch(setHotels(hotels))

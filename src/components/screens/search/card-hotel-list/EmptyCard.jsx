@@ -1,52 +1,55 @@
 import React from 'react'
 import { IoMdMoon } from 'react-icons/io'
-import { HiBadgeCheck } from 'react-icons/hi'
-import { GiCoffeeCup } from 'react-icons/gi'
 import { AiFillStar } from 'react-icons/ai'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { differenceInCalendarDays, format, parseISO } from 'date-fns'
-import { formatString } from '../../../../helpers/formatString' // requires a loader
 import { Slider } from '../../../shared/slider/Slider'
-import { setIndexCard } from '../../../../store/slices/map-slice'
-import { orderImages } from '../../../../helpers/order-images'
-import { Link } from 'react-router-dom'
+import { sortImagesNormal } from '../../../../helpers/order-images'
 import './styles.css'
 
 
-export const EmptyCard = ({ hotel, index }) => {
+export const EmptyCard = () => {
 
+    const { selected } = useSelector(state => state.hotels)
     const { checkIn, checkOut } = useSelector(state => state.hotels.booking.stay)
-    const dispatch = useDispatch()
 
-    // const EventMouseEnter = () => {
-    //     dispatch(setIndexCard(index))
-    // }
+    const formatNight = () => {
+        const numNight = differenceInCalendarDays(parseISO(checkOut), parseISO(checkIn))
+        const range = `${format(parseISO(checkIn), 'd MMM')} - ${format(parseISO(checkOut), 'd MMM')}`
 
-    // const EventMouseLeave = () => {
-    //     dispatch(setIndexCard(null))
-    // }
+        return `${numNight} night・${range}`
+    }
 
     return (
         <li
             className='card_hotel_container'
-            // onMouseOver={EventMouseEnter}
-            // onMouseLeave={EventMouseLeave}
         >
             <div className='slider_card_container'>
-                <Slider slides={orderImages(hotel, 10)} />
+                <Slider slides={sortImagesNormal(selected, 12)} />
             </div>
 
             <div className='info_card_container' >
                 <span className='destination_name_list'>
-                    {`${hotel.zoneName}, ${hotel.destinationName}, Cuba`}
+                    {`${selected.city.content}, Cuba`}
                 </span>
                 <h3 className='hotel_name_list'>
-                    {hotel.name}
+                    {selected.name.content}
                 </h3>
                 <div className='stars_category_list'>
                     <AiFillStar />
                     &nbsp;&nbsp;
-                    {hotel.categoryName}
+                    {selected.categoryCode}
+                </div>
+                <div className='nights_dates'>
+                    <IoMdMoon />
+                    &nbsp;&nbsp;
+                    {formatNight()}
+                </div>
+                <div className='not-available'>
+                    <p>
+                        There are no rooms available for the following specifications
+                        {` (${formatNight()})`}
+                    </p>
                 </div>
                 
             </div>

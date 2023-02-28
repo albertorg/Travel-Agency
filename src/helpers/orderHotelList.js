@@ -25,7 +25,6 @@ export const orderHotelList = ( hotels, code ) => {
 
     // Concatenate all hotels in correct order
     ordered.push(...objectsWithProp2, ...otherObjects);
-    console.log(ordered)
 
     return ordered;
 }

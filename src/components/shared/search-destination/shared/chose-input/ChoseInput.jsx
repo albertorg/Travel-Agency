@@ -9,7 +9,6 @@ import './styles.css'
 export const ChoseInput = ({ label, text, Icon, IconList, rangeRef }) => {
 
     const combobox = useComboboxState({ gutter: 4, sameWidth: true, flip: 'bottom',})
-    console.log(combobox)
 
     const dispatch = useDispatch()
 

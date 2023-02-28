@@ -92,6 +92,10 @@
     font-weight: 700;
 }
 
+.not-available {
+    color: red;
+}
+
 
 /* /////// Carusel //////// */
 
