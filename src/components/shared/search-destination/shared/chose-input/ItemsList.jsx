@@ -58,41 +58,6 @@ export const ItemsList = ({ IconList, query}) => {
                         </div>
                     </ComboboxItem>
                 ))
-                // query === ''
-                //     ? < ComboboxItem key={1} value='Search All' className='combobox-item'>
-                //         <div className='icon-list-conatiner'>
-                //             <IconList />
-                //         </div>
-
-                //         <div className="text-list-container">
-                //             <b>Search All</b>
-                //         </div>
-                //     </ComboboxItem  >
-                //     : fullList.map((item) => (
-                //         <ComboboxItem
-                //             key={item._id}
-                //             value={item.name.content}
-                //             className='combobox-item'
-                //             onClick={() => handleClickItem(item)}
-                //         >
-                //             <div className='icon-list-conatiner'>
-                //                 {
-                //                     isNaN(item.code) ? <ImLocation /> : <IconList />
-                //                 }
-                //             </div>
-
-                //             <div className="text-list-container">
-                //                 <ComboboxItemValue />
-                //                 <span className='regionText'>
-                //                     {
-                //                         typeof (item.code) === 'string'
-                //                             ? 'Cuba'
-                //                             : formatString(item.city.content)
-                //                     }
-                //                 </span>
-                //             </div>
-                //         </ComboboxItem>
-                //     ))
             }
         </>
     )

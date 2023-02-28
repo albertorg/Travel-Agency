@@ -13,7 +13,7 @@ import './styles.css'
 
 export const SearchHotels = () => {
 
-  const [validated, setValidated] = useState(true)
+  const [validated, setValidated] = useState(false)
   const navigate = useNavigate()
 
   const handleSearchSubmit = (e) => {

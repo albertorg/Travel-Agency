@@ -6,7 +6,7 @@ import { setSelected } from '../../../../../store/slices/hotels_slice'
 import './styles.css'
 
 
-export const ChoseInput = ({ label, text, Icon, IconList, rangeRef }) => {
+export const ChoseInput = ({ label, text, Icon, IconList }) => {
 
     const combobox = useComboboxState({ gutter: 4, sameWidth: true, flip: 'bottom',})
 

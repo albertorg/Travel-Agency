@@ -29,4 +29,8 @@ export const router = createBrowserRouter([
         path: "/hotel-details",
         element: <HotelDetails />
     },
+    {
+        path: "*",
+        element: <HomeScreen />
+    },
 ])
