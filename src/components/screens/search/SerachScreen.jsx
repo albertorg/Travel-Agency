@@ -11,7 +11,7 @@ export const SearchScreen = () => {
 
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(true)
-  const { hotels, isLoading } = useSelector(state => state.hotels)
+  const { hotels, isLoading, selected} = useSelector(state => state.hotels)
 
   useEffect(() => {
     dispatch(getAvailability())
@@ -22,6 +22,14 @@ export const SearchScreen = () => {
     setIsOpen(!isOpen)
   }
 
+  const showEmptyCard = () => {
+    // check if hotel selected is available
+    const available = hotels.find(hotel => hotel.code === selected.code)
+    const searchByZone = isNaN(selected.code)
+  
+    return (!available && !searchByZone) ? true : false
+  }
+
   return (
     <main className='search_screen_container'>
 
@@ -29,7 +37,7 @@ export const SearchScreen = () => {
         (isOpen && !isLoading) &&
           <div className='cards_hotels_list_container'>
             <ul className='list_hotels'>
-              <EmptyCard />
+              {showEmptyCard() && <EmptyCard />}
               {
                 hotels.map((hotel, index) => (
                   
