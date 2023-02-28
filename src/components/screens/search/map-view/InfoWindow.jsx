@@ -1,9 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import {
-    PopoverDescription,
-    PopoverHeading,
-} from "ariakit/popover"
+import { PopoverHeading } from "ariakit/popover"
 import { AiFillStar } from 'react-icons/ai' 
 import { Link } from 'react-router-dom'
 import { orderImages } from '../../../../helpers/order-images'
@@ -26,7 +23,7 @@ export const InfoWindow = ({index}) => {
                 <PopoverHeading className='heading_info'>
                     {hotels[index].name}
                 </PopoverHeading>
-                <PopoverDescription className='description_info'>
+                <div className='description_info'>
                     <div className='hotel_category'>
                         <AiFillStar />
                         &nbsp;&nbsp;
@@ -36,7 +33,7 @@ export const InfoWindow = ({index}) => {
                         <span>{`€ ${parseInt(hotels[index].minRate)}`}</span>
                         <span> /total</span>
                     </div>
-                </PopoverDescription>
+                </div>
             </div>
         </Link>
     )

@@ -21,6 +21,8 @@ export const JumpingPoints = ({ slides, currentIndex }) => {
                             <div
                                 className={index === currentIndex ? 'dot current' : 'dot'}
                                 style={{ opacity: setOpacity(index) }}
+                                key={index
+                                }
                             ></div>
                         ))
                     }

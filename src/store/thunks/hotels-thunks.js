@@ -37,7 +37,7 @@ export const getFullList = (query) => {
 
         const params = {
             text: query,
-            fields: 'images categoryCode'   
+            fields: 'images categoryCode zoneCode'   
         }
 
         const configHotels = {
@@ -108,7 +108,7 @@ export const getAvailability = () => {
 
 
         // Sort hotel list
-        hotels = orderHotelList(hotels, hotelCode)
+        hotels = orderHotelList(hotels, hotelCode, getState().hotels.selected)
         
         dispatch(setHotels(hotels))
     }
