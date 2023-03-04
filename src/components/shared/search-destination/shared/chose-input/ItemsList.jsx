@@ -7,7 +7,7 @@ import { ImLocation } from 'react-icons/im'
 import { formatString } from '../../../../../helpers/formatString'
 import './styles.css'
 
-export const ItemsList = ({ IconList, query}) => {
+export const ItemsList = ({ IconList, query }) => {
 
     const dispatch = useDispatch()
     const { fullList } = useSelector(state => state.hotels)

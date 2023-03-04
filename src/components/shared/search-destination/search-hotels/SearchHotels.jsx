@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiBed } from 'react-icons/bi'
 import { BsCheckCircle } from 'react-icons/bs'
 import { ChoseInput } from '../shared/chose-input/ChoseInput'
@@ -9,22 +9,39 @@ import { Travelers } from '../shared/travelers/Travelers'
 import { useRef } from 'react'
 import { useNavigate } from "react-router-dom"
 import './styles.css'
+import { useSelector } from 'react-redux'
 
 
 export const SearchHotels = () => {
 
-  const [validated, setValidated] = useState(false)
+  const [isValidForm, setIsValidForm] = useState(false)
+  const { selected } = useSelector(state => state.hotels)
+  const [showAlert, setShowAlert] = useState(false)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    
+    const isSelected = Object.keys(selected).length !== 0
+    if (isSelected) {
+      setIsValidForm(true)
+      setShowAlert(false)
+    }else setIsValidForm(false)
+    
+  }, [selected])
+  
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    if (validated) {
+
+    if (isValidForm) {
       navigate('/search')
-    }else console.log('imposible')
+    }else setShowAlert(true)
   }
 
   const btnTravelersRef = useRef()
   const rangeRef = useRef()
+
+  const inputStyle = showAlert ? { boxShadow : 'red 0px 0px 0px 2px inset' } : {};
 
   return (
     <form>
@@ -35,6 +52,7 @@ export const SearchHotels = () => {
           text='Where you want to go?'
           Icon={BiBed}
           IconList={FaHotel}
+          inputStyle={inputStyle}
         />
 
       </div>
