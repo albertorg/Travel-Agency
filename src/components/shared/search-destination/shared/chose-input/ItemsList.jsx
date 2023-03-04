@@ -7,7 +7,7 @@ import { ImLocation } from 'react-icons/im'
 import { formatString } from '../../../../../helpers/formatString'
 import './styles.css'
 
-export const ItemsList = ({ IconList, query }) => {
+export const ItemsList = ({ IconList, query, handleClick }) => {
 
     const dispatch = useDispatch()
     const { fullList } = useSelector(state => state.hotels)
@@ -18,17 +18,6 @@ export const ItemsList = ({ IconList, query }) => {
 
     }, [query, dispatch])
 
-    const handleClickItem = (item) => {
-        dispatch(setSelected(item))
-
-        const destinationCode = () => (
-            item.destinationCode 
-                ? item.destinationCode
-                : item.code
-        )
-        
-        dispatch(getHotelsCityList(destinationCode()))
-    }
 
     return (
         <>
@@ -38,7 +27,7 @@ export const ItemsList = ({ IconList, query }) => {
                         key={item._id}
                         value={item.name.content}
                         className='combobox-item'
-                        onClick={() => handleClickItem(item)}
+                        onClick={() => handleClick(item)}
                     >
                         <div className='icon-list-conatiner'>
                             {

@@ -4,21 +4,33 @@ import { ItemsList } from './ItemsList'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { setSelected } from '../../../../../store/slices/hotels_slice'
+import { getHotelsCityList } from '../../../../../store/thunks/hotels-thunks'
 import './styles.css'
 
 
 export const ChoseInput = ({ label, text, Icon, IconList, inputStyle }) => {
 
     const combobox = useComboboxState({ gutter: 4, sameWidth: true, flip: 'bottom', })
-    const { selected } = useSelector(state => state.hotels)
+    const { hotels } = useSelector(state => state)
     const dispatch = useDispatch()
 
     // set the value when returning to the screen 
     useEffect(() => {
-        const isSelected = Object.keys(selected).length !== 0 
-        isSelected && combobox.setValue(selected.name.content)
+        const isSelected = Object.keys(hotels.selected).length !== 0 
+        isSelected && combobox.setValue(hotels.selected.name.content)
     }, [])
 
+    const handleClickItem = (item) => {
+        dispatch(setSelected(item))
+
+        const destinationCode = () => (
+            item.destinationCode
+                ? item.destinationCode
+                : item.code
+        )
+
+        dispatch(getHotelsCityList(destinationCode()))
+    }
 
     const handleClickCancel = () => {
         combobox.setOpen(false)
@@ -26,7 +38,10 @@ export const ChoseInput = ({ label, text, Icon, IconList, inputStyle }) => {
     }
 
     const handleBlur = () => {
-        console.log('blur')
+        if(combobox.open && hotels.fullList.length !== 0) {
+            combobox.setValue(hotels.fullList[0].name.content)
+            handleClickItem(hotels.fullList[0])
+        }
     }
 
 
@@ -64,6 +79,7 @@ export const ChoseInput = ({ label, text, Icon, IconList, inputStyle }) => {
                         <ItemsList
                             IconList={IconList}
                             query={combobox.value}
+                            handleClick={handleClickItem}
                         />
                     </ComboboxPopover>
                 )
