@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ComboboxItem, ComboboxItemValue } from 'ariakit/combobox'
-import { getFullList, getHotelsCityList } from '../../../../../store/thunks/hotels-thunks'
-import { setSelected } from '../../../../../store/slices/hotels_slice'
+import { getFullList } from '../../../../../store/thunks/hotels-thunks'
 import { ImLocation } from 'react-icons/im'
 import { formatString } from '../../../../../helpers/formatString'
 import './styles.css'
@@ -21,6 +20,7 @@ export const ItemsList = ({ IconList, query, handleClick }) => {
 
     return (
         <>
+            
             {
                 fullList.map((item) => (
                     <ComboboxItem
