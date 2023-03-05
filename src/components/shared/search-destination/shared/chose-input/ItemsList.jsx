@@ -9,7 +9,7 @@ import './styles.css'
 export const ItemsList = ({ IconList, query, handleClick }) => {
 
     const dispatch = useDispatch()
-    const { fullList } = useSelector(state => state.hotels)
+    const { fullList, isLoading } = useSelector(state => state.hotels)
 
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export const ItemsList = ({ IconList, query, handleClick }) => {
     return (
         <>
             {
-                fullList.length === 0 && 
+                (fullList.length === 0 && !isLoading) &&
                 <span className='no-results'>No results for this search</span>
             }
 
