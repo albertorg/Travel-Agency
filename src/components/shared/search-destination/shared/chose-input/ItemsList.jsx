@@ -20,7 +20,11 @@ export const ItemsList = ({ IconList, query, handleClick }) => {
 
     return (
         <>
-            
+            {
+                fullList.length === 0 && 
+                <span className='no-results'>No results for this search</span>
+            }
+
             {
                 fullList.map((item) => (
                     <ComboboxItem

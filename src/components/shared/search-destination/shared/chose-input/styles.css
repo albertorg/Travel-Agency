@@ -134,5 +134,9 @@
     display: block;
     font-size: 0.93rem;
     color: #8c8c92;
-    /* text-align: left; */
+}
+
+.no-results {
+    color: var(--thm-black);
+    font-weight: 500;
 }
