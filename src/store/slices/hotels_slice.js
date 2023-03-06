@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     isLoading: false,
-    isAvailable: false,
     selected: {},
     hotels: [],
     fullList: [],
@@ -85,6 +84,9 @@ export const hotelsSlice = createSlice({
             booking.occupancies.splice(payload.index, 1)
             booking.total -= payload.value 
         },
+        setState: (state, { payload }) => {
+            state.hotels = payload.hotels 
+        },
     },
 })
 
@@ -101,7 +103,8 @@ export const {
     removeChild,
     addRoom,
     deleteRoom, 
-    setDates
+    setDates,
+    setState
     
  } = hotelsSlice.actions
 

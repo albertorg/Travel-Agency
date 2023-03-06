@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { differenceInCalendarDays, format, parseISO } from 'date-fns'
 import { formatString } from '../../../../helpers/formatString' // requires a loader
 import { Slider } from '../../../shared/slider/Slider'
-// import { Slider } from '../../../shared/slider-v2/Slider'
 import { setIndexCard } from '../../../../store/slices/map-slice'
 import { orderImages } from '../../../../helpers/order-images'
 import { Link } from 'react-router-dom'
@@ -17,6 +16,7 @@ import './styles.css'
 export const CardHotelList = ({ hotel, index }) => {
 
     const { checkIn, checkOut } = useSelector(state => state.hotels.booking.stay)
+    const state = useSelector(state => state)
     const dispatch = useDispatch()
 
     const formatNight = () => {
@@ -34,6 +34,10 @@ export const CardHotelList = ({ hotel, index }) => {
         dispatch(setIndexCard(null))
     }
 
+    const handleClick = () => {
+        localStorage.setItem('state', JSON.stringify(state))
+    }
+
     return (
         <li 
             className='card_hotel_container'
@@ -45,7 +49,7 @@ export const CardHotelList = ({ hotel, index }) => {
                 <Slider slides={orderImages(hotel, 10)} />
             </div>
             
-            <Link to='/hotel-details' target='_blank' className='info_card_container' >
+            <Link to={`/hotel-details/${hotel.code}`} target='_blank' onClick={handleClick} className='info_card_container' >
                 <span className='destination_name_list'>
                     {`${hotel.zoneName}, ${hotel.destinationName}, Cuba`}
                 </span>
