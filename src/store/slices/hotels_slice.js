@@ -85,7 +85,7 @@ export const hotelsSlice = createSlice({
             booking.total -= payload.value 
         },
         setState: (state, { payload }) => {
-            state.hotels = payload.hotels 
+            state.hotels = payload.hotels.hotels 
         },
     },
 })

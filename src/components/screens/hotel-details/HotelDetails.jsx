@@ -1,25 +1,28 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { HeroDetails } from './hero/HeroDetails'
-import { useDispatch, useStore } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setState } from '../../../store/slices/hotels_slice'
 import './styles.css'
 
 
 export const HotelDetails = () => {
 
-  const state = JSON.parse(localStorage.getItem('state'))
   const dispatch = useDispatch()
   const { hotelCode } = useParams()
-  
+  const code = parseInt(hotelCode)
+
+  const state = JSON.parse(localStorage.getItem('state'))
+  const hotel = state.hotels.hotels.find(hotel => hotel.code === code)
+
   useEffect(() => {
     dispatch(setState(state))
-  
+
   }, [dispatch])
-  
+
   return (
     <div className='hotelDelais-screen main_container'>
-      <HeroDetails code={hotelCode}/>
+      <HeroDetails hotel={hotel} />
 
       <div className="hotelDescription-container">Description</div>
 

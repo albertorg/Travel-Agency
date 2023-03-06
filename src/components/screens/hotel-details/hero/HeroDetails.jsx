@@ -1,16 +1,18 @@
 import React from 'react'
 import './styles.css'
-import { useSelector } from 'react-redux'
 
 
-export const HeroDetails = ({ code }) => {
+export const HeroDetails = ({ hotel }) => {
 
-    const state = useSelector(state => state)
-    // console.log(state)
+    
 
     return (
         <div className='heroDetails-container'>
+            <div className="heroTitle-container">
+                <h1>{hotel.name}</h1>
+            </div>
 
+            <div className="heroImages-container"></div>
         </div>
     )
 }
