@@ -4,6 +4,7 @@ import { HeroDetails } from './hero/HeroDetails'
 import { useDispatch } from 'react-redux'
 import { setState } from '../../../store/slices/hotels_slice'
 import './styles.css'
+import { Rooms } from './rooms/Rooms'
 
 
 export const HotelDetails = () => {
@@ -26,7 +27,7 @@ export const HotelDetails = () => {
 
       <div className="hotelDescription-container">Description</div>
 
-      <div className="hotelRooms-container">Rooms</div>
+      <Rooms />
 
       <div className='reviews-container'>Reviews</div>
 
