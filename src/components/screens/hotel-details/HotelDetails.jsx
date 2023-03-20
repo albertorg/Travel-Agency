@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 import { HeroDetails } from './hero/HeroDetails'
 import { useDispatch } from 'react-redux'
 import { setState } from '../../../store/slices/hotels_slice'
-import './styles.css'
 import { Rooms } from './rooms/Rooms'
+import './styles.css'
 
 
 export const HotelDetails = () => {
@@ -18,7 +18,7 @@ export const HotelDetails = () => {
 
   useEffect(() => {
     dispatch(setState(state))
-
+    
   }, [dispatch])
 
   return (
@@ -27,7 +27,7 @@ export const HotelDetails = () => {
 
       <div className="hotelDescription-container">Description</div>
 
-      <Rooms />
+      <Rooms hotel={hotel} />
 
       <div className='reviews-container'>Reviews</div>
 
