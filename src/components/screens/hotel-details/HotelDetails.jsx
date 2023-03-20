@@ -18,7 +18,6 @@ export const HotelDetails = () => {
 
   useEffect(() => {
     dispatch(setState(state))
-    
   }, [dispatch])
 
   return (
@@ -27,7 +26,7 @@ export const HotelDetails = () => {
 
       <div className="hotelDescription-container">Description</div>
 
-      <Rooms hotel={hotel} />
+      <Rooms rooms={hotel.rooms} />
 
       <div className='reviews-container'>Reviews</div>
 

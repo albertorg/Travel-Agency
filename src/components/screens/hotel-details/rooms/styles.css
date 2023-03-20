@@ -4,7 +4,8 @@
     border: 4px solid transparent; /* #e8614c46  when is selected*/
     border-radius: 5px;
     box-shadow: var(--lmn-ds-elevations-medium);
-    padding: .5rem;
+    padding: .6rem;
+    margin: 1rem 0;
 }
 
 .roomInfo-container {
