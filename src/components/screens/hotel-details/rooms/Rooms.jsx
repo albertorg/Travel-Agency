@@ -6,7 +6,7 @@ import './styles.css'
 
 export const Rooms = ({ hotel }) => {
     return (
-        <div className="hotelRooms-container">
+        <section className="hotelRooms-container">
             <div className="room-card">
                 <h3>Estandar</h3>
                 <div className='roomInfo-container'>
@@ -22,6 +22,6 @@ export const Rooms = ({ hotel }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
