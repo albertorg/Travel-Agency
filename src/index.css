@@ -34,6 +34,11 @@
   --container-width-lg: 70%;
   --container-width-md: 85%;
   --container-width-sm: 95%;
+
+  --lmn-ds-elevations-medium: 
+    0px 10px 20px rgba(0, 0, 0, 0.04), 
+    0px 2px 10px rgba(0, 0, 0, 0.04), 
+    0px 0px 4px rgba(0, 0, 0, 0.02);
   
   --trasition: all 500ms ease;
 }

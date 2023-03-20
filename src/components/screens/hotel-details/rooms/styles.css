@@ -1,0 +1,13 @@
+.room-card {
+    background-color: white;
+    width: 100%;
+    border: 4px solid transparent; /* #e8614c46  when is selected*/
+    border-radius: 5px;
+    box-shadow: var(--lmn-ds-elevations-medium);
+    padding: .5rem;
+}
+
+.roomInfo-container {
+    display: flex;
+    justify-content: space-between;
+}
