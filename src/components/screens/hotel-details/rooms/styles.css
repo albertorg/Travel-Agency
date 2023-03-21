@@ -6,9 +6,33 @@
     box-shadow: var(--lmn-ds-elevations-medium);
     padding: .6rem;
     margin: 1rem 0;
+    cursor: pointer;
 }
 
 .roomInfo-container {
     display: flex;
     justify-content: space-between;
+}
+
+.roomName-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio {
+    width: 1rem;
+    height: 1rem;
+}
+
+.labelName {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.bestPrice {
+    background-color: #f5fbee;
+    color: #519200;
+    padding: 3px 8px;
+    border-radius: 4px; 
 }
