@@ -9,11 +9,6 @@
     cursor: pointer;
 }
 
-.roomInfo-container {
-    display: flex;
-    justify-content: space-between;
-}
-
 .roomName-container {
     display: flex;
     justify-content: space-between;
@@ -35,4 +30,27 @@
     color: #519200;
     padding: 3px 8px;
     border-radius: 4px; 
+}
+
+.roomInfo-container {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.priceRoom-container {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    align-items: flex-end;
+}
+
+.priceRoom {
+    color: var(--thm-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.totalPrice-info {
+    font-size: .8rem;
+    color: #8c8c92;
 }
