@@ -37,11 +37,13 @@ export const Rooms = ({ rooms }) => {
                             </div>
 
                             <div className='roomInfo-container'>
-                                <span>{formatString(room.rates[0].boardName)}</span>
+                                <span className='boardName'>
+                                    {formatString(room.rates[0].boardName)}
+                                </span>
                                 <div className='cancel-info-container'>
-                                    <SiAdguard />
-                                    <span>Free cancellation until 24/03/23</span>
-                                    <HiOutlineInformationCircle />
+                                    <SiAdguard className='cancellation-icon'/>
+                                    <span className='cancelInfo'>Free cancellation until 24/03/23</span>
+                                    <HiOutlineInformationCircle className='info-Icon'/>
                                 </div>
                             </div>
 

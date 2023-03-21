@@ -4,7 +4,7 @@
     border: 4px solid transparent; /* #e8614c46  when is selected*/
     border-radius: 5px;
     box-shadow: var(--lmn-ds-elevations-medium);
-    padding: .6rem;
+    padding: .6rem .8rem;
     margin: 1rem 0;
     cursor: pointer;
 }
@@ -30,11 +30,37 @@
     color: #519200;
     padding: 3px 8px;
     border-radius: 4px; 
+    font-size: 1.1rem;
 }
 
 .roomInfo-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: .5rem 0;
+}
+
+.boardName {
+    color: var(--thm-black);
+    font-weight: 600;
+}
+
+.cancel-info-container {
     display: flex;
-    /* justify-content: space-between; */
+    align-items: center;
+    gap: .4rem;
+}
+
+.cancelInfo {
+    color: var(--thm-black);
+}
+
+.cancellation-icon {
+    color: #519200;
+}
+
+.info-Icon {
+    color: #8c8c92;
+    font-size: 1rem;
 }
 
 .priceRoom-container {
@@ -54,3 +80,11 @@
     font-size: .8rem;
     color: #8c8c92;
 }
+
+@media screen and (max-width: 798px) {
+    .roomInfo-container {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+}
+
