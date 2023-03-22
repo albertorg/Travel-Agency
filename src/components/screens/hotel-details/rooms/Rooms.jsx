@@ -10,7 +10,6 @@ import './styles.css'
 export const Rooms = ({ rooms, booking}) => {
 
     const radio = useRadioState({ defaultActiveId: null })
-    console.log(rooms)
 
     const calculatetNights = () => {
         const numNight = differenceInCalendarDays(parseISO(booking.stay.checkOut), parseISO(booking.stay.checkIn))

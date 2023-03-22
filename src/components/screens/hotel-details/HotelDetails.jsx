@@ -29,11 +29,11 @@ export const HotelDetails = () => {
 
       <Rooms rooms={hotel.rooms} booking={state.hotels.booking}/>
 
-      <GoToPay />
-
       <div className='reviews-container'>Reviews</div>
 
       <div className="hotelFacilities-container">Facilities</div>
+
+      <GoToPay />
 
     </div>
   )
