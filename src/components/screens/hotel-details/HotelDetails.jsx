@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setState } from '../../../store/slices/hotels_slice'
 import { Rooms } from './rooms/Rooms'
 import './styles.css'
+import { GoToPay } from './bar-goToPay/GoToPay'
 
 
 export const HotelDetails = () => {
@@ -26,7 +27,9 @@ export const HotelDetails = () => {
 
       <div className="hotelDescription-container">Description</div>
 
-      <Rooms rooms={hotel.rooms} />
+      <Rooms rooms={hotel.rooms} booking={state.hotels.booking}/>
+
+      <GoToPay />
 
       <div className='reviews-container'>Reviews</div>
 

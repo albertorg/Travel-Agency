@@ -1,15 +1,23 @@
 import React from 'react'
 import { Radio, RadioGroup, useRadioState } from "ariakit/radio";
+import { differenceInCalendarDays, parseISO } from 'date-fns';
 import { SiAdguard } from 'react-icons/si'
 // import { IoMdClose } from 'react-icons/io'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { formatString } from '../../../../helpers/formatString'
 import './styles.css'
 
-export const Rooms = ({ rooms }) => {
+export const Rooms = ({ rooms, booking}) => {
 
     const radio = useRadioState({ defaultActiveId: null })
-    console.log(radio)
+    console.log(rooms)
+
+    const calculatetNights = () => {
+        const numNight = differenceInCalendarDays(parseISO(booking.stay.checkOut), parseISO(booking.stay.checkIn))
+        const gender = numNight === 1 ? 'night' : 'nights'
+
+        return `${numNight} ${gender}`
+    }
 
     const handleClick = (id) => {
         radio.move(id)
@@ -42,14 +50,18 @@ export const Rooms = ({ rooms }) => {
                                 </span>
                                 <div className='cancel-info-container'>
                                     <SiAdguard className='cancellation-icon'/>
-                                    <span className='cancelInfo'>Free cancellation until 24/03/23</span>
+                                    <span className='cancelInfo'>
+                                        {`Free cancellation until ${booking.stay.checkIn}`}
+                                    </span>
                                     <HiOutlineInformationCircle className='info-Icon'/>
                                 </div>
                             </div>
 
                             <div className="priceRoom-container">
                                 <span className='priceRoom'>{`${parseInt(room.rates[0].net)} €`}</span>
-                                <span className='totalPrice-info'>Total price: 2 nights</span>
+                                <span className='totalPrice-info'>
+                                    {`Total price: ${calculatetNights()}`}
+                                </span>
                             </div>
                         </div>
                     ))
