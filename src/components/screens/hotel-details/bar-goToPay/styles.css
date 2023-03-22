@@ -7,13 +7,15 @@
     padding: .5rem 1rem;
     bottom: 0;
     left: 0;
-    box-shadow: 2px 1px 10px 2px #30303030;
+    box-shadow: 0 0 10px 2px #3030301b;
+    line-height: normal;
 }
 
 .mainSpace {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .goToPay-container button {
@@ -26,4 +28,19 @@
     padding: .7rem 1rem;
     font-size: 1rem;
     font-weight: 700;
+}
+
+.barInfo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-inf {
+    font-size: 1.25rem;
+    color: var(--thm-primary);
+    font-weight: 700;
+}
+
+.info-pay {
+    font-size: .8rem;
 }
