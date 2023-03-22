@@ -22,8 +22,9 @@ export const CardHotelList = ({ hotel, index }) => {
     const formatNight = () => {
         const numNight = differenceInCalendarDays(parseISO(checkOut), parseISO(checkIn))
         const range = `${format(parseISO(checkIn), 'd MMM')} - ${format(parseISO(checkOut), 'd MMM')}`
+        const gender = numNight === 1 ? 'night' : 'nights'
         
-        return `${numNight} night・${range}`
+        return `${numNight} ${gender}・${range}`
     }
 
     const EventMouseEnter = () => {
