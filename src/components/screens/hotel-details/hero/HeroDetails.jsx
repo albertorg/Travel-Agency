@@ -6,10 +6,8 @@ import { FaMapMarkerAlt } from 'react-icons/fa'
 
 export const HeroDetails = ({ hotel }) => {
 
-
-
     return (
-        <div className='heroDetails-container'>
+        <div className='heroDetails-container main_container'>
             <div className="heroTitle-container">
                 <h1>{hotel.name}</h1>
                 <div className='hero-info'>

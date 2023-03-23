@@ -1,3 +1,7 @@
+.hotelRooms-container {
+    margin: 0 auto;
+}
+
 .room-card {
     background-color: white;
     width: 100%;

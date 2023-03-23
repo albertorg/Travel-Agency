@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { HeroDetails } from './hero/HeroDetails'
-import { useDispatch } from 'react-redux'
-import { setState } from '../../../store/slices/hotels_slice'
+import { Description } from './description/Description'
 import { Rooms } from './rooms/Rooms'
 import { GoToPay } from './bar-goToPay/GoToPay'
+import { useDispatch } from 'react-redux'
+import { setState } from '../../../store/slices/hotels_slice'
 import { useRadioState } from 'ariakit/radio'
 import { differenceInCalendarDays, parseISO } from 'date-fns'
 import './styles.css'
@@ -33,13 +34,16 @@ export const HotelDetails = () => {
   }, [dispatch])
 
   return (
-    <div className='hotelDelais-screen main_container'>
-      <HeroDetails hotel={hotel} />
-
-      <div className="hotelDescription-container">Description</div>
-
+    <div className='hotelDelais-screen'>
+      
+      <div className='back-white'>
+        <HeroDetails hotel={hotel} />
+      </div>
+      
       <Rooms rooms={hotel.rooms} booking={state.hotels.booking} nights={calculatetNights} state={radio}/>
 
+      <Description description={hotel.details.description}/>
+      
       <div className='reviews-container'>Reviews</div>
 
       <div className="hotelFacilities-container">Facilities</div>
