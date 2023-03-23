@@ -33,7 +33,7 @@ export const HotelDetails = () => {
     dispatch(setState(state))
   }, [dispatch])
 
-  return (
+  return ( 
     <div className='hotelDelais-screen'>
       
       <div className='back-white'>
