@@ -15,7 +15,7 @@ export const InfoWindow = ({index}) => {
     const path = `http://photos.hotelbeds.com/giata/${images[0].path}`
 
     return (
-        <Link to={`/hotel-details/${hotels[index].code}`} className='info_window_container'>
+        <Link to={`/hotel-details/${hotels[index].code}`} target='_blank' className='info_window_container'>
             <div className='img_container'>
                 <img src={path} alt="Hotel" />
             </div>
