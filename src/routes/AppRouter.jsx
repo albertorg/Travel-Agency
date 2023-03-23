@@ -6,6 +6,7 @@ import { ContactScreen } from '../components/screens/contact/ContactScreen';
 import { AboutScreen } from '../components/screens/about-as/AboutScreen';
 import { HotelDetails } from '../components/screens/hotel-details/HotelDetails';
 import { Navbar } from '../components/shared/navbar/Navbar';
+import { Pay } from '../components/screens/pay/Pay';
 
 export const AppRouter = () => {
     return (
@@ -17,6 +18,7 @@ export const AppRouter = () => {
                 <Route path='/contact' element={<ContactScreen />} />
                 <Route path='/about' element={<AboutScreen />} />
                 <Route path="/hotel-details/:hotelCode" element={<HotelDetails />} />
+                <Route path="/pay" element={<Pay />} />
 
                 <Route path="*" element={<Navigate to='/'/>} />
             </Routes>

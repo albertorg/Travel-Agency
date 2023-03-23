@@ -1,37 +1,27 @@
 import React from 'react'
-import { Radio, RadioGroup, useRadioState } from "ariakit/radio";
-import { differenceInCalendarDays, parseISO } from 'date-fns';
+import { Radio, RadioGroup } from "ariakit/radio";
 import { SiAdguard } from 'react-icons/si'
 // import { IoMdClose } from 'react-icons/io'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { formatString } from '../../../../helpers/formatString'
 import './styles.css'
 
-export const Rooms = ({ rooms, booking}) => {
-
-    const radio = useRadioState({ defaultActiveId: null })
-
-    const calculatetNights = () => {
-        const numNight = differenceInCalendarDays(parseISO(booking.stay.checkOut), parseISO(booking.stay.checkIn))
-        const gender = numNight === 1 ? 'night' : 'nights'
-
-        return `${numNight} ${gender}`
-    }
+export const Rooms = ({ rooms, booking, nights, state}) => {
 
     const handleClick = (id) => {
-        radio.move(id)
+        state.move(id)
     }
 
     return (
         <section className="hotelRooms-container">
-            <RadioGroup state={radio}>
+            <RadioGroup state={state}>
                 {
                     rooms.map((room, idx) => (
                         <div
                             className="room-card"
-                            style={radio.value === idx ? { borderColor: '#e6eff9' } : {}}
+                            style={state.value === idx ? { borderColor: '#e6eff9' } : {}}
                             key={idx}
-                            onClick={() => handleClick(radio.items[idx].id)}
+                            onClick={() => handleClick(state.items[idx].id)}
                         >
                             <div className="roomName-container">
                                 <h3 className='labelName'>
@@ -59,7 +49,7 @@ export const Rooms = ({ rooms, booking}) => {
                             <div className="priceRoom-container">
                                 <span className='priceRoom'>{`${parseInt(room.rates[0].net)} €`}</span>
                                 <span className='totalPrice-info'>
-                                    {`Total price: ${calculatetNights()}`}
+                                    {`Total price: ${nights()}`}
                                 </span>
                             </div>
                         </div>
