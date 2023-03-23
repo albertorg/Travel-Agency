@@ -9,6 +9,8 @@
     left: 0;
     box-shadow: 0 0 10px 2px #3030301b;
     line-height: normal;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
 }
 
 .mainSpace {
@@ -43,4 +45,8 @@
 
 .info-pay {
     font-size: .8rem;
+}
+
+.show {
+    transform: translateY(0);
 }
