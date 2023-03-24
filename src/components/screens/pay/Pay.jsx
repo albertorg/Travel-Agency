@@ -10,7 +10,8 @@ export const Pay = () => {
 
   return (
     <>
-      <Loading />
+      {true && <Loading />}
+      
     </>
   )
 }

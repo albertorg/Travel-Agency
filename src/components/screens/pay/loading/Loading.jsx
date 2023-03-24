@@ -4,7 +4,8 @@ import logo from '../../../../assets/funtravels_logo_transparent_small.png'
 import { BsCreditCard } from 'react-icons/bs'
 import './styles.css'
 
-export const Loading = (open) => {
+
+export const Loading = () => {
     
     return (
         <div className='loading-container '>
