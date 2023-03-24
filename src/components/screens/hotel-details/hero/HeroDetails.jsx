@@ -2,12 +2,17 @@ import React from 'react'
 import { Slider } from '../../../shared/slider/Slider'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { AiFillStar } from 'react-icons/ai'
+import { orderImages } from '../../../../helpers/order-images'
+import useWindowDimensions from '../../../../hooks/useWindowDimensions '
 import './styles.css'
 
 
 export const HeroDetails = ({ hotel }) => {
 
-    console.log(hotel)
+    const { width } = useWindowDimensions()
+    console.log(width)
+    const sortedImages = orderImages(hotel)
+    const lastImages = sortedImages.slice(-4)
 
     const getCategory = () => {
         const category = hotel.categoryName.split(' ')[0]
@@ -15,7 +20,6 @@ export const HeroDetails = ({ hotel }) => {
         if (!isNaN(category)) {
             return parseInt(category)
         }
-        
         return null
     }
 
@@ -28,13 +32,14 @@ export const HeroDetails = ({ hotel }) => {
                     <div className="rating-hero">
                         { 
                             getCategory() !== null &&
-                                [...Array(getCategory())].map(() => (
-                                    <AiFillStar className='category-icon'/>
+                                [...Array(getCategory())].map((s, idx) => (
+                                    <AiFillStar className='category-icon' key={idx}/>
                                 ))
                         }
-                        {/* <span>|</span> */}
                     </div>
+
                     <span>|</span>
+
                     <div className="address-hero">
                         <FaMapMarkerAlt />
                         {`${hotel.details.address.content} ${hotel.destinationName}`}
@@ -43,7 +48,22 @@ export const HeroDetails = ({ hotel }) => {
             </div>
 
             <div className="heroImages-container">
-                <Slider slides={hotel.details.images}/>
+                <Slider slides={sortedImages}/>
+                {
+                    width > 768 &&
+                        <div className='last-images'>
+                            {
+                                lastImages.map((image, idx) => (
+                                    <img
+                                        src={`http://photos.hotelbeds.com/giata/bigger/${image.path}`}
+                                        alt={hotel.name}
+                                        key={idx}
+                                    />
+                                ))
+                            }
+                        </div>
+                }
+                
             </div>
         </section>
     )
