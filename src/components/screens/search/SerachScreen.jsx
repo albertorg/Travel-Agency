@@ -5,9 +5,8 @@ import { MapView } from './map-view/MapView'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 import { getAvailability } from '../../../store/thunks/hotels-thunks'
 import { EmptyCard } from './card-hotel-list/EmptyCard'
+import { Box, LinearProgress } from '@mui/material'
 import './styles.css'
-import { Loading } from '../../shared/loading/Loading'
-import { Box, LinearProgress } from '@mui/material';
 
 export const SearchScreen = () => {
 
