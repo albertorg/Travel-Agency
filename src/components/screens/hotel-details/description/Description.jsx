@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { AiOutlineDown } from 'react-icons/ai'
 import './styles.css'
 
-const MAX_LENGTH = 300
-
 export const Description = ({ description }) => {
 
     const [showFullDescription, setShowFullDescription] = useState(false)
@@ -17,7 +15,7 @@ export const Description = ({ description }) => {
             <h2>General Information</h2>
             <div className='description'>
                 <h3>Description</h3>
-                <p className={showFullDescription ? 'showFullText descText' : 'descText'}>{description.content}</p>
+                <p className={showFullDescription ? 'descText showFullText' : 'descText'}>{description.content}</p>
                 <button onClick={handleClick}>
                     {
                         showFullDescription ? 'View less description' : 'View full description'

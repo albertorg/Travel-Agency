@@ -14,6 +14,7 @@ export const Rooms = ({ rooms, booking, nights, state}) => {
 
     return (
         <section className="hotelRooms-container main_container">
+            <h2>Select a room type</h2>
             <RadioGroup state={state}>
                 {
                     rooms.map((room, idx) => (
