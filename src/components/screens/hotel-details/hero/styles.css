@@ -66,6 +66,10 @@
     .heroImages-container {
         display: block;
     }
+
+    .last-images {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 600px) {

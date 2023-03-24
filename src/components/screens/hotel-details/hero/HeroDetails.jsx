@@ -3,13 +3,10 @@ import { Slider } from '../../../shared/slider/Slider'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { AiFillStar } from 'react-icons/ai'
 import { orderImages } from '../../../../helpers/order-images'
-import useWindowDimensions from '../../../../hooks/useWindowDimensions '
 import './styles.css'
 
 
 export const HeroDetails = ({ hotel }) => {
-
-    const { width } = useWindowDimensions()
      
     const sortedImages = orderImages(hotel)
     const lastImages = sortedImages.slice(-4)
@@ -49,21 +46,18 @@ export const HeroDetails = ({ hotel }) => {
 
             <div className="heroImages-container">
                 <Slider slides={sortedImages}/>
-                {
-                    width > 768 &&
-                        <div className='last-images'>
-                            {
-                                lastImages.map((image, idx) => (
-                                    <img
-                                        src={`http://photos.hotelbeds.com/giata/bigger/${image.path}`}
-                                        alt={hotel.name}
-                                        key={idx}
-                                    />
-                                ))
-                            }
-                        </div>
-                }
-                
+            
+                <div className='last-images'>
+                    {
+                        lastImages.map((image, idx) => (
+                            <img
+                                src={`http://photos.hotelbeds.com/giata/bigger/${image.path}`}
+                                alt={hotel.name}
+                                key={idx}
+                            />
+                        ))
+                    }
+                </div>
             </div>
         </section>
     )
