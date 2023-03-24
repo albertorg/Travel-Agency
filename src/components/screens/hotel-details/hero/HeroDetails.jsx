@@ -10,7 +10,7 @@ import './styles.css'
 export const HeroDetails = ({ hotel }) => {
 
     const { width } = useWindowDimensions()
-    console.log(width)
+     
     const sortedImages = orderImages(hotel)
     const lastImages = sortedImages.slice(-4)
 

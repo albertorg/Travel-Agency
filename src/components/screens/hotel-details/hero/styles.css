@@ -34,20 +34,20 @@
 }
 
 
-
 .heroImages-container {
     margin-top: .7rem;
     height: 400px;
     display: grid;
     grid-template-columns: 1fr 1fr ;
-    gap: .7rem;
+    gap: .6rem;
+    position: relative;
 }
 
 .last-images {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: .7rem;
+    gap: .6rem;
     overflow: hidden;
 }
 
@@ -58,7 +58,6 @@
     border-radius: .5rem;
     overflow: hidden;
 }
-
 
 
 
