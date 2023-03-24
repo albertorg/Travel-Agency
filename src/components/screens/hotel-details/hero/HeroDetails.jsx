@@ -3,6 +3,9 @@ import { Slider } from '../../../shared/slider/Slider'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { AiFillStar } from 'react-icons/ai'
 import { orderImages } from '../../../../helpers/order-images'
+import { TbWorld } from 'react-icons/tb'
+import { HiMail } from 'react-icons/hi'
+import { BsFillTelephoneFill } from 'react-icons/bs'
 import './styles.css'
 
 
@@ -58,6 +61,27 @@ export const HeroDetails = ({ hotel }) => {
                         ))
                     }
                 </div>
+            </div>
+
+            <div className='infContact-container'>
+                <div className='infHotel-container'>
+                    <h3>Contact information</h3>
+                    <div className='infContact-lay'>
+                        <div className='infContact'>
+                            <TbWorld />
+                            {hotel.details.web}
+                        </div>
+                        <div className='infContact'>
+                            <BsFillTelephoneFill />
+                            {hotel.details.phones[0].phoneNumber}
+                        </div>
+                        <div className='infContact'>
+                            <HiMail />
+                            {hotel.details.email}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     )

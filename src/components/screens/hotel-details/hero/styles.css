@@ -59,6 +59,31 @@
     overflow: hidden;
 }
 
+/* ======== info Contact ======= */
+
+.infContact-container {
+    margin-top: 1.3rem;
+}
+
+.infHotel-container h3 {
+    font-size: 1.2rem;
+}
+
+.infContact {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    gap: .5rem;
+    color: var(--thm-black);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.infContact svg {
+    color: var(--thm-primary);
+    font-size: 1.1rem;
+}
 
 
 

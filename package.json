@@ -4,7 +4,10 @@
   "private": true,
   "proxy": "https://api.test.hotelbeds.com",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@headlessui/react": "^1.7.4",
+    "@mui/material": "^5.11.14",
     "@radix-ui/react-navigation-menu": "^1.1.1",
     "@radix-ui/react-popover": "^1.0.2",
     "@react-google-maps/api": "^2.17.0",
