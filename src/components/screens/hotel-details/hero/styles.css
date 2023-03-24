@@ -1,7 +1,59 @@
 .heroDetails-container {
     margin: 0 auto;
+    margin-top: 1.5rem;
 }
 
+.heroTitle-container h1 {
+    margin-bottom: .5rem;
+}
+
+.hero-info {
+    display: flex;
+    gap: .5rem;
+}
+
+.hero-info > span {
+    color: #dbdbdd;
+}
+
+.rating-hero {
+    display: flex;
+    align-items: center;
+}
+
+.category-icon {
+    color: #ffaa06;
+}
+
+.address-hero {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--thm-black);
+    
+}
+
+
+
+
 .heroImages-container {
+    margin-top: .7rem;
     height: 400px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .hero-info {
+        flex-direction: column;
+        line-height: normal;
+    }
+
+    .hero-info > span {
+        display: none;
+    }
+
+    .address-hero {
+        align-items: first baseline;
+    }
+
 }
