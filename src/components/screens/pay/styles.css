@@ -1,0 +1,24 @@
+.color-body{
+    background-color: #f9f8f8;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr 38%;
+    gap: 1rem;
+    margin: 0 auto;
+    padding-top: 2rem;
+    line-height: normal;
+    color: var(--thm-black);
+}
+
+.checkout-container main {
+    grid-column: 1;
+    grid-row: 1;
+    
+}
+
+.checkout-container aside {
+    grid-column: 2;
+    background-color: beige;
+}

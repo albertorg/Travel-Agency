@@ -1,0 +1,31 @@
+.recordatory {
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    padding: .8rem 1rem;
+    background-color: white;
+    border-radius: .5rem;
+    gap: 1rem;
+}
+
+.recordatory img {
+    width: 64px;
+    height: 64px;
+}
+
+.info-recordatory {
+    font-size: 1rem;
+}
+
+/* ======= FORM ========== */
+.formPerson-container {
+    background-color: white;
+    border-radius: .5rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem 1rem;
+}
+
+.formPerson-container form {
+    display: flex;
+    flex-direction: column;
+}

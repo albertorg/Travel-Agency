@@ -3,6 +3,6 @@ import './styles.css'
 
 export const SideBar = () => {
   return (
-    <div>SideBar</div>
+    <aside>SideBar</aside>
   )
 }

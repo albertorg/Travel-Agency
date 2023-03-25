@@ -14,37 +14,39 @@ import './styles.css'
 export const Pay = () => {
 
   const { isLoading } = useSelector(state => state.hotels)
-  const booking = useSelector(state => state.booking)
   const dispatch = useDispatch()
   
   const rateKey = localStorage.getItem('rateKey')
 
-  useEffect(() => {
-    const check = JSON.stringify({
-      rooms: [{
-        rateKey,
-      }]
-    })
+  // useEffect(() => {
+  //   const check = JSON.stringify({
+  //     rooms: [{
+  //       rateKey,
+  //     }]
+  //   })
 
-    dispatch(checkRate(check))
-  }, [])
+  //   dispatch(checkRate(check))
+  // }, [])
   
 
   return (
     <>
       {isLoading && <Loading />}
 
-      <main>
-        <SideBar />
+      <div className='color-body'>
+        <div className='checkout-container container'>
+          <SideBar />
 
-        <div>
-          <PersonInfo />
-          <HotelComunication />
-          <MultiPayment />
-          <Privacy />
-          <Submit />
+          <main>
+            <PersonInfo />
+            <HotelComunication />
+            <MultiPayment />
+            <Privacy />
+            <Submit />
+          </main>
         </div>
-      </main>
+      </div>
+
     </>
   )
 }
