@@ -33,6 +33,9 @@ export const hotelsSlice = createSlice({
         startLoading: (state) => {
             state.isLoading = true
         },
+        endLoading: (state) => {
+            state.isLoading = false
+        },
         setHotels: (state, { payload }) => {
             state.hotels = payload
             state.isLoading = false
@@ -93,6 +96,7 @@ export const hotelsSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { 
     startLoading,
+    endLoading,
     setHotels,
     cleanHotels,
     setSelected,

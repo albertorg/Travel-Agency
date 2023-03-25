@@ -13,7 +13,7 @@ import './styles.css'
 
 export const HotelDetails = () => {
 
-  const radio = useRadioState({ defaultActiveId: null })
+  const radio = useRadioState({ defaultActiveId: null,  })
   const dispatch = useDispatch()
   const { hotelCode } = useParams()
   const code = parseInt(hotelCode)
@@ -33,25 +33,28 @@ export const HotelDetails = () => {
     dispatch(setState(state))
   }, [dispatch])
 
-  
 
-  return ( 
+  return (
     <div className='hotelDelais-screen'>
-      
+
       <div className='back-white'>
         <HeroDetails hotel={hotel} />
       </div>
-      
-      <Rooms rooms={hotel.rooms} booking={state.hotels.booking} nights={calculatetNights} state={radio}/>
 
-      <Description description={hotel.details.description}/>
-      
+      <Rooms rooms={hotel.rooms} booking={state.hotels.booking} nights={calculatetNights} state={radio} />
+
+      <Description description={hotel.details.description} />
+
       <div className='reviews-container'>Reviews</div>
 
       <div className="hotelFacilities-container">Facilities</div>
 
       {
-        radio.value !== null && <GoToPay room={hotel.rooms[radio.value]} nights={calculatetNights} />
+        radio.value !== null && 
+          <GoToPay 
+            room={hotel.rooms[radio.value]} 
+            nights={calculatetNights} 
+            booking={state.hotels.booking}/>
       }
 
     </div>
