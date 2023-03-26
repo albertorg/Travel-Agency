@@ -27,3 +27,14 @@
     display: flex;
     align-items: center;
 }
+
+.label-check {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-check span:first-of-type {
+    font-size: 1rem;
+    color: var(--thm-black);
+    font-weight: 700;
+}
