@@ -1,0 +1,34 @@
+.submit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.submit-container button {
+    background-color: var(--thm-primary);
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .9rem;
+    padding: .7rem;
+    border-radius: 4px;
+    min-width: 279px;
+}
+
+.submit-container button:hover {
+    background-color: #bc4d3c;
+}
+
+.ssl-container {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: .76rem;
+}
+
+.ssl-container svg {
+    width: 14px;
+    height: 14px;
+}

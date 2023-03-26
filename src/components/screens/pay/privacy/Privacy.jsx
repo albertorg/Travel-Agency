@@ -4,8 +4,6 @@ import './styles.css'
 
 export const Privacy = () => {
 
-  const label = 'You consent, as per point 3. F. of the Privacy Policy, to receive personalized business proposals by mail, email, text message, telephone, or automatically processed online advertisements, including proposals and offers on products and services from us or selected third parties (with whom we do not share your information collected here). To revoke your consent, write to privacy.it@lastminutegroup.com. Show less'
-
   return (
     <section className='privacy-section'>
       <div className="acceptConditions-container styleCondition-container">
