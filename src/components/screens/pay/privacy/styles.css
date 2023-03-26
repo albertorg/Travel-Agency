@@ -22,3 +22,8 @@
 .styleCondition-container button:hover {
     color: #8c8c92;
 }
+
+.acceptConditions-container {
+    display: flex;
+    align-items: center;
+}
