@@ -3,9 +3,9 @@ import passport from '../../../../assets/payment/Blue_Passport.svg'
 import PhoneInput from 'react-phone-number-input'
 import { useForm } from '../../../../hooks/useForm'
 import { useDispatch } from 'react-redux'
+import { setholderBook } from '../../../../store/slices/booking-slice'
 import 'react-phone-number-input/style.css'
 import './styles.css'
-import { setholderBook } from '../../../../store/slices/booking-slice'
 
 
 export const PersonInfo = () => {
@@ -27,7 +27,7 @@ export const PersonInfo = () => {
     }
 
     dispatch(setholderBook({name, surname, email, phone}))
-  }, [name, surname, email, phoneNumber])
+  }, [name, surname, email, phoneNumber, dispatch])
   
 
   return (

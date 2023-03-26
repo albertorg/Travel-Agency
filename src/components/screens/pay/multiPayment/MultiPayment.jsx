@@ -35,11 +35,11 @@ export const MultiPayment = () => {
 
       <RadioGroup state={radio}>
         <div className='creditCard-container'>
-          <Radio value='creditCard' checked/>
+          <Radio value='creditCard' className='radio-payment' checked/>
 
           <div className='creditCard'>
             <div className='creditDebit'>
-              <span>Credit/debit card</span>
+              <span>Credit/Debit Card</span>
               <div className='creditCards-images'>
                 <img src={visa} alt="visa" />
                 <img src={mastercard} alt="mastercard" />
@@ -49,11 +49,46 @@ export const MultiPayment = () => {
               </div>
             </div>
 
-            <input value={name} name='name' onChange={handleInputChange} className='bigInput'/>
-            <input {...getCardNumberProps({ onChange: handleInputChange })} value={cardNumber} className='bigInput'/>
-            <input {...getExpiryDateProps({ onChange: handleInputChange })} value={expiryDate} className='expiry' />
-            <input {...getCVCProps({ onChange: handleInputChange })} value={cvc} className='cvc' />
-            {meta.isTouched && meta.error && <span>Error: {meta.error}</span>}
+            <div className='inputs-container'>
+              <div>
+                <label htmlFor="nameCard">Cardholder name</label>
+                <input 
+                  value={name} 
+                  name='name' 
+                  onChange={handleInputChange} 
+                  id='nameCard'
+                />
+              </div>
+
+              <div>
+                <label htmlFor="cardNum">Card number</label>
+                <input 
+                  {...getCardNumberProps({ onChange: handleInputChange })} 
+                  value={cardNumber} 
+                  id='cardNum' />
+              </div>
+
+              <div className='shorts-Inputs'>
+                <div className='exp-input'>
+                  <label htmlFor="exp">Expiration date</label>
+                  <input 
+                    {...getExpiryDateProps({ onChange: handleInputChange })} 
+                    value={expiryDate} 
+                    id='exp' />
+                </div>
+
+                <div className='cvc-input'>
+                  <label htmlFor="cvc">CVC</label>
+                  <input 
+                    {...getCVCProps({ onChange: handleInputChange })} 
+                    value={cvc} 
+                    id='cvc' />
+                </div>
+
+              </div>
+
+              {meta.isTouched && meta.error && <span>Error: {meta.error}</span>}
+            </div>
 
             <div className='secure-images'>
               <img src={mastercardSec} alt="mastercard_sec" />
