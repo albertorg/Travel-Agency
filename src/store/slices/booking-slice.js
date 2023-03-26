@@ -3,7 +3,12 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     oldBooking: {},
     rateK: '',
-    hotel: {}
+    hotel: {},
+    book: {
+        holder: {},
+        paymentData: {},
+        rooms: []
+    }
 }
 
 export const bookingSlice = createSlice({
@@ -17,11 +22,24 @@ export const bookingSlice = createSlice({
         setHotel: (state, {payload}) => {
             state.hotel = payload
         },
+        setholderBook: (state, {payload}) => {
+            state.book.holder = {
+                name: payload.name,
+                surname: payload.surname
+            } 
+            state.book.paymentData = {
+                contactData: {
+                    email: payload.email,
+                    phoneNumber: payload.phone
+                }
+            }
+        }
     }
 })
 
 // Action creators are generated for each case reducer function
 export const {
     setBookingState,
-    setHotel
+    setHotel, 
+    setholderBook,
 } = bookingSlice.actions
