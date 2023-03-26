@@ -1,0 +1,20 @@
+.hotelComunicaton {
+    margin: 1.5rem 0;
+}
+
+.cancelConditions-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #e6f5cc;
+    border: 1px solid rgba(131, 205, 0, .24);
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: .92rem;
+    color: #3c3c3c;
+}
+
+.cancelConditions-container h3 {
+    font-weight: 400;
+    font-size: 1.13rem;
+    margin-bottom: .2rem;
+}

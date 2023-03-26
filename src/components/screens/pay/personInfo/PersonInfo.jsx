@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import passport from '../../../../assets/payment/Blue_Passport.svg'
-import PhoneInput, { formatPhoneNumber } from 'react-phone-number-input'
+import PhoneInput from 'react-phone-number-input'
 import { useForm } from '../../../../hooks/useForm'
 import { useDispatch } from 'react-redux'
 import 'react-phone-number-input/style.css'
