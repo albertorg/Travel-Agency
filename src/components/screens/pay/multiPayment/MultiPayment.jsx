@@ -87,7 +87,7 @@ export const MultiPayment = () => {
 
               </div>
 
-              {meta.isTouched && meta.error && <span>Error: {meta.error}</span>}
+              {meta.isTouched && meta.error && <span className='error-message'>{meta.error}</span>}
             </div>
 
             <div className='secure-images'>

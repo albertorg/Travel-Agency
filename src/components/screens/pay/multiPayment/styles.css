@@ -24,7 +24,7 @@
 .creditCard-container {
     padding: 1rem;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     gap: .5rem;
     margin-top: 1rem;
 }
@@ -108,7 +108,6 @@
     align-items: center;
     gap: 22px;
     overflow: hidden;
-    /* margin-top: 1.5rem; */
 }
 
 .secure-images img:nth-child(1){
@@ -124,4 +123,14 @@
 
 .secure-images img:nth-child(3) {
     height: 34px;
+}
+
+
+.error-message {
+    color: #f73333;
+    background-color: #ffe7e7;
+    padding: .3rem .5rem;
+    border: 1px solid #facdcd;
+    border-radius: 3px;
+    font-size: 1.1rem;
 }
