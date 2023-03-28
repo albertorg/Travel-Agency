@@ -20,6 +20,7 @@ export const HotelDetails = () => {
 
   const state = JSON.parse(localStorage.getItem('state'))
   const hotel = state.hotels.hotels.find(hotel => hotel.code === code)
+  
 
   const calculatetNights = () => {
     const stay = state.hotels.booking.stay
@@ -31,7 +32,8 @@ export const HotelDetails = () => {
 
   useEffect(() => {
     dispatch(setState(state))
-  }, [dispatch])
+    localStorage.setItem('hotel', JSON.stringify(hotel))
+  }, [dispatch, hotel, state])
 
 
   return (

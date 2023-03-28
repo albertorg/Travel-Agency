@@ -1,12 +1,12 @@
 import React from 'react'
 import { Slider } from '../../../shared/slider/Slider'
 import { FaMapMarkerAlt } from 'react-icons/fa'
-import { AiFillStar } from 'react-icons/ai'
 import { orderImages } from '../../../../helpers/order-images'
 import { TbWorld } from 'react-icons/tb'
 import { HiMail } from 'react-icons/hi'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import './styles.css'
+import { CategoryStars } from '../../../shared/category-stars/CategoryStars'
 
 
 export const HeroDetails = ({ hotel }) => {
@@ -14,29 +14,13 @@ export const HeroDetails = ({ hotel }) => {
     const sortedImages = orderImages(hotel)
     const lastImages = sortedImages.slice(-4)
 
-    const getCategory = () => {
-        const category = hotel.categoryName.split(' ')[0]
-        
-        if (!isNaN(category)) {
-            return parseInt(category)
-        }
-        return null
-    }
-
 
     return (
         <section className='heroDetails-container main_container'>
             <div className="heroTitle-container">
                 <h1>{hotel.name}</h1>
                 <div className='hero-info'>
-                    <div className="rating-hero">
-                        { 
-                            getCategory() !== null &&
-                                [...Array(getCategory())].map((s, idx) => (
-                                    <AiFillStar className='category-icon' key={idx}/>
-                                ))
-                        }
-                    </div>
+                    <CategoryStars category={hotel.categoryName}/>
 
                     <span>|</span>
 

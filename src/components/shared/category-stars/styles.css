@@ -1,0 +1,9 @@
+
+.rating-hero {
+    display: flex;
+    align-items: center;
+}
+
+.category-icon {
+    color: #ffaa06;
+}

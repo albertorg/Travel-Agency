@@ -1,10 +1,23 @@
 import React from 'react'
 import { BsFillKeyFill } from 'react-icons/bs'
-import { HiStar } from 'react-icons/hi'
 import shield_stars from '../../../../assets/payment/shield_stars_vg.svg'
+import { CategoryStars } from '../../../shared/category-stars/CategoryStars'
+import { formatString } from '../../../../helpers/formatString'
+import { differenceInCalendarDays, parseISO } from 'date-fns'
 import './styles.css'
 
-export const SideBar = () => {
+export const SideBar = ({ hotel, room }) => {
+
+  const booking = JSON.parse(localStorage.getItem('booking'))
+  // console.log(booking.occupancies)
+
+  const calculatetNights = () => {
+    const numNight = differenceInCalendarDays(parseISO(booking.stay.checkOut), parseISO(booking.stay.checkIn))
+    const gender = numNight === 1 ? 'night' : 'nights'
+
+    return `${numNight} ${gender}`
+  }
+
   return (
     <aside >
       <div className='aside-hotel-info'>
@@ -20,12 +33,12 @@ export const SideBar = () => {
 
             <div>
               <div className='name-category'>
-                <span>Hotel Brisas Guardalavaca</span>
-                <HiStar />
+                <span>{hotel.name}</span>
+                <CategoryStars category={hotel.categoryName} />
               </div>
 
               <div className='address-data'>
-                Playa Guardalavaca Banes, Playa Guardalavaca
+                {`${hotel.details.address.content}, ${hotel.zoneName}`}
               </div>
               <div className='check-date'>
                 mer 29 mar 2023 - gio 30 mar 2023
@@ -34,8 +47,8 @@ export const SideBar = () => {
               <div className='booking-data-container'>
                 <div className='num-rooms'>1X</div>
                 <div className='booking-data'>
-                  <span>1 Notte, All inclusive</span>
-                  <span>2 Adulti</span>
+                  <span>{`${calculatetNights()}, ${formatString(room.rates[0].boardName)}`}</span>
+                  <span>{`${booking.occupancies[0].adults} Adults`}</span>
                 </div>
               </div>
             </div>
@@ -45,8 +58,8 @@ export const SideBar = () => {
             <div>
               <h4>Free cancellation</h4>
               <span>
-                You can cancel the reservation of your
-                your room until March 29, 2023.
+                {`You can cancel the reservation of your
+                your room until March 29, 2023.`}
               </span>
             </div>
             <div>
@@ -56,7 +69,7 @@ export const SideBar = () => {
 
           <div className='total-price-container'>
             <span>Total price</span>
-            <span>92,87 €</span>
+            <span>{`${room.rates[0].net} €`}</span>
           </div>
 
         </div>

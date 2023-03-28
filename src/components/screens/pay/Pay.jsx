@@ -17,6 +17,12 @@ export const Pay = () => {
   const dispatch = useDispatch()
   
   const rateKey = localStorage.getItem('rateKey')
+  // const {hotel} = useSelector(state => state.booking) 
+  const hotel = JSON.parse(localStorage.getItem('hotel'))
+  const room = hotel.rooms.find(room => room.rates[0].rateKey === rateKey)
+
+
+  console.log(room)
 
   // useEffect(() => {
   //   const check = JSON.stringify({
@@ -26,27 +32,29 @@ export const Pay = () => {
   //   })
 
   //   dispatch(checkRate(check))
-  // }, [])
+  // }, [dispatch, rateKey])
   
 
   return (
     <>
       {isLoading && <Loading />}
 
-      <div className='color-body'>
-        <div className='checkout-container container'>
-          <SideBar />
+      {
+        !isLoading && 
+          <div className='color-body'>
+            <div className='checkout-container container'>
+              <SideBar hotel={hotel} room={room}/>
 
-          <main>
-            <PersonInfo />
-            <HotelComunication />
-            <MultiPayment />
-            <Privacy />
-            <Submit />
-          </main>
-        </div>
-      </div>
-
+              <main>
+                <PersonInfo />
+                <HotelComunication />
+                <MultiPayment />
+                <Privacy />
+                <Submit />
+              </main>
+            </div>
+          </div>
+      }
     </>
   )
 }

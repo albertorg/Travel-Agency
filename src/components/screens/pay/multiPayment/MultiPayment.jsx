@@ -24,7 +24,6 @@ export const MultiPayment = () => {
   const { name, cardNumber, expiryDate, cvc } = values
   const radio = useRadioState()
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs()
-  console.log(meta)
 
   return (
     <section className='payment-section'>
