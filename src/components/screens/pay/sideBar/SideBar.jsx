@@ -19,17 +19,21 @@ export const SideBar = () => {
             </div>
 
             <div>
-              <div className='name-ctegory'>
+              <div className='name-category'>
                 <span>Hotel Brisas Guardalavaca</span>
                 <HiStar />
               </div>
 
-              <div>Playa Guardalavaca Banes, Playa Guardalavaca</div>
-              <div>mer 29 mar 2023gio 30 mar 2023</div>
+              <div className='address-data'>
+                Playa Guardalavaca Banes, Playa Guardalavaca
+              </div>
+              <div className='check-date'>
+                mer 29 mar 2023 - gio 30 mar 2023
+              </div>
 
-              <div>
-                <div>1X</div>
-                <div>
+              <div className='booking-data-container'>
+                <div className='num-rooms'>1X</div>
+                <div className='booking-data'>
                   <span>1 Notte, All inclusive</span>
                   <span>2 Adulti</span>
                 </div>

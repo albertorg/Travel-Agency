@@ -18,15 +18,67 @@
     border-bottom: 1px solid #e3e3e3;
 }
 
+.data-hotel-container {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.key-round {
+    display: grid;
+    place-items: center;
+    min-width: 32px;
+    height: 32px;
+    font-size: 20px;
+    color: gray;
+    background-color: #e9ebee;
+    border-radius: 50%;
+}
+
+.name-category span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-right: .5rem;
+}
 
 
 
 
+.address-data {
+    font-size: .9rem;
+    margin: .3rem 0;
+    color: rgb(138, 138, 138);
+}
+
+.check-date {
+    font-size: .9rem;
+}
+
+.booking-data-container {
+    display: flex;
+    gap: .5rem;
+    margin-top: 1rem;
+}
+
+.num-rooms {
+    width: 32px;
+    height: 32px;
+    background-color: #e9ebee;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+}
+
+.booking-data {
+    display: flex;
+    flex-direction: column;
+    font-size: .8rem;
+}
 
 .free-cancel-container {
     display: flex;
     padding: 1rem 0;
-    font-size: .92rem;
+    font-size: .96rem;
 }
 
 .free-cancel-container h4 {
