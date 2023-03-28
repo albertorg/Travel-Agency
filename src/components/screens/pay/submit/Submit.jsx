@@ -2,11 +2,11 @@ import React from 'react'
 import { IoIosLock } from 'react-icons/io'
 import './styles.css'
 
-export const Submit = () => {
+export const Submit = ({ room }) => {
 
   return (
     <section className='submit-container'>
-      <button>Book now for 92.59 €</button>
+      <button>{`Book now for ${room.rates[0].net} €`}</button>
       
       <div className='ssl-container'>
         <IoIosLock />

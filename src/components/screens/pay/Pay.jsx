@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Loading } from './loading/Loading'
-import { checkRate } from '../../../store/thunks/booking-thunks'
 import { SideBar } from './sideBar/SideBar'
 import { PersonInfo } from './personInfo/PersonInfo'
 import { HotelComunication } from './hotelComunication/HotelComunication'
@@ -50,7 +49,7 @@ export const Pay = () => {
                 <HotelComunication />
                 <MultiPayment />
                 <Privacy room={room}/>
-                <Submit />
+                <Submit room={room}/>
               </main>
             </div>
           </div>
