@@ -2,7 +2,7 @@ import React from 'react'
 import { Checkbox } from '@mui/material';
 import './styles.css'
 
-export const Privacy = () => {
+export const Privacy = ({ room }) => {
 
   return (
     <section className='privacy-section'>
@@ -17,7 +17,7 @@ export const Privacy = () => {
 
       <div className="linkConditions-container styleCondition-container">
 
-        By clicking on "Book now for €{92.59}" you 
+        By clicking on "Book now for {room.rates[0].net} €" you 
         proceed with payment and confirm that you have read and agree
         to the <button>Terms and Conditions</button> and the hotel's terms 
         and conditions regarding changes and cancellations, as well as 

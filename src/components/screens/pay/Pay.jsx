@@ -49,7 +49,7 @@ export const Pay = () => {
                 <PersonInfo />
                 <HotelComunication />
                 <MultiPayment />
-                <Privacy />
+                <Privacy room={room}/>
                 <Submit />
               </main>
             </div>
