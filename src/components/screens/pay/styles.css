@@ -23,3 +23,17 @@
     position: relative;
     grid-column: 2;
 }
+
+@media screen and (max-width: 786px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-container aside {
+        grid-column: auto;
+    }
+
+    .checkout-container main {
+        grid-row: auto;
+    }
+}
