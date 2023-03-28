@@ -3,13 +3,12 @@ import { BsFillKeyFill } from 'react-icons/bs'
 import shield_stars from '../../../../assets/payment/shield_stars_vg.svg'
 import { CategoryStars } from '../../../shared/category-stars/CategoryStars'
 import { formatString } from '../../../../helpers/formatString'
-import { differenceInCalendarDays, parseISO } from 'date-fns'
+import { differenceInCalendarDays, format, parseISO } from 'date-fns'
 import './styles.css'
 
 export const SideBar = ({ hotel, room }) => {
 
   const booking = JSON.parse(localStorage.getItem('booking'))
-  // console.log(booking.occupancies)
 
   const calculatetNights = () => {
     const numNight = differenceInCalendarDays(parseISO(booking.stay.checkOut), parseISO(booking.stay.checkIn))
@@ -17,6 +16,8 @@ export const SideBar = ({ hotel, room }) => {
 
     return `${numNight} ${gender}`
   }
+
+  const range = `${format(parseISO(booking.stay.checkIn), 'iii d MMM y')} - ${format(parseISO(booking.stay.checkOut), 'iii d MMM y')}`
 
   return (
     <aside >
@@ -41,7 +42,7 @@ export const SideBar = ({ hotel, room }) => {
                 {`${hotel.details.address.content}, ${hotel.zoneName}`}
               </div>
               <div className='check-date'>
-                mer 29 mar 2023 - gio 30 mar 2023
+                {range}
               </div>
 
               <div className='booking-data-container'>
@@ -59,7 +60,7 @@ export const SideBar = ({ hotel, room }) => {
               <h4>Free cancellation</h4>
               <span>
                 {`You can cancel the reservation of your
-                your room until March 29, 2023.`}
+                your room until ${format(parseISO(booking.stay.checkIn), 'MMMM d, y')}.`}
               </span>
             </div>
             <div>
