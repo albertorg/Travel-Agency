@@ -1,0 +1,48 @@
+.aside-hotel-info {
+    background-color: white;
+    border-radius: .5rem;
+    position: sticky;
+    top: 0;
+}
+
+.aside-title {
+    padding: 1rem;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.info-trip-container {
+    padding: 1rem;
+}
+
+.show-edge {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+
+
+
+
+
+.free-cancel-container {
+    display: flex;
+    padding: 1rem 0;
+    font-size: .92rem;
+}
+
+.free-cancel-container h4 {
+    font-size: 1.1rem;
+    margin-bottom: .5rem;
+}
+
+.free-cancel-container img {
+    width: 80px;
+    height: 80px;
+}
+
+.total-price-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1.3rem;
+}
