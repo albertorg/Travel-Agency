@@ -20,5 +20,6 @@
 }
 
 .checkout-container aside {
+    position: relative;
     grid-column: 2;
 }
