@@ -2,7 +2,7 @@
   "name": "funbook",
   "version": "1.0.0",
   "private": true,
-  "proxy": "https://api.test.hotelbeds.com",
+  "proxy": "https://api-secure.test.hotelbeds.com",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",

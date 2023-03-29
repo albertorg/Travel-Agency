@@ -22,6 +22,7 @@ export const MultiPayment = () => {
     cvc: ''
   })
   const { name, cardNumber, expiryDate, cvc } = values
+
   const radio = useRadioState()
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs()
 
@@ -53,6 +54,7 @@ export const MultiPayment = () => {
                 <label htmlFor="nameCard">Cardholder name</label>
                 <input 
                   value={name} 
+                  type='text'
                   name='name' 
                   onChange={handleInputChange} 
                   id='nameCard'

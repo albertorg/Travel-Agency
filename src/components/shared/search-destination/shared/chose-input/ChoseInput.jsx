@@ -18,7 +18,7 @@ export const ChoseInput = ({ label, text, Icon, IconList, inputStyle }) => {
     useEffect(() => {
         const isSelected = Object.keys(hotels.selected).length !== 0 
         isSelected && combobox.setValue(hotels.selected.name.content)
-    }, [])
+    }, [hotels.selected, combobox]) // added per error
 
     const handleClickItem = (item) => {
         dispatch(setSelected(item))
