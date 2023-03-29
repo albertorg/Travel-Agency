@@ -10,7 +10,7 @@ export const checkRate = (rate) => {
 
         const configAvailable = {
             method: 'post',
-            url: `/hotel-api/1.0/checkrates`, //https://api.test.hotelbeds.com add or delete
+            url: `http://localhost:4000/api/booking/checkrates`,
             headers: {
                 'Api-key': process.env.REACT_APP_API_KEY,
                 'X-Signature': xSignature(),
@@ -32,22 +32,18 @@ export const checkRate = (rate) => {
 export const BookingConfirmation = () => {
     return async (dispatch, getState) => {
         dispatch(startLoading())
-        const booking = getState().booking.book
-        delete booking.paymentData
 
-        const configAvailable = {
+        const config = {
             method: 'post',
-            url: `/hotel-api/1.0/bookings`,  //https://api-secure.test.hotelbeds.com add or delete
+            url: `http://localhost:4000/api/booking/confirmation/`,
             headers: {
-                'Api-key': process.env.REACT_APP_API_KEY,
-                'X-Signature': xSignature(),
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: booking
+            data: getState().booking.book
         }
 
-        const { data } = await axios(configAvailable)
+        const { data } = await axios(config)
 
         console.log(data)
         dispatch(endLoading())

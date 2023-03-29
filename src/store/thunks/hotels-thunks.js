@@ -14,7 +14,7 @@ export const getHotelsCityList = (destinationCode) => {
         }
 
         const config = {
-            url: 'https://funtravels.net/api/hotels/filter/',
+            url: 'https://funtravels.net/api/hotels/filter/', //para produccion /api/hotels/filter/
             params,
             headers: { "Content-Type": "application/json" }
         }
