@@ -1,19 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { IoMdMoon } from 'react-icons/io'
 import { GiCoffeeCup } from 'react-icons/gi'
 import { HiBadgeCheck } from 'react-icons/hi'
-import './styles.css'
 import { CategoryStars } from '../../shared/category-stars/CategoryStars'
+import './styles.css'
 
 export const PayDone = () => {
   return (
-    <main className='main_container'>
+    <main className='main_container main-Done'>
       <h2>Congratulation 🎉</h2>
       <div className='yourBooking-container'>
 
         <div className='hotelImg_container'>
-          <img src="" alt="" />
+          <img src="http://photos.hotelbeds.com/giata/bigger/00/004200/004200a_hb_ro_006.jpg" alt="hotel" />
         </div>
 
         <div className='inf-container' >
