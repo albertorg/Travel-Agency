@@ -7,6 +7,8 @@ import { AboutScreen } from '../components/screens/about-as/AboutScreen';
 import { HotelDetails } from '../components/screens/hotel-details/HotelDetails';
 import { Navbar } from '../components/shared/navbar/Navbar';
 import { Pay } from '../components/screens/pay/Pay';
+import { PayDone } from '../components/screens/pay-done/PayDone';
+import { Account } from '../components/screens/account/Account';
 
 export const AppRouter = () => {
     return (
@@ -19,6 +21,8 @@ export const AppRouter = () => {
                 <Route path='/about' element={<AboutScreen />} />
                 <Route path="/hotel-details/:hotelCode" element={<HotelDetails />} />
                 <Route path="/pay" element={<Pay />} />
+                <Route path="/pay/done" element={<PayDone />} />
+                <Route path="/account" element={<Account />} />
 
                 <Route path="*" element={<Navigate to='/'/>} />
             </Routes>
