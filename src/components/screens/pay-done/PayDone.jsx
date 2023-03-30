@@ -6,6 +6,7 @@ import { GiCoffeeCup } from 'react-icons/gi'
 import { HiBadgeCheck } from 'react-icons/hi'
 import { CategoryStars } from '../../shared/category-stars/CategoryStars'
 import { formatString } from '../../../helpers/formatString'
+import { orderImages } from '../../../helpers/order-images'
 import './styles.css'
 
 export const PayDone = () => {
@@ -24,7 +25,10 @@ export const PayDone = () => {
 
         <div className='yourBooking-main'>
           <div className='hotelImg_container'>
-            <img src="http://photos.hotelbeds.com/giata/bigger/00/004200/004200a_hb_ro_006.jpg" alt="hotel" />
+            <img 
+              src={`http://photos.hotelbeds.com/giata/bigger/${orderImages(hotel)[0].path}`} 
+              alt={hotel.name}
+            />
           </div>
 
           <div className='inf-container' >
