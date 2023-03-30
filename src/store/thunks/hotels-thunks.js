@@ -13,7 +13,7 @@ export const getHotelsCityList = (destinationCode) => {
         }
 
         const config = {
-            url: 'http://localhost:4000/api/hotels/filter/', //para produccion /api/hotels/filter/
+            url: `${process.env.REACT_APP_API_URL}/hotels/filter/`, 
             params,
             headers: { "Content-Type": "application/json" }
         }
@@ -40,13 +40,13 @@ export const getFullList = (query) => {
         }
 
         const configHotels = {
-            url: 'http://localhost:4000/api/hotels/filter/',
+            url: `${process.env.REACT_APP_API_URL}/hotels/filter/`,
             params,
             headers: { "Content-Type": "application/json" }
         }
 
         const configDest = {
-            url: 'http://localhost:4000/api/destinations/filter/',
+            url: `${process.env.REACT_APP_API_URL}/destinations/filter/`,
             params: { text: query },
             headers: { "Content-Type": "application/json" }
         }
@@ -71,7 +71,7 @@ export const getAvailability = () => {
         
         const configAvailable = {
             method: 'post',
-            url: `http://localhost:4000/api/booking/availability`,
+            url: `${process.env.REACT_APP_API_URL}/booking/availability`,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ export const getAvailability = () => {
 
 
         const configHotelsDetails = {
-            url: 'http://localhost:4000/api/hotels/details/',
+            url: `${process.env.REACT_APP_API_URL}/hotels/details/`,
             params: {
                 codes
             },

@@ -9,7 +9,7 @@ export const checkRate = (rate) => {
 
         const configAvailable = {
             method: 'post',
-            url: `http://localhost:4000/api/booking/checkrates`,
+            url: `${process.env.REACT_APP_API_URL}/booking/checkrates`,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ export const BookingConfirmation = () => {
 
         const config = {
             method: 'post',
-            url: `http://localhost:4000/api/booking/confirmation/`,
+            url: `${process.env.REACT_APP_API_URL}/booking/confirmation/`,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
