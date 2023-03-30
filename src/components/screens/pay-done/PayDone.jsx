@@ -1,13 +1,20 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { format, parseISO } from 'date-fns'
 import { GiCoffeeCup } from 'react-icons/gi'
 import { HiBadgeCheck } from 'react-icons/hi'
 import { CategoryStars } from '../../shared/category-stars/CategoryStars'
+import { formatString } from '../../../helpers/formatString'
 import './styles.css'
 
 export const PayDone = () => {
 
   const navigate = useNavigate()
+  const { confirmation } = useSelector(state => state.booking)
+  const hotel = JSON.parse(localStorage.getItem('hotel'))
+  
+  
 
   return (
     <main className='main_container main-Done'>
@@ -23,12 +30,12 @@ export const PayDone = () => {
           <div className='inf-container' >
 
             <span className='destination_name'>
-              {`Playa Guardalavaca, Holguin, Cuba`}
+              {`${hotel.zoneName}, ${formatString(hotel.details.city.content)}, Cuba`}
             </span>
             <h3 className='hotel_name'>
-              {`Brisas Guardalavaca All Inclusive`}
+              {hotel.name}
             </h3>
-            <CategoryStars category={`4`} />
+            <CategoryStars category={hotel.categoryName} />
             <div className='center-icons'>
               <HiBadgeCheck />
               &nbsp;
@@ -37,7 +44,7 @@ export const PayDone = () => {
             <div className='center-icons'>
               <GiCoffeeCup />
               &nbsp;&nbsp;
-              {`All Inclusive`}
+              {formatString(confirmation.hotel.rooms[0].rates[0].boardName)}
             </div>
 
           </div>
@@ -49,15 +56,15 @@ export const PayDone = () => {
         <div className='bookingDetails'>
           <div className='grid-details'>
             <span>Booking code:</span>
-            <span>222-333-111</span>
+            <span>{confirmation.reference}</span>
           </div>
           <div className='grid-details'>
             <span>Date:</span>
-            <span>{`12 Aug, 2023`}</span>
+            <span>{format(parseISO(confirmation.creationDate), 'd MMM, y')}</span>
           </div>
           <div className='grid-details'>
             <span>Total:</span>
-            <span>{`€  199`}</span>
+            <span>{`€  ${confirmation.totalNet}`}</span>
           </div>
           <div className='grid-details'>
             <span>Payment method:</span>
@@ -68,8 +75,8 @@ export const PayDone = () => {
 
       <div className='confirmation-mail'>
         <span>
-          Within a few minutes, you will receive a confirmation email
-          containing the details of your reservation, including
+          Within a few minutes, <strong>you will receive a confirmation email </strong>
+            containing the details of your reservation, including
           check-in and check-out dates, the type of room you have
           chosen and the confirmation number.
         </span>

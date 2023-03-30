@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+    checkingPayment: false,
     oldBooking: {},
     rateK: '',
     hotel: {},
+    confirmation: {},
     book: {
         holder: {},
         // paymentData: {
@@ -26,12 +28,21 @@ export const bookingSlice = createSlice({
     name: 'booking',
     initialState,
     reducers: {
+        startCheckingPayment: (state) => {
+            state.checkingPayment = true
+        },
+        endCheckingPayment: (state) => {
+            state.checkingPayment = false
+        },
         setBookingState: (state, { payload }) => {
             state.oldBooking = payload.booking
             state.rateK = payload.rateKey
         },
         setHotel: (state, { payload }) => {
             state.hotel = payload
+        },
+        setConfirmation: (state, { payload }) => {
+            state.confirmation = payload
         },
         setholderBook: (state, { payload }) => {
             state.book.holder = {
@@ -59,8 +70,11 @@ export const bookingSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
+    startCheckingPayment,
+    endCheckingPayment,
     setBookingState,
     setHotel,
+    setConfirmation,
     setholderBook,
     setRoom
 } = bookingSlice.actions

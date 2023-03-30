@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { endLoading, startLoading } from "../slices/hotels_slice"
-import { setHotel } from '../slices/booking-slice'
+import { endCheckingPayment, setConfirmation, setHotel, startCheckingPayment } from '../slices/booking-slice'
 
 
 export const checkRate = (rate) => {
@@ -28,7 +28,7 @@ export const checkRate = (rate) => {
 
 export const BookingConfirmation = () => {
     return async (dispatch, getState) => {
-        dispatch(startLoading())
+        dispatch(startCheckingPayment())
 
         const config = {
             method: 'post',
@@ -42,8 +42,8 @@ export const BookingConfirmation = () => {
 
         const { data } = await axios(config)
 
-        console.log(data)
-        dispatch(endLoading())
+        dispatch(setConfirmation(data.booking))
+        dispatch(endCheckingPayment())
     }
 
 }

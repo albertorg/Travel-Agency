@@ -5,8 +5,8 @@ import { orderImages } from '../../../../helpers/order-images'
 import { TbWorld } from 'react-icons/tb'
 import { HiMail } from 'react-icons/hi'
 import { BsFillTelephoneFill } from 'react-icons/bs'
-import './styles.css'
 import { CategoryStars } from '../../../shared/category-stars/CategoryStars'
+import './styles.css'
 
 
 export const HeroDetails = ({ hotel }) => {

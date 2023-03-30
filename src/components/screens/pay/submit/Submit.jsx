@@ -1,15 +1,19 @@
 import React from 'react'
 import { IoIosLock } from 'react-icons/io'
-import './styles.css'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { BookingConfirmation } from '../../../../store/thunks/booking-thunks'
+import './styles.css'
 
 export const Submit = ({ room }) => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const handleClick = () => {
-    dispatch(BookingConfirmation())
+  const handleClick = async() => {
+    await dispatch(BookingConfirmation())
+
+    navigate('/pay/done')
   }
 
   return (
