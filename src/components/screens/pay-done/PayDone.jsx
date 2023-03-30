@@ -1,11 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { GiCoffeeCup } from 'react-icons/gi'
 import { HiBadgeCheck } from 'react-icons/hi'
 import { CategoryStars } from '../../shared/category-stars/CategoryStars'
 import './styles.css'
 
 export const PayDone = () => {
+
+  const navigate = useNavigate()
+
   return (
     <main className='main_container main-Done'>
       <h2>Congratulation 🎉</h2>
@@ -73,8 +76,7 @@ export const PayDone = () => {
       </div>
 
       <div className='exploreMore-container'>
-        <button>Explore more stays</button>
-        <Link to='/'>My bookings</Link>
+        <button onClick={() => navigate('/')}>Explore more stays</button>
       </div>
 
     </main>
