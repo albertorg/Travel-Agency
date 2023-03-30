@@ -84,3 +84,32 @@
 .grid-details span:last-child {
     color: var(--thm-black);
 }
+
+.confirmation-mail {
+    background-color: #faf5ee;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    margin: 2rem 0;
+}
+
+.exploreMore-container button {
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    border: none;
+    background-color: var(--thm-primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.exploreMore-container a {
+    display: block;
+    color: var(--thm-primary);
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin: 1rem 0 0 2rem;
+}
+
