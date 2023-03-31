@@ -12,7 +12,7 @@ import './styles.css'
 export const Navbar = () => {
 
     const [activeMobileMenu, setActiveMobileMenu] = useState(false)
-    const [showLoginWindow, setShowLoginWindow] = useState(true)
+    const [showLoginWindow, setShowLoginWindow] = useState(false)
 
     const handleMobileMenu = (e) => {
         e.preventDefault()
@@ -20,7 +20,7 @@ export const Navbar = () => {
     }
 
     const onUserIconClick = () => {
-        setShowLoginWindow(!showLoginWindow)
+        setShowLoginWindow(true)
     } 
 
     return (
@@ -87,7 +87,7 @@ export const Navbar = () => {
                                 />
                         }
 
-                        <AuthForm open={showLoginWindow}/>
+                        <AuthForm open={showLoginWindow} setOpen={setShowLoginWindow} />
                         
                     </div>
                 </div>

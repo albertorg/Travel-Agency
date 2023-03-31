@@ -1,9 +1,11 @@
 .modal-dialog {
     margin: 10px;
+    /* margin-top: 1rem; */
     background-color: white;
     color: var(--thm-black);
     width: 400px;
     line-height: normal;
+    border-radius: 5px;
 }
 
 .modal-header {
@@ -27,4 +29,135 @@
     height: 1.5rem;
     font-size: 1.4rem;
     padding-top: 2px;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+.social-bottom-container {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.social-bottom-container button {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    background-color: rgb(238, 242, 255);
+    border: none;
+    border-radius: .5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform .15s cubic-bezier(.4, 0, .2, 1);
+}
+
+.social-bottom-container button:hover {
+    transform: translateY(-2px);
+}
+
+.social-bottom-container button span {
+    flex-grow: 1;
+}
+
+.separator {
+    font-size: 0.9rem;
+    position: relative;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-weight: 500;
+}
+
+.separator span {
+    line-height: 1.25rem;
+    padding: 0 1rem;
+    background-color: white;
+    z-index: 1;
+    position: relative;
+}
+
+.separator div {
+    width: 100%;
+    border: 1px solid #e5e5e5d2;
+    position: absolute;
+    top: 50%;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.authForm input {
+    width: 100%;
+    font-size: .9rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e5e5;
+    line-height: 1.25;
+    margin-top: .25rem;
+}
+
+.authForm input:focus, input:focus-visible {
+    box-shadow: 0 0 0 3px #c7d2fe80;
+    border-color: rgb(165, 180, 252);
+    outline: none;
+}
+
+.authForm label {
+    margin: 0;
+    color: var(--thm-black);
+    font-size: 1rem;
+}
+
+.authForm button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    background-color: var(--thm-primary);
+    color: white;
+    border-radius: .5rem;
+    width: 280px;
+    align-self: center;
+    margin-top: .3rem;
+    cursor: pointer;
+}
+
+.authForm button:hover {
+    background-color: rgb(211, 77, 57);
+}
+
+.change-type-auth-text {
+    display: block;
+    font-size: .94rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.change-type-auth-text button {
+    border: none;
+    background-color: transparent;
+    margin-left: .3rem;
+    font-weight: 600;
+    font-size: .94rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.forgot-password-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .875rem;
+}
+
+.forgot-password-input span{
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
 }
