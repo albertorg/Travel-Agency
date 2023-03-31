@@ -1,0 +1,30 @@
+.modal-dialog {
+    margin: 10px;
+    background-color: white;
+    color: var(--thm-black);
+    width: 400px;
+    line-height: normal;
+}
+
+.modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+}
+
+.modal-header > span {
+    font-weight: 500;
+}
+
+.modal-header button {
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.4rem;
+    padding-top: 2px;
+}

@@ -4,18 +4,24 @@ import { Link } from 'react-router-dom'
 import { AiOutlineUser } from 'react-icons/ai'
 import { HiMenuAlt3 } from 'react-icons/hi'
 import logo from '../../../assets/funtravels_logo_small.png'
-import './styles.css'
 import { MobileMenu } from './mobile-menu/MobileMenu'
+import { AuthForm } from '../authForm/Login'
+import './styles.css'
 
 
 export const Navbar = () => {
 
     const [activeMobileMenu, setActiveMobileMenu] = useState(false)
+    const [showLoginWindow, setShowLoginWindow] = useState(true)
 
     const handleMobileMenu = (e) => {
         e.preventDefault()
         setActiveMobileMenu(!activeMobileMenu)
     }
+
+    const onUserIconClick = () => {
+        setShowLoginWindow(!showLoginWindow)
+    } 
 
     return (
         <header>
@@ -64,7 +70,7 @@ export const Navbar = () => {
                         </Root>
 
                         <div className="icons-container">
-                            <div className='user-icon icons-styles'>
+                            <div className='user-icon icons-styles' onClick={onUserIconClick}>
                                 <AiOutlineUser />
                             </div>
 
@@ -80,6 +86,8 @@ export const Navbar = () => {
                                     setActive={setActiveMobileMenu}
                                 />
                         }
+
+                        <AuthForm open={showLoginWindow}/>
                         
                     </div>
                 </div>
