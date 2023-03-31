@@ -14,8 +14,6 @@ export const PayDone = () => {
   const navigate = useNavigate()
   const { confirmation } = useSelector(state => state.booking)
   const hotel = JSON.parse(localStorage.getItem('hotel'))
-  
-  
 
   return (
     <main className='main_container main-Done'>
@@ -80,7 +78,7 @@ export const PayDone = () => {
       <div className='confirmation-mail'>
         <span>
           Within a few minutes, <strong>you will receive a confirmation email </strong>
-            containing the details of your reservation, including
+          containing the details of your reservation, including
           check-in and check-out dates, the type of room you have
           chosen and the confirmation number.
         </span>

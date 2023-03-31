@@ -16,7 +16,7 @@ header {
 .brand-container {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 38px;
 }
 
 .brand-container > img {

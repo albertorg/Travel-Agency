@@ -42,7 +42,6 @@ export const Pay = () => {
       <Backdrop
         sx={{
           color: '#fff',
-          // backgroundColor: 'rgba(255, 255, 255, 0.475)',
           zIndex: (theme) => theme.zIndex.drawer + 1
         }}
         open={checkingPayment}

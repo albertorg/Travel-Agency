@@ -13,7 +13,7 @@ export const Submit = ({ room }) => {
   const handleClick = async() => {
     await dispatch(BookingConfirmation())
 
-    navigate('/pay/done')
+    navigate('/pay-done')
   }
 
   return (

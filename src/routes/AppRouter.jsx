@@ -21,7 +21,7 @@ export const AppRouter = () => {
                 <Route path='/about' element={<AboutScreen />} />
                 <Route path="/hotel-details/:hotelCode" element={<HotelDetails />} />
                 <Route path="/pay" element={<Pay />} />
-                <Route path="/pay/done" element={<PayDone />} />
+                <Route path="/pay-done" element={<PayDone />} />
                 <Route path="/account" element={<Account />} />
 
                 <Route path="*" element={<Navigate to='/'/>} />
