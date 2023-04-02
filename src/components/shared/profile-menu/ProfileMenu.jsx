@@ -14,7 +14,7 @@ import './styles.css'
 
 export const ProfileMenu = () => {
 
-    const menu = useMenuState({ gutter: 8, placement: 'bottom-end' });
+    const menu = useMenuState({ gutter: 23, placement: 'bottom-end' });
     console.log(menu)
 
     return (
@@ -31,7 +31,7 @@ export const ProfileMenu = () => {
                     <HiOutlineClipboardList/>
                     My bookings
                 </MenuItem>
-                <MenuItem className="menu-item" disabled>
+                <MenuItem className="menu-item">
                     <SlSettings />
                     Settings
                 </MenuItem>

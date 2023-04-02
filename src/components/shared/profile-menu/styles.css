@@ -1,7 +1,29 @@
 .profileMenu {
     background-color: white;
-    padding: 1rem;
-    color: black;
-    border: 1px solid black;
+    padding: 1.2rem 1rem;
+    color: var(--thm-black);
     font-size: 1rem;
+    border-radius: .2rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px 0px,
+     rgb(207, 207, 207) 0px 1px 0px 0px;
+    line-height: normal;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: .4rem .5rem;
+    gap: .8rem;
+    font-weight: 500;
+    transition: background-color .2s ease;
+}
+
+.menu-item:hover {
+    background-color: rgb(243, 244, 246);
+    border-radius: .2rem;
+}
+
+.menu-item svg{
+    color: var(--thm-primary);
+    font-size: 1.3rem;
 }
