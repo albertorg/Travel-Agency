@@ -14,13 +14,13 @@ import './styles.css'
 
 export const ProfileMenu = () => {
 
-    const menu = useMenuState({ gutter: 23, placement: 'bottom-end' });
+    const menu = useMenuState({ gutter: 15, placement: 'bottom' });
     console.log(menu)
 
     return (
         <>
             <MenuButton state={menu} className="profile-button">
-                Menu
+                M
             </MenuButton>
             <Menu state={menu} className="profileMenu" style={{zIndex: 1}}>
                 <MenuItem className="menu-item">

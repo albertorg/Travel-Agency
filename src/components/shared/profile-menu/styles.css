@@ -27,3 +27,14 @@
     color: var(--thm-primary);
     font-size: 1.3rem;
 }
+
+.profile-button {
+    height: 29.5px;
+    width: 29.5px;
+    min-width: 29.5px;
+    border-radius: 50%;
+    border: 1px solid var(--thm-primary);
+    background-color: #ffe9e5;
+    font-size: 1rem;
+    font-weight: 500;
+}
