@@ -3,9 +3,10 @@ import { Root, List, Item, Link as LinkUi } from '@radix-ui/react-navigation-men
 import { Link } from 'react-router-dom'
 import { AiOutlineUser } from 'react-icons/ai'
 import { HiMenuAlt3 } from 'react-icons/hi'
-import logo from '../../../assets/funtravels_logo_small.png'
 import { MobileMenu } from './mobile-menu/MobileMenu'
-import { AuthForm } from '../authForm/Login'
+import { AuthForm } from '../authForm/AuthForm'
+import { ProfileMenu } from '../profile-menu/ProfileMenu'
+import logo from '../../../assets/funtravels_logo_small.png'
 import './styles.css'
 
 
@@ -20,7 +21,7 @@ export const Navbar = () => {
     }
 
     const onUserIconClick = () => {
-        setShowLoginWindow(true)
+        setShowLoginWindow(!showLoginWindow)
     } 
 
     return (
@@ -70,8 +71,9 @@ export const Navbar = () => {
                         </Root>
 
                         <div className="icons-container">
-                            <div className='user-icon icons-styles' onClick={onUserIconClick}>
-                                <AiOutlineUser />
+                            <div className='user-icon icons-styles' >
+                                <AiOutlineUser role='button' onClick={onUserIconClick} />
+                                <ProfileMenu />
                             </div>
 
                             <div className="menu-icon icons-styles" onClick={handleMobileMenu}>
