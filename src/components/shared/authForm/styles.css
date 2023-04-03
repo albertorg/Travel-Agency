@@ -160,3 +160,14 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+.errorMessage {
+    margin-left: .5rem;
+    color: red;
+    font-size: .79rem;
+}
+
+.inputError {
+    box-shadow: 0 0 0 3px rgb(255, 210, 210);
+    border-color: red !important;
+}

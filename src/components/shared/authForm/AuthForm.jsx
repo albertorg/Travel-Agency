@@ -14,8 +14,10 @@ const formData = {
   password: '12345678'
 }
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 const formValidations = {
-  email: [(value) => value.includes('@'), 'Insert a valid email'],
+  email: [(value) => emailRegex.test(value), 'Insert a valid email'],
   password: [(value) => value.length >= 8, 'The password must be at least 8 characters']
 }
 
@@ -25,17 +27,19 @@ export const AuthForm = ({open, setOpen}) => {
   const dispatch = useDispatch()
   const { status } = useSelector(state => state.auth)
 
+  const [formSubmitted, setFormSubmitted] = useState(false)
   const [formType, setFormType] = useState('login')
-  const {email, password, onInputChange, emailValid, passwordValid } = useForm(formData, formValidations)
-  
-  
-  console.log(passwordValid)
+  const {email, password, onInputChange, emailValid, passwordValid, isFormValid } = useForm(formData, formValidations)
+
 
   const isAuthenticating = useMemo(() => status === 'checking', [status])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(checkingAuthentication(email, password))
+    if (isFormValid) {
+      dispatch(checkingAuthentication(email, password))
+    }
+    setFormSubmitted(true)
   }
 
   const onGoogleSignIn = () => {
@@ -106,7 +110,11 @@ export const AuthForm = ({open, setOpen}) => {
                 placeholder='example@example.com'
                 onChange={onInputChange}
                 value={email}
+                className={(emailValid && formSubmitted) ? 'inputError' : ''}
               />
+              {(emailValid && formSubmitted) &&
+                <span className='errorMessage'>{emailValid}</span>
+              }
             </div>
 
             <div>
@@ -117,9 +125,12 @@ export const AuthForm = ({open, setOpen}) => {
                 id="password-01"
                 onChange={onInputChange}
                 value={password}
+                className={(passwordValid && formSubmitted) ? 'inputError' : ''}
               />
+              {(passwordValid && formSubmitted) &&
+                <span className='errorMessage'>{passwordValid}</span>
+              }
             </div>
-            
 
             <button type="submit" disabled={isAuthenticating}>
               Continue
