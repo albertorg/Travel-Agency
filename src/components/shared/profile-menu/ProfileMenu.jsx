@@ -15,7 +15,6 @@ import './styles.css'
 export const ProfileMenu = () => {
 
     const menu = useMenuState({ gutter: 15, placement: 'bottom' });
-    console.log(menu)
 
     return (
         <>

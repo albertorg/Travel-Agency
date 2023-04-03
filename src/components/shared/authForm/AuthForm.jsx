@@ -1,24 +1,40 @@
 import React, { useState } from 'react'
 import { Backdrop } from '@mui/material'
 import { useForm } from '../../../hooks/useForm'
+import { useDispatch } from 'react-redux'
 import { MdOutlineClose } from 'react-icons/md'
 import google from '../../../assets/socilals/google.svg'
 import facebook from '../../../assets/socilals/facebook.svg'
 import twitter from '../../../assets/socilals/twitter.svg'
+import { checkingAuthentication, startFacebookSignIn, startGoogleSignIn } from '../../../store/thunks/auth-thunks'
 import './styles.css'
 
 
 export const AuthForm = ({open, setOpen}) => {
 
+  const dispatch = useDispatch()
   const [formType, setFormType] = useState('login')
   const [values, handleInputChange] = useForm({
-    email: '',
-    password: ''
+    email: 'ticoc911@gmail.com',
+    password: '12345678'
   })
   const {email, password} = values
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    dispatch(checkingAuthentication(email, password))
+  }
+
+  const onGoogleSignIn = () => {
+    console.log('onGoogleSignIn')
+
+    dispatch(startGoogleSignIn())
+  }
+
+  const onFacebookSignIn = () => {
+    console.log('onFacebookSignIn')
+
+    dispatch(startFacebookSignIn())
   }
 
   return (
@@ -42,18 +58,18 @@ export const AuthForm = ({open, setOpen}) => {
 
         <div className="modal-body">
           <div className='social-bottom-container'>
-            <button name='google'>
+            <button name='google' onClick={onGoogleSignIn}>
               <img src={google} alt="google-logo" width='21' height='18'/>
               <span>Continue with Google</span> 
             </button>
-            <button name='facebook'>
+            <button name='facebook' onClick={onFacebookSignIn}>
               <img src={facebook} alt="Facebook-logo" width='17' height='18' />
               <span>Continue with Facebook</span>
             </button>
-            <button name='twitter'>
+            {/* <button name='twitter'>
               <img src={twitter} alt="twitter-logo" width='21' height='18' />
               <span>Continue with Twitter</span>
-            </button>
+            </button> */}
           </div>
 
           <div className='separator'>

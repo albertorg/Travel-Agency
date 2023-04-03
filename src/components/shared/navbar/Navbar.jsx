@@ -73,7 +73,7 @@ export const Navbar = () => {
                         <div className="icons-container">
                             <div className='user-icon icons-styles' >
                                 <AiOutlineUser role='button' onClick={onUserIconClick} />
-                                <ProfileMenu />
+                                {/* <ProfileMenu /> */}
                             </div>
 
                             <div className="menu-icon icons-styles" onClick={handleMobileMenu}>
