@@ -13,16 +13,17 @@ import { usePaymentInputs } from 'react-payment-inputs'
 import { useForm } from '../../../../hooks/useForm';
 import './styles.css'
 
+const formData = {
+  name: '',
+  cardNumber: '',
+  expiryDate: '',
+  cvc: ''
+}
+
 export const MultiPayment = () => {
 
-  const [values, handleInputChange] = useForm({
-    name: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvc: ''
-  })
-  const { name, cardNumber, expiryDate, cvc } = values
-
+  const { name, cardNumber, expiryDate, cvc, onInputChange } = useForm(formData)
+  
   const radio = useRadioState()
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs()
 
@@ -56,7 +57,7 @@ export const MultiPayment = () => {
                   value={name} 
                   type='text'
                   name='name' 
-                  onChange={handleInputChange} 
+                  onChange={onInputChange} 
                   id='nameCard'
                 />
               </div>
@@ -64,7 +65,7 @@ export const MultiPayment = () => {
               <div>
                 <label htmlFor="cardNum">Card number</label>
                 <input 
-                  {...getCardNumberProps({ onChange: handleInputChange })} 
+                  {...getCardNumberProps({ onChange: onInputChange })} 
                   value={cardNumber} 
                   id='cardNum' />
               </div>
@@ -73,7 +74,7 @@ export const MultiPayment = () => {
                 <div className='exp-input'>
                   <label htmlFor="exp">Expiration date</label>
                   <input 
-                    {...getExpiryDateProps({ onChange: handleInputChange })} 
+                    {...getExpiryDateProps({ onChange: onInputChange })} 
                     value={expiryDate} 
                     id='exp' />
                 </div>
@@ -81,7 +82,7 @@ export const MultiPayment = () => {
                 <div className='cvc-input'>
                   <label htmlFor="cvc">CVC</label>
                   <input 
-                    {...getCVCProps({ onChange: handleInputChange })} 
+                    {...getCVCProps({ onChange: onInputChange })} 
                     value={cvc} 
                     id='cvc' />
                 </div>

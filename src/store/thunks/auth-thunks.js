@@ -1,4 +1,4 @@
-import { signInWithGoogle } from "../../appwrite/providers"
+import { signInWithOAuth } from "../../appwrite/providers"
 import { checkingCredentials } from "../slices/auth-slice"
 
 export const checkingAuthentication = ( email, password ) => {
@@ -7,16 +7,11 @@ export const checkingAuthentication = ( email, password ) => {
     }
 }
 
-export const startGoogleSignIn = () => {
+export const startOAthSignIn = (provider) => {
     return async( dispatch ) => {
         dispatch(checkingCredentials())
 
-        signInWithGoogle()
+        signInWithOAuth(provider)
     }
 }
 
-export const startFacebookSignIn =() => {
-    return async( dispatch ) => {
-        dispatch(checkingCredentials())
-    }
-}

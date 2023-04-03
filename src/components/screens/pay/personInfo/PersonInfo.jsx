@@ -7,18 +7,17 @@ import { setholderBook } from '../../../../store/slices/booking-slice'
 import 'react-phone-number-input/style.css'
 import './styles.css'
 
+const formData = {
+  name: '',
+  surname: '',
+  email: ''
+}
 
 export const PersonInfo = () => {
 
   const [phoneNumber, setPhoneNumber] = useState('')
   const dispatch = useDispatch()
-  const [values, handleInputChange] = useForm({
-    name: '',
-    surname: '',
-    email: ''
-  })
-
-  const {name, surname, email} = values
+  const { name, surname, email, onInputChange} = useForm(formData)
 
   useEffect(() => {
     let phone = ''
@@ -56,7 +55,7 @@ export const PersonInfo = () => {
               id='name'
               name='name'
               value={name}
-              onChange={handleInputChange}
+              onChange={onInputChange}
             />
           </div>
           <div>
@@ -66,7 +65,7 @@ export const PersonInfo = () => {
               id='surname'
               name='surname'
               value={surname}
-              onChange={handleInputChange}
+              onChange={onInputChange}
               />
           </div>
           <div>
@@ -77,7 +76,7 @@ export const PersonInfo = () => {
               id='email'
               name='email'
               value={email}
-              onChange={handleInputChange}
+              onChange={onInputChange}
             />
           </div>
           <div>
