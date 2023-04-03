@@ -1,3 +1,4 @@
+import { signInWithGoogle } from "../../appwrite/providers"
 import { checkingCredentials } from "../slices/auth-slice"
 
 export const checkingAuthentication = ( email, password ) => {
@@ -9,6 +10,8 @@ export const checkingAuthentication = ( email, password ) => {
 export const startGoogleSignIn = () => {
     return async( dispatch ) => {
         dispatch(checkingCredentials())
+
+        signInWithGoogle()
     }
 }
 
