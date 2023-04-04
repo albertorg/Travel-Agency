@@ -5,12 +5,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { MdOutlineClose } from 'react-icons/md'
 import google from '../../../assets/socilals/google.svg'
 import facebook from '../../../assets/socilals/facebook.svg'
-// import twitter from '../../../assets/socilals/twitter.svg'
-import { checkingAuthentication, startOAthSignIn } from '../../../store/thunks/auth-thunks'
+import { checkingAuthentication, startCreatingUserWithEmail, startOAthSignIn, startSignInWithEmail } from '../../../store/thunks/auth-thunks'
 import './styles.css'
 
 const formData = {
-  email: 'ticoc911@gmail.com',
+  email: 'alberto@gmail.com',
   password: '12345678'
 }
 
@@ -31,15 +30,17 @@ export const AuthForm = ({open, setOpen}) => {
   const [formType, setFormType] = useState('login')
   const {email, password, onInputChange, emailValid, passwordValid, isFormValid } = useForm(formData, formValidations)
 
-
   const isAuthenticating = useMemo(() => status === 'checking', [status])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (isFormValid) {
-      dispatch(checkingAuthentication(email, password))
-    }
     setFormSubmitted(true)
+    if (!isFormValid) return
+
+    dispatch(checkingAuthentication(email, password))
+    formType === 'login' 
+      ? dispatch(startSignInWithEmail({email, password}))
+      : dispatch(startCreatingUserWithEmail({email, password}))
   }
 
   const onGoogleSignIn = () => {
@@ -83,10 +84,6 @@ export const AuthForm = ({open, setOpen}) => {
               <img src={facebook} alt="Facebook-logo" width='17' height='18' />
               <span>Continue with Facebook</span>
             </button>
-            {/* <button name='twitter'>
-              <img src={twitter} alt="twitter-logo" width='21' height='18' />
-              <span>Continue with Twitter</span>
-            </button> */}
           </div>
 
           <div className='separator'>

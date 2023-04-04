@@ -18,13 +18,15 @@ export const authSlice = createSlice({
             state.uid = payload.id
             state.name = payload.name
             state.email = payload.email
-            state.photoUrl = null
             state.error = null
         },
-        register: (state, action) => {
-            console.log(action)
+        register: (state, { payload }) => {
+            state.status = 'authenticated'
+            state.uid = payload.id
+            state.email = payload.email
+            state.error = null
         },
-        logout: (state, action) => {
+        logout: (state) => {
             state.status = 'not-authenticated'    
             state.uid = null
             state.name = null
