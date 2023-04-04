@@ -171,3 +171,12 @@
     box-shadow: 0 0 0 3px rgb(255, 210, 210);
     border-color: red !important;
 }
+
+.error-appwrite {
+    color: #f73333;
+    background-color: #ffe7e7;
+    padding: .3rem .5rem;
+    border: 1px solid #facdcd;
+    border-radius: 3px;
+    font-size: .9rem;
+}

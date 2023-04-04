@@ -24,7 +24,7 @@ const formValidations = {
 export const AuthForm = ({open, setOpen}) => {
 
   const dispatch = useDispatch()
-  const { status } = useSelector(state => state.auth)
+  const { status, errorMessage } = useSelector(state => state.auth)
 
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [formType, setFormType] = useState('login')
@@ -128,7 +128,9 @@ export const AuthForm = ({open, setOpen}) => {
                 <span className='errorMessage'>{passwordValid}</span>
               }
             </div>
-
+        
+            {errorMessage && <span className='error-appwrite'>{errorMessage}</span>}
+            
             <button type="submit" disabled={isAuthenticating}>
               Continue
             </button>

@@ -18,7 +18,7 @@ export const registerUserWhitEmail = async({ email, password }) => {
         
         return {
             ok: true,
-            id: $id,
+            $id,
             email
         }
         
@@ -36,7 +36,7 @@ export const loginUserWhitEmail = async ({ email, password }) => {
 
         return {
             ok: true,
-            id: $id,
+            $id,
             email
         }
 
