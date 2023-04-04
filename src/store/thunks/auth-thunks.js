@@ -1,4 +1,3 @@
-import { account } from "../../appwrite/config"
 import { loginUserWhitEmail, registerUserWhitEmail, signInWithOAuth } from "../../appwrite/providers"
 import { checkingCredentials, login, logout, register } from "../slices/auth-slice"
 
