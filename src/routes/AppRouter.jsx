@@ -26,9 +26,9 @@ export const AppRouter = () => {
                 console.log(resp) 
                 dispatch(login(resp))
             } catch (error) {
-                dispatch(logout()) 
+                console.log(error)
+                dispatch(logout(error.message)) 
             }
-            
             
         }
         
