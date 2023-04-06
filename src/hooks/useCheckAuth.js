@@ -11,7 +11,7 @@ export const useCheckAuth = () => {
         const getAccount = async () => {
             try {
                 const resp = await account.get()
-                console.log(resp)
+            
                 dispatch(login(resp))
             } catch (error) {
                 console.log(error)

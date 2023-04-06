@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import {
     Menu,
     MenuButton,
@@ -10,11 +11,17 @@ import { CiLogout, CiUser } from 'react-icons/ci'
 import { SlSettings } from 'react-icons/sl'
 import { HiOutlineClipboardList } from 'react-icons/hi'
 import './styles.css'
+import { startLogout } from '../../../store/thunks/auth-thunks';
 
 
 export const ProfileMenu = () => {
 
     const menu = useMenuState({ gutter: 15, placement: 'bottom' });
+    const dispatch = useDispatch()
+
+    const handleLogoutClick = () => {
+        dispatch(startLogout())
+    }
 
     return (
         <>
@@ -35,7 +42,7 @@ export const ProfileMenu = () => {
                     Settings
                 </MenuItem>
                 <MenuSeparator className="separator-item" />
-                <MenuItem className="menu-item">
+                <MenuItem className="menu-item" onClick={handleLogoutClick}>
                     <CiLogout />
                     Log out
                 </MenuItem>

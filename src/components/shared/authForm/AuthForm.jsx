@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Backdrop } from '@mui/material'
 import { useForm } from '../../../hooks/useForm'
 import { useDispatch, useSelector } from 'react-redux'
@@ -32,6 +32,12 @@ export const AuthForm = ({open, setOpen}) => {
 
   const isAuthenticating = useMemo(() => status === 'checking', [status])
 
+  useEffect(() => {
+    if (status === 'authenticated') setOpen(false)
+    
+  }, [status])
+  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setFormSubmitted(true)
@@ -44,14 +50,10 @@ export const AuthForm = ({open, setOpen}) => {
   }
 
   const onGoogleSignIn = () => {
-    console.log('onGoogleSignIn')
-
     dispatch(startOAthSignIn('google'))
   }
 
   const onFacebookSignIn = () => {
-    console.log('onFacebookSignIn')
-
     dispatch(startOAthSignIn('facebook'))
   }
 

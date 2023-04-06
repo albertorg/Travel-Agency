@@ -8,12 +8,15 @@ import { AuthForm } from '../authForm/AuthForm'
 import { ProfileMenu } from '../profile-menu/ProfileMenu'
 import logo from '../../../assets/funtravels_logo_small.png'
 import './styles.css'
+import { useSelector } from 'react-redux'
 
 
 export const Navbar = () => {
 
     const [activeMobileMenu, setActiveMobileMenu] = useState(false)
     const [showLoginWindow, setShowLoginWindow] = useState(false)
+
+    const { status } = useSelector(state => state.auth) 
 
     const handleMobileMenu = (e) => {
         e.preventDefault()
@@ -72,8 +75,10 @@ export const Navbar = () => {
 
                         <div className="icons-container">
                             <div className='user-icon icons-styles' >
-                                <AiOutlineUser role='button' onClick={onUserIconClick} />
-                                {/* <ProfileMenu /> */}
+                                {status === 'authenticated'
+                                    ? <ProfileMenu />
+                                    : <AiOutlineUser role='button' onClick={onUserIconClick} />
+                                }                                
                             </div>
 
                             <div className="menu-icon icons-styles" onClick={handleMobileMenu}>

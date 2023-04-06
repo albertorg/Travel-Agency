@@ -45,3 +45,8 @@ export const loginUserWhitEmail = async ({ email, password }) => {
         return { ok: false, errorMessage: error.message }
     }
 }
+
+export const logoutAppwrite = async() => {
+    return await account.deleteSessions()
+
+} 
