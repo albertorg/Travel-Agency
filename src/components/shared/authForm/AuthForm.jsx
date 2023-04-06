@@ -7,6 +7,8 @@ import google from '../../../assets/socilals/google.svg'
 import facebook from '../../../assets/socilals/facebook.svg'
 import { checkingAuthentication, startCreatingUserWithEmail, startOAthSignIn, startSignInWithEmail } from '../../../store/thunks/auth-thunks'
 import './styles.css'
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 const formData = {
   email: 'alberto@gmail.com',
@@ -34,10 +36,8 @@ export const AuthForm = ({open, setOpen}) => {
 
   useEffect(() => {
     if (status === 'authenticated') setOpen(false)
-    
-  }, [status])
+  }, [status, setOpen])
   
-
   const handleSubmit = (e) => {
     e.preventDefault()
     setFormSubmitted(true)
@@ -76,6 +76,17 @@ export const AuthForm = ({open, setOpen}) => {
           </button>
         </div>
 
+        {isAuthenticating && 
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '1rem'
+          }
+          }>
+            <CircularProgress size={35} />
+          </Box>
+        }
+        
         <div className="modal-body">
           <div className='social-bottom-container'>
             <button name='google' onClick={ onGoogleSignIn } disabled={ isAuthenticating }>

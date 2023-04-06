@@ -20,5 +20,5 @@ export const useCheckAuth = () => {
         }
 
         getAccount()
-    }, [])
+    }, [dispatch])
 }

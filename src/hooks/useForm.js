@@ -4,9 +4,10 @@ export const useForm = ( initialForm = {}, formValidations = {}) => {
   
     const [ formState, setFormState ] = useState( initialForm );
     const [ formValidation, setFormValidation ] = useState({});
-
+    
     useEffect(() => {
         createValidators();
+        // eslint-disable-next-line
     }, [ formState ])
     
     const isFormValid = useMemo( () => {
