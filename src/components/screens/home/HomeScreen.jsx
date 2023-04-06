@@ -15,7 +15,6 @@ export const HomeScreen = () => {
             <Offers />
             <WhyUs />
             <Articles />
-            <Footer />
         </>
     )
 }

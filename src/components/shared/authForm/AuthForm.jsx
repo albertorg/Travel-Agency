@@ -6,9 +6,9 @@ import { MdOutlineClose } from 'react-icons/md'
 import google from '../../../assets/socilals/google.svg'
 import facebook from '../../../assets/socilals/facebook.svg'
 import { checkingAuthentication, startCreatingUserWithEmail, startOAthSignIn, startSignInWithEmail } from '../../../store/thunks/auth-thunks'
+import {CircularProgress, Box} from '@mui/material'
 import './styles.css'
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+
 
 const formData = {
   email: 'alberto@gmail.com',

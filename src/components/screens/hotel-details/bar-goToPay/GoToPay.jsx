@@ -18,7 +18,7 @@ export const GoToPay = ({ room, nights, booking }) => {
 
     localStorage.setItem('booking', JSON.stringify(booking))
     localStorage.setItem('rateKey', rateKey)
-    navigate('/pay')
+    navigate('/booking/pay')
   }
 
   useEffect(() => {

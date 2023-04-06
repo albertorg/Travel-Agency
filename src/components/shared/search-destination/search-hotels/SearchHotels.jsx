@@ -34,7 +34,7 @@ export const SearchHotels = () => {
     e.preventDefault()
 
     if (isValidForm) {
-      navigate('/search')
+      navigate('/booking/search')
     }else setShowAlert(true)
   }
 

@@ -1,12 +1,13 @@
 import React from 'react'
-// import { RouterProvider } from "react-router-dom";
 import { AppRouter } from './routes/AppRouter'
-
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    // <RouterProvider router={ router }/>
-    <AppRouter />
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
+    
   )
 }
 

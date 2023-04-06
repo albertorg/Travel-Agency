@@ -50,7 +50,7 @@ export const CardHotelList = ({ hotel, index }) => {
                 <Slider slides={orderImages(hotel, 10)} />
             </div>
             
-            <Link to={`/hotel-details/${hotel.code}`} target='_blank' onClick={handleClick} className='info_card_container' >
+            <Link to={`/booking/hotel-details/${hotel.code}`} target='_blank' onClick={handleClick} className='info_card_container' >
                 <span className='destination_name_list'>
                     {`${hotel.zoneName}, ${hotel.destinationName}, Cuba`}
                 </span>
