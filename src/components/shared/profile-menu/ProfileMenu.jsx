@@ -12,12 +12,18 @@ import { SlSettings } from 'react-icons/sl'
 import { HiOutlineClipboardList } from 'react-icons/hi'
 import './styles.css'
 import { startLogout } from '../../../store/thunks/auth-thunks';
+import { useNavigate } from 'react-router-dom';
 
 
 export const ProfileMenu = () => {
 
     const menu = useMenuState({ gutter: 15, placement: 'bottom' });
+    const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    const handleAccountClick = () => {
+        navigate('/account/profile')
+    }
 
     const handleLogoutClick = () => {
         dispatch(startLogout())
@@ -29,7 +35,7 @@ export const ProfileMenu = () => {
                 M
             </MenuButton>
             <Menu state={menu} className="profileMenu" style={{zIndex: 1}}>
-                <MenuItem className="menu-item">
+                <MenuItem className="menu-item" onClick={handleAccountClick}>
                     <CiUser />
                     Account
                 </MenuItem>

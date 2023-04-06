@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { Navbar } from "../components/shared/navbar/Navbar"
 import { HomeScreen } from "../components/screens/home/HomeScreen"
 import { ContactScreen } from "../components/screens/contact/ContactScreen"
@@ -14,6 +14,7 @@ export const MainRoutes = () => {
               <Route path="/" element={<HomeScreen />} />
               <Route path='/contact' element={<ContactScreen />} />
               <Route path='/about' element={<AboutScreen />} />
+              <Route path="*" element={<Navigate to='/' />} />
           </Routes>
           <Footer />
       </>

@@ -28,7 +28,7 @@ export const Navbar = () => {
     } 
 
     return (
-        <header>
+        <header className='main-navbar'>
             <div className="header-area container">
 
                 <Link to='/' className="brand-container">
