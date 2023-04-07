@@ -9,7 +9,8 @@ export const AccountRouters = () => {
           <NavbarSecondary />
           <Routes>
               <Route path='/profile' element={<Account />} />
-              
+              <Route path='/bookings' element={<Account />} />
+              <Route path='/settings' element={<Account />} />
           </Routes>
       </>
   )
