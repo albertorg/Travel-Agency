@@ -4,9 +4,6 @@ import { NavLink } from 'react-router-dom'
 import './styles.css'
 
 export const AccountNav = () => {
-
-
-
     return (
         <header className='navbar-account-container'>
             <Root className='navbar-root main_container'>
