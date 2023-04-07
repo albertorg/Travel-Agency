@@ -29,6 +29,14 @@ export const ProfileMenu = () => {
         dispatch(startLogout())
     }
 
+    const handleBookingClick = () => {
+        navigate('/account/bookings')
+    }
+
+    const handleSettingsClick = () => {
+        navigate('/account/settings')
+    }
+
     return (
         <>
             <MenuButton state={menu} className="profile-button">
@@ -39,11 +47,11 @@ export const ProfileMenu = () => {
                     <CiUser />
                     Account
                 </MenuItem>
-                <MenuItem className="menu-item">
+                <MenuItem className="menu-item" onClick={handleBookingClick}>
                     <HiOutlineClipboardList/>
                     My bookings
                 </MenuItem>
-                <MenuItem className="menu-item">
+                <MenuItem className="menu-item" onClick={handleSettingsClick}>
                     <SlSettings />
                     Settings
                 </MenuItem>
