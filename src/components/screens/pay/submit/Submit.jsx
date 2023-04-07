@@ -2,7 +2,7 @@ import React from 'react'
 import { IoIosLock } from 'react-icons/io'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { BookingConfirmation } from '../../../../store/thunks/booking-thunks'
+import { BookingConfirmation, startCreateBooking } from '../../../../store/thunks/booking-thunks'
 import './styles.css'
 
 export const Submit = ({ room }) => {
@@ -13,7 +13,9 @@ export const Submit = ({ room }) => {
   const handleClick = async() => {
     await dispatch(BookingConfirmation())
 
-    navigate('/booking/pay-done')
+    dispatch(startCreateBooking())
+
+    // navigate('/booking/pay-done')
   }
 
   return (
