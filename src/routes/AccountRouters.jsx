@@ -1,17 +1,16 @@
 import { Route, Routes } from "react-router-dom"
-import { NavbarSecundary } from "../components/shared/navbar-secundary/NavbarSecundary"
 import { Account } from "../components/screens/account/Account"
+import { NavbarSecondary } from "../components/shared/navbar-secondary/NavbarSecondary"
 
 
 export const AccountRouters = () => {
   return (
       <>
-          <NavbarSecundary />
+          <NavbarSecondary />
           <Routes>
               <Route path='/profile' element={<Account />} />
               
           </Routes>
-
       </>
   )
 }
