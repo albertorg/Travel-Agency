@@ -13,9 +13,9 @@ export const Submit = ({ room }) => {
   const handleClick = async() => {
     await dispatch(BookingConfirmation())
 
-    dispatch(startCreateBooking())
+    await dispatch(startCreateBooking())
 
-    // navigate('/booking/pay-done')
+    navigate('/booking/pay-done')
   }
 
   return (

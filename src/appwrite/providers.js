@@ -1,4 +1,4 @@
-import { ID } from "appwrite"
+import { ID, Query } from "appwrite"
 import { account, appwriteDB } from "./config"
 
 export const signInWithOAuth = async (provider) => {
@@ -63,8 +63,6 @@ export const createBooking = async ({ uid, hotel_code, booking_id }) => {
             }
         )
 
-        console.log(resp)
-
         return {
             ok: true,
             resp
@@ -74,3 +72,24 @@ export const createBooking = async ({ uid, hotel_code, booking_id }) => {
         return { ok: false, errorMessage: error.message }
     }
 }
+
+export const getbookingsOfUser = async (uid) => {
+    try {
+        console.log(uid)
+        const resp = await appwriteDB.listDocuments(
+            "642eb854627ac7c5ba8e",
+            "642eb86760375cf9fa1f",
+            [
+                Query.equal('uid', uid) 
+            ]
+        )
+
+        return {
+            ok: true,
+            resp
+        }
+    } catch (error) {
+        console.log(error)
+        return { ok: false, errorMessage: error.message }
+    }
+} 

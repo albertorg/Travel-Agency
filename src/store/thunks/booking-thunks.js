@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { endLoading, startLoading } from "../slices/hotels_slice"
 import { endCheckingPayment, setConfirmation, setHotel, startCheckingPayment } from '../slices/booking-slice'
-import { createBooking } from '../../appwrite/providers'
+import { createBooking, getbookingsOfUser } from '../../appwrite/providers'
 
 
 export const checkRate = (rate) => {
@@ -23,9 +23,7 @@ export const checkRate = (rate) => {
         dispatch(setHotel(data.hotel))
         dispatch(endLoading())
     }    
-
 }
-
 
 export const BookingConfirmation = () => {
     return async (dispatch, getState) => {
@@ -44,9 +42,7 @@ export const BookingConfirmation = () => {
         const { data } = await axios(config)
 
         dispatch(setConfirmation(data.booking))
-        dispatch(endCheckingPayment())
     }
-
 }
 
 export const startCreateBooking = () => {
@@ -56,13 +52,17 @@ export const startCreateBooking = () => {
         const booking_id = getState().booking.confirmation.reference
         const hotel_code = getState().booking.confirmation.hotel.code
 
-        // dispatch(startCheckingPayment())
+        await createBooking({uid, hotel_code, booking_id})
 
-        const resp = await createBooking({uid, hotel_code, booking_id})
-
-        console.log(resp)
-        // if (!resp.ok) return dispatch(logout(resp.errorMessage))
-
-        // dispatch(login({ ...resp, name: null }))
+        dispatch(endCheckingPayment())
     }
 } 
+
+export const startGetingBoookingsOfUser = () => {
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid
+
+        const resp = await getbookingsOfUser(uid)
+        console.log(resp)
+    }
+}

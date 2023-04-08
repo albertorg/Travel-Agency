@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { BookingCard } from './BookingCard'
 import './styles.css'
+import { startGetingBoookingsOfUser } from '../../../../store/thunks/booking-thunks'
 
 export const Bookings = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    
+    dispatch(startGetingBoookingsOfUser())
+   
+  }, [])
+  
 
   return (
     <main className='bookings-container'>
