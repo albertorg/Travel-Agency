@@ -22,8 +22,9 @@ export const startCreatingUserWithEmail = ({email, password}) => {
         const resp = await registerUserWhitEmail({email, password})
         
         if (!resp.ok) return dispatch(logout(resp.errorMessage))
-
-        dispatch(register(resp))
+        
+        dispatch(startSignInWithEmail({email, password}))
+        // dispatch(register(resp))
     }
 }
 
