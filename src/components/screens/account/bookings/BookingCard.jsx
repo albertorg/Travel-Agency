@@ -1,8 +1,20 @@
-import React from 'react'
-import './styles.css'
+import React, { useMemo } from 'react'
 import { FaBed, FaMoon, FaUser } from 'react-icons/fa'
+import { differenceInCalendarDays, format, parseISO } from 'date-fns'
+import './styles.css'
 
 export const BookingCard = ({ booking }) => {
+
+    const date = useMemo(() => {
+        const checkIn = format(parseISO(booking.checkIn), 'd')
+        const checkOut = format(parseISO(booking.checkOut), 'd MMM y')
+        return `${checkIn} - ${checkOut}`
+    }, [])
+
+    const night = useMemo(() => (
+        differenceInCalendarDays(parseISO(booking.checkOut), parseISO(booking.checkIn))
+    ), [])
+
     return (
         <div className="booking-card">
 
@@ -13,7 +25,7 @@ export const BookingCard = ({ booking }) => {
             <div className='data-booking'>
                 <div className='booking-hotel-info'>
                     <h4>{booking.name}</h4>
-                    <span>16 - 26 sep 2023</span>
+                    <span>{date}</span>
                 </div>
                 
 
@@ -27,7 +39,7 @@ export const BookingCard = ({ booking }) => {
                     </div>
                     <div className='stay-info'>
                         <FaMoon />
-                        <span>2</span>
+                        <span>{night}</span>
                     </div>
                 </div>
             </div>
