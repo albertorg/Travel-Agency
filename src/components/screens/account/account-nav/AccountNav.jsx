@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Root, List, Item, Link as LinkUi } from '@radix-ui/react-navigation-menu'
 import { NavLink } from 'react-router-dom'
 import { useFixedNav } from '../../../../hooks/useFixedNav'

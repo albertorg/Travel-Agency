@@ -32,7 +32,7 @@ export const Bookings = () => {
             {user_bookings.length === 0 && <NoBookings />} 
           </div>
 
-          <div className=''>
+          <div className='previous-booking'>
             <h3>Previous bookings</h3>
           </div>
 
