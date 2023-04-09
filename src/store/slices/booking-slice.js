@@ -4,6 +4,7 @@ const initialState = {
     checkingPayment: false,
     oldBooking: {},
     rateK: '',
+    user_bookings: [],
     hotel: {},
     confirmation: {},
     book: {
@@ -64,6 +65,9 @@ export const bookingSlice = createSlice({
                     surname: "Rodriguez"
                 }]
             }]
+        },
+        setUserBookings: (state, {payload}) => {
+            state.user_bookings = payload
         }
     }
 })
@@ -76,5 +80,6 @@ export const {
     setHotel,
     setConfirmation,
     setholderBook,
-    setRoom
+    setRoom,
+    setUserBookings
 } = bookingSlice.actions

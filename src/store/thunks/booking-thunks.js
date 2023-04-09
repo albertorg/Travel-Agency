@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { endLoading, startLoading } from "../slices/hotels_slice"
-import { endCheckingPayment, setConfirmation, setHotel, startCheckingPayment } from '../slices/booking-slice'
+import { endCheckingPayment, setConfirmation, setHotel, setUserBookings, startCheckingPayment } from '../slices/booking-slice'
 import { createBooking, getbookingsOfUser } from '../../appwrite/providers'
 
 
@@ -50,9 +50,10 @@ export const startCreateBooking = () => {
 
         const uid = getState().auth.uid
         const booking_id = getState().booking.confirmation.reference
-        const hotel_code = getState().booking.confirmation.hotel.code
-
-        await createBooking({uid, hotel_code, booking_id})
+        const { checkOut, checkIn, name } = getState().booking.confirmation.hotel
+        const persons = JSON.parse(localStorage.getItem('booking'))
+ 
+        await createBooking(uid, booking_id, checkIn, checkOut, name, persons.total )
 
         dispatch(endCheckingPayment())
     }
@@ -64,5 +65,7 @@ export const startGetingBoookingsOfUser = () => {
 
         const resp = await getbookingsOfUser(uid)
         console.log(resp)
+        
+        if (resp.ok === true) dispatch(setUserBookings(resp.resp.documents))
     }
 }

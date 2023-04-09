@@ -15,7 +15,7 @@ export const registerUserWhitEmail = async ({ email, password }) => {
     try {
         const resp = await account.create(ID.unique(), email, password)
         const { $id } = resp
-
+        console.log(resp)
         return {
             ok: true,
             $id,
@@ -32,11 +32,12 @@ export const loginUserWhitEmail = async ({ email, password }) => {
     try {
         const resp = await account.createEmailSession(email, password)
 
-        const { $id } = resp
+        
+        const { userId } = resp
 
         return {
             ok: true,
-            $id,
+            uid: userId,
             email
         }
 
@@ -50,7 +51,7 @@ export const logoutAppwrite = async () => {
     return await account.deleteSessions()
 }
 
-export const createBooking = async ({ uid, hotel_code, booking_id }) => {
+export const createBooking = async ( uid, booking_id, checkIn, checkOut, name, persons ) => {
     try {
         const resp = await appwriteDB.createDocument(
             '642eb854627ac7c5ba8e',
@@ -58,8 +59,11 @@ export const createBooking = async ({ uid, hotel_code, booking_id }) => {
             ID.unique(),
             {
                 uid,
-                hotel_code,
-                booking_id
+                booking_id,
+                checkIn,
+                checkOut,
+                name,
+                persons
             }
         )
 
@@ -75,7 +79,6 @@ export const createBooking = async ({ uid, hotel_code, booking_id }) => {
 
 export const getbookingsOfUser = async (uid) => {
     try {
-        console.log(uid)
         const resp = await appwriteDB.listDocuments(
             "642eb854627ac7c5ba8e",
             "642eb86760375cf9fa1f",

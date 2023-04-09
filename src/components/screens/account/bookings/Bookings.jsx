@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { BookingCard } from './BookingCard'
-import './styles.css'
 import { startGetingBoookingsOfUser } from '../../../../store/thunks/booking-thunks'
+import './styles.css'
 
 export const Bookings = () => {
 
   const dispatch = useDispatch()
+  const { documents } = useSelector(state => state)
 
   useEffect(() => {
     
-    dispatch(startGetingBoookingsOfUser())
+    dispatch( startGetingBoookingsOfUser())
    
   }, [])
   

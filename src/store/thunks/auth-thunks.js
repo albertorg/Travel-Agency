@@ -1,7 +1,7 @@
 import { loginUserWhitEmail, logoutAppwrite, registerUserWhitEmail, signInWithOAuth } from "../../appwrite/providers"
 import { checkingCredentials, login, logout, register } from "../slices/auth-slice"
 
-export const checkingAuthentication = ( email, password ) => {
+export const checkingAuthentication = () => {
     return async( dispatch ) => {
         dispatch(checkingCredentials())
     }
