@@ -2,17 +2,17 @@ import React from 'react'
 import './styles.css'
 import { FaBed, FaMoon, FaUser } from 'react-icons/fa'
 
-export const BookingCard = () => {
+export const BookingCard = ({ booking }) => {
     return (
         <div className="booking-card">
 
             <div className='booking-image'>
-                <img src="http://photos.hotelbeds.com/giata/00/004200/004200a_hb_ro_006.jpg" alt="" />
+                <img src={`http://photos.hotelbeds.com/giata/${booking.image}`} alt={booking.name} />
             </div>
 
             <div className='data-booking'>
                 <div className='booking-hotel-info'>
-                    <h4>Brisas Guardalavaca, Holguin</h4>
+                    <h4>{booking.name}</h4>
                     <span>16 - 26 sep 2023</span>
                 </div>
                 
@@ -23,7 +23,7 @@ export const BookingCard = () => {
                     </div>
                     <div className='stay-info'>
                         <FaUser />
-                        <span>2</span>
+                        <span>{booking.persons}</span>
                     </div>
                     <div className='stay-info'>
                         <FaMoon />

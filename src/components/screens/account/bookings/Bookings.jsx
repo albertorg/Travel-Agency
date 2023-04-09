@@ -7,12 +7,12 @@ import './styles.css'
 export const Bookings = () => {
 
   const dispatch = useDispatch()
-  const { documents } = useSelector(state => state)
+  const { user_bookings } = useSelector(state => state.booking)
+
+  console.log(user_bookings)
 
   useEffect(() => {
-    
     dispatch( startGetingBoookingsOfUser())
-   
   }, [])
   
 
@@ -26,7 +26,9 @@ export const Bookings = () => {
         <div className='content-container'>
  
           <div className="booking-list-container">
-            <BookingCard />
+            {user_bookings.map((booking) => (
+              <BookingCard booking={booking} key={booking.$id}/>
+            ))}
           </div>
           
           <div className=''>

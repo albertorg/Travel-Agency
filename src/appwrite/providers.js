@@ -51,7 +51,7 @@ export const logoutAppwrite = async () => {
     return await account.deleteSessions()
 }
 
-export const createBooking = async ( uid, booking_id, checkIn, checkOut, name, persons ) => {
+export const createBooking = async ( uid, booking_id, checkIn, checkOut, name, persons, image ) => {
     try {
         const resp = await appwriteDB.createDocument(
             '642eb854627ac7c5ba8e',
@@ -63,7 +63,8 @@ export const createBooking = async ( uid, booking_id, checkIn, checkOut, name, p
                 checkIn,
                 checkOut,
                 name,
-                persons
+                persons, 
+                image
             }
         )
 
