@@ -9,11 +9,11 @@ export const BookingCard = ({ booking }) => {
         const checkIn = format(parseISO(booking.checkIn), 'd')
         const checkOut = format(parseISO(booking.checkOut), 'd MMM y')
         return `${checkIn} - ${checkOut}`
-    }, [])
+    }, [booking])
 
     const night = useMemo(() => (
         differenceInCalendarDays(parseISO(booking.checkOut), parseISO(booking.checkIn))
-    ), [])
+    ), [booking])
 
     return (
         <div className="booking-card">

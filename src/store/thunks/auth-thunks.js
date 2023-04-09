@@ -1,5 +1,5 @@
 import { loginUserWhitEmail, logoutAppwrite, registerUserWhitEmail, signInWithOAuth } from "../../appwrite/providers"
-import { checkingCredentials, login, logout, register } from "../slices/auth-slice"
+import { checkingCredentials, login, logout } from "../slices/auth-slice"
 
 export const checkingAuthentication = () => {
     return async( dispatch ) => {
@@ -24,7 +24,6 @@ export const startCreatingUserWithEmail = ({email, password}) => {
         if (!resp.ok) return dispatch(logout(resp.errorMessage))
         
         dispatch(startSignInWithEmail({email, password}))
-        // dispatch(register(resp))
     }
 }
 

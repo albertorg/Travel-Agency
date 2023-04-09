@@ -13,7 +13,7 @@ export const Bookings = () => {
 
   useEffect(() => {
     dispatch( startGetingBoookingsOfUser())
-  }, [])
+  }, [dispatch])
   
 
   return (
