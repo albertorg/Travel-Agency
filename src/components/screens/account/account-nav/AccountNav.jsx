@@ -1,37 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Root, List, Item, Link as LinkUi } from '@radix-ui/react-navigation-menu'
 import { NavLink } from 'react-router-dom'
+import { useFixedNav } from '../../../../hooks/useFixedNav'
 import './styles.css'
+
 
 export const AccountNav = () => {
 
-    const [fixedNavbar, setFixedNavbar] = useState(false);
-    const navbarRef = useRef(null);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > navbarRef.current.offsetTop) {
-                setFixedNavbar(true);
-            } else {
-                setFixedNavbar(false);
-            }
-        }
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-    }, [])
-
-    useEffect(() => {
-        const navbarHeight = navbarRef.current.clientHeight;
-        const content = document.querySelector('.content');
-        if (fixedNavbar) {
-            content.style.marginTop = `${navbarHeight + 32}px`;
-        } else {
-            content.style.marginTop = '2rem';
-        }
-    }, [fixedNavbar]);
+    const { fixedNavbar, navbarRef} = useFixedNav()
 
     return (
         <header className={`navbar-account-container ${fixedNavbar ? 'navbar-fixed-top' : ''}`} ref={navbarRef}>
