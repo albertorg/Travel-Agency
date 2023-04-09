@@ -79,3 +79,37 @@
 }
 
 /* ============ END BOOKING CARD STYLES ============ */
+
+/* ============ START NO BOOKING CARD  ============ */
+
+.no-booking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    border: 1px solid #f0efef;
+    border-radius: .5rem;
+    line-height: normal;
+    font-size: .93rem;
+}
+
+.no-booking-container button {
+    padding: .7rem 1.2rem;
+    border-radius: .25rem;
+    border: 1px solid var(--thm-primary);
+    background-color: var(--thm-primary);
+    color: white;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.still-no {
+    /* font-size: .95rem; */
+    font-weight: 700;
+    color: var(--thm-black);
+}
+
