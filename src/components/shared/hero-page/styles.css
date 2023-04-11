@@ -1,0 +1,24 @@
+.heroPage-section{
+    position: relative;
+    height: 240px;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.heroPage-container{
+    background-image: url(../../../assets/hero/page-header.webp);
+    background-size: cover;
+    background-position: 50%;
+    filter: brightness(65%);
+    border-radius: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.heroPage-section h1 {
+    color: white;
+}
