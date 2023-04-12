@@ -2,14 +2,18 @@ import React from 'react'
 // import { BsFillTelephoneFill } from 'react-icons/bs'
 // import { IoMdMail } from 'react-icons/io'
 // import { ImLocation } from 'react-icons/im'
-import './contact.css'
 import { HeroPage } from '../../shared/hero-page/HeroPage'
 import { FaFacebookF } from 'react-icons/fa'
 import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'
-
+import './styles.css'
 
 
 export const ContactScreen = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('submit')
+  }
 
   return (
     <>
@@ -38,20 +42,33 @@ export const ContactScreen = () => {
 
           <div className='contact-form-container'>
             <h3>Contact Us</h3>
-            <form>
+            <form className='contact-form' onSubmit={handleSubmit}>
               <fieldset className='fieldset-container'>
                 <label htmlFor="full-name">Full name</label>
-                <input type="text" name="name" id="full-name" />
+                <input 
+                  type="text" 
+                  name="name" 
+                  id="full-name" 
+                />
               </fieldset>
 
               <fieldset className='fieldset-container'>
                 <label htmlFor="full-name">Email address</label>
-                <input type="text" name="email" id="email" />
+                <input
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                />
               </fieldset>
 
               <fieldset className='fieldset-container'>
                 <label htmlFor="message">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" />
+                <textarea 
+                  name="message" 
+                  id="message" 
+                  cols="30" 
+                  rows="8" 
+                />
               </fieldset>
 
               <button type="submit" name='submit'>
