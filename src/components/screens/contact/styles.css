@@ -95,21 +95,52 @@
 
 .cards-contact-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .card-contact {
-    background-color: aliceblue;
     display: flex;
     padding: 1.5rem;
     gap: 1rem;
     border-radius: .5rem;
     position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 64px hsla(0, 0%, 7%, .1);
 }
 
 .card-contact::after {
-    
-
+    content: "";
+    background-color: var(--thm-black);
+    width: 6rem;
+    height: 7rem;
+    position: absolute;
+    transform: rotate(-45deg);
+    border-radius: 3rem;
+    top: -26%;
+    left: -23px;
 }
+
+.favicon-contact {
+    min-width: 4rem ;
+    z-index: 2;
+    color: var(--thm-primary);
+    font-size: 2rem;
+}
+
+.info-card-contact p {
+    font-size: .9rem;
+}
+
+.info-card-contact h3 {
+    font-size: 1.2rem;
+}
+ /* End */
+
+ @media screen and (max-width: 600px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+ }
