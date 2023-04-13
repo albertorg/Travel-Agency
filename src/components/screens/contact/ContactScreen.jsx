@@ -1,7 +1,7 @@
 import React from 'react'
-// import { BsFillTelephoneFill } from 'react-icons/bs'
-// import { IoMdMail } from 'react-icons/io'
-// import { ImLocation } from 'react-icons/im'
+import { SlPhone } from 'react-icons/sl'
+import { TfiEmail } from 'react-icons/tfi'
+import { BsPinMap } from 'react-icons/bs'
 import { HeroPage } from '../../shared/hero-page/HeroPage'
 import { FaFacebookF } from 'react-icons/fa'
 import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'
@@ -79,7 +79,35 @@ export const ContactScreen = () => {
         </section>
 
         <section className='cards-contact-container'>
-          {/* TODO: Make Cards of contact info */}
+          <div className="card-contact">
+            <div className='favicon-contact'>
+              <BsPinMap />
+            </div>
+            <div className='info-card-contact'>
+              <h3>Address</h3>
+              <p>Wierzbięcice 33, 61-559, Poznań, Poland</p>
+            </div>
+          </div>
+
+          <div className="card-contact">
+            <div className='favicon-contact'>
+              <TfiEmail />
+            </div>
+            <div className='info-card-contact'>
+              <h3>Email</h3>
+              <p>support@funtravel.com</p>
+            </div>
+          </div>
+
+          <div className="card-contact">
+            <div className='favicon-contact'>
+              <SlPhone />
+            </div>
+            <div className='info-card-contact'>
+              <h3>Phone</h3>
+              <p>+48 517 665 9644</p>
+            </div>
+          </div>
         </section>
       </main>
     </>

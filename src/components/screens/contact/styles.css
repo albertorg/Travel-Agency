@@ -90,3 +90,26 @@
     background-color: var(--thm-primary);
     color: white;
 }
+
+/* Cards contact styles start */
+
+.cards-contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card-contact {
+    background-color: aliceblue;
+    display: flex;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: .5rem;
+    position: relative;
+}
+
+.card-contact::after {
+    
+
+}
