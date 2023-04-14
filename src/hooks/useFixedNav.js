@@ -26,7 +26,6 @@ export const useFixedNav = () => {
         if (fixedNavbar) {
             content.style.marginTop = `${navbarHeight + 32}px`
         } else {
-            console.log(content)
             content.style.marginTop = '2rem'
         }
     }, [fixedNavbar])

@@ -32,32 +32,32 @@ export const MobileMenu = ({ active, setActive }) => {
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/'> Home </Link>
+              <Link to='/' onClick={handleActive}> Home </Link>
             </LinkUi>
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/'> Destinations </Link>
+              <Link to='/' onClick={handleActive}> Destinations </Link>
             </LinkUi>
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/'> Offers </Link>
+              <Link to='/' onClick={handleActive}> Offers </Link>
             </LinkUi>
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/about'> About us </Link>
+              <Link to='/about' onClick={handleActive}> About us </Link>
             </LinkUi>
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/about'> Blog </Link>
+              <Link to='/about' onClick={handleActive}> Blog </Link>
             </LinkUi>
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/contact'> Contact </Link>
+              <Link to='/contact' onClick={handleActive}> Contact </Link>
             </LinkUi>
           </Item>
 
