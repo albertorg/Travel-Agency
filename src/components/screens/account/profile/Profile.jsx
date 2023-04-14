@@ -3,6 +3,6 @@ import './styles.css'
 
 export const Profile = () => {
   return (
-    <div>Profile</div>
+    <div className='content'>Profile</div>
   )
 }
