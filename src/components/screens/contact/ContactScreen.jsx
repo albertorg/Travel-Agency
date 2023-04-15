@@ -8,7 +8,7 @@ import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { execFunctionSendEmail } from '../../../appwrite/providers'
 import { useForm } from '../../../hooks/useForm'
 import './styles.css'
-
+import { Toast } from '../../shared/toast/Toast'
 
 const formData = {
   name: '',
@@ -26,6 +26,7 @@ const formValidations = {
 
 export const ContactScreen = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [activeToast, setActiveToast] = useState(false)
 
   const {
     name,
@@ -45,8 +46,18 @@ export const ContactScreen = () => {
 
     if (!isFormValid) return
 
-    await execFunctionSendEmail(JSON.stringify({name, email, message}))
-    console.log('submit') 
+    const resp = await execFunctionSendEmail(JSON.stringify({ name, email, message }))
+    
+    if (resp.ok) {
+      setActiveToast(true)
+      setTimeout(() => {
+        setActiveToast(false)
+      }, 1800)
+
+      onResetForm()
+      setFormSubmitted(false)
+    }
+    
   }
 
   return (
@@ -158,6 +169,8 @@ export const ContactScreen = () => {
             </div>
           </div>
         </section>
+
+        <Toast active={activeToast} setActive={setActiveToast} />
       </main>
     </>
   )

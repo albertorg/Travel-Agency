@@ -1,0 +1,93 @@
+.toast {
+    color: black;
+    z-index: 1;
+
+    position: fixed;
+    top: 85px;
+    right: 30px;
+    border-radius: .5rem;
+    border-left: 6px solid #56ac85;
+    background: #f5fdf7;
+    padding: 8px 28px 9px 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-shadow: rgb(146, 206, 172) 0px 0px 0px 1px inset;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.activeBar {
+    transform: translateX(0%);
+}
+
+.toast_content {
+    display: flex;
+    align-items: center;
+}
+
+.check_icon {
+    display: flex;
+    align-items: center;
+    color: #2eb662;
+    font-size: 35px;
+    
+}
+ 
+.message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.text_1 {
+    font-weight: 600;
+    color: #333;
+}
+
+.close_icon {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    padding: 5px;
+    cursor: pointer
+}
+
+
+.close_icon:hover {
+    opacity: 1;
+}
+
+.progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #7bac7c;
+}
+
+.progress::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff
+}
+
+.progress.activeBar::before {
+    animation: progress 1.8s linear forwards;
+}
+
+@keyframes progress {
+    100%{
+        right: 100%;
+    }
+}

@@ -101,8 +101,8 @@ export const getbookingsOfUser = async (uid) => {
 export const execFunctionSendEmail = async (data) => {
     try {
         const resp = await functionsAppW.createExecution('6439f219f04e76a0b519', data)
-        console.log(resp)
-        return resp
+    
+        return JSON.parse(resp.response) 
     } catch (error) {
         console.log(error)
         return { ok: false, errorMessage: error.message }
