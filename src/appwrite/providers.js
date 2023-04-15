@@ -1,5 +1,5 @@
 import { ID, Query } from "appwrite"
-import { account, appwriteDB } from "./config"
+import { account, appwriteDB, functionsAppW } from "./config"
 
 export const signInWithOAuth = async (provider) => {
     try {
@@ -97,3 +97,14 @@ export const getbookingsOfUser = async (uid) => {
         return { ok: false, errorMessage: error.message }
     }
 } 
+
+export const execFunctionSendEmail = async (data) => {
+    try {
+        const resp = await functionsAppW.createExecution('6439f219f04e76a0b519', data)
+        console.log(resp)
+        return resp
+    } catch (error) {
+        console.log(error)
+        return { ok: false, errorMessage: error.message }
+    }
+}

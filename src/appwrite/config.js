@@ -1,4 +1,4 @@
-import { Client, Account, Databases,} from 'appwrite'
+import { Client, Account, Databases, Functions,} from 'appwrite'
 
 const client = new Client()
     .setEndpoint(process.env.REACT_APP_APPWRITE_URL)
@@ -9,3 +9,6 @@ export const account = new Account(client)
 
 // Initialize AppWrite Database
 export const appwriteDB = new Databases(client)
+
+// Initialize AppWrite functions
+export const functionsAppW = new Functions(client)

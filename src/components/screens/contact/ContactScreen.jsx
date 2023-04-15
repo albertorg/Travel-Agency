@@ -6,13 +6,22 @@ import { HeroPage } from '../../shared/hero-page/HeroPage'
 import { FaFacebookF } from 'react-icons/fa'
 import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import './styles.css'
+import { execFunctionSendEmail } from '../../../appwrite/providers'
 
 
 export const ContactScreen = () => {
 
-  const handleSubmit = (e) => {
+  const email = {
+    name: 'alberto',
+    email: 'alberto@gmail.com',
+    message: 'Hi, this is a trial of the function send email in appwrite' 
+  } 
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    await execFunctionSendEmail(JSON.stringify(email))
     console.log('submit')
+    
   }
 
   return (
