@@ -91,6 +91,17 @@
     color: white;
 }
 
+.formErrorMessage {
+    margin-top: .5rem;
+    padding: .2rem .5rem;
+    color: red;
+    background-color: rgb(254, 226, 226);
+    font-size: .79rem;
+    border-radius: .2rem;
+    display: block;
+    width: 100%;
+}
+
 /* Cards contact styles start */
 
 .cards-contact-container {

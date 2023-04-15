@@ -1,27 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SlPhone } from 'react-icons/sl'
 import { TfiEmail } from 'react-icons/tfi'
 import { BsPinMap } from 'react-icons/bs'
 import { HeroPage } from '../../shared/hero-page/HeroPage'
 import { FaFacebookF } from 'react-icons/fa'
 import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'
-import './styles.css'
 import { execFunctionSendEmail } from '../../../appwrite/providers'
+import { useForm } from '../../../hooks/useForm'
+import './styles.css'
 
+
+const formData = {
+  name: '',
+  email: '',
+  message: ''
+}
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const formValidations = {
+  name: [(value) => value.length > 6, 'Insert full name'],
+  email: [(value) => emailRegex.test(value), 'Insert a valid email'],
+  message: [(value) => value.length > 2, 'Empty message']
+}
 
 export const ContactScreen = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
-  const email = {
-    name: 'alberto',
-    email: 'alberto@gmail.com',
-    message: 'Hi, this is a trial of the function send email in appwrite' 
-  } 
+  const {
+    name,
+    email,
+    message,
+    nameValid,
+    emailValid,
+    messageValid,
+    isFormValid,
+    onInputChange,
+    onResetForm
+  } = useForm(formData, formValidations)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
-    await execFunctionSendEmail(JSON.stringify(email))
-    console.log('submit')
-    
+    setFormSubmitted(true)
+
+    if (!isFormValid) return
+
+    await execFunctionSendEmail(JSON.stringify({name, email, message}))
+    console.log('submit') 
   }
 
   return (
@@ -58,7 +83,12 @@ export const ContactScreen = () => {
                   type="text" 
                   name="name" 
                   id="full-name" 
+                  value={name}
+                  onChange={onInputChange}
                 />
+                {(nameValid && formSubmitted) &&
+                  <span className='formErrorMessage'>{nameValid}</span>
+                }
               </fieldset>
 
               <fieldset className='fieldset-container'>
@@ -66,8 +96,13 @@ export const ContactScreen = () => {
                 <input
                   type="email" 
                   name="email" 
-                  id="email" 
+                  id="email"
+                  value={email}
+                  onChange={onInputChange} 
                 />
+                {(emailValid && formSubmitted) &&
+                  <span className='formErrorMessage'>{emailValid}</span>
+                }
               </fieldset>
 
               <fieldset className='fieldset-container'>
@@ -77,7 +112,12 @@ export const ContactScreen = () => {
                   id="message" 
                   cols="30" 
                   rows="8" 
+                  value={message}
+                  onChange={onInputChange}
                 />
+                {(messageValid && formSubmitted) &&
+                  <span className='formErrorMessage'>{messageValid}</span>
+                }
               </fieldset>
 
               <button type="submit" name='submit'>
