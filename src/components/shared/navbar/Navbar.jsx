@@ -47,14 +47,14 @@ export const Navbar = () => {
                                 </Item>
                                 <Item>
                                     <LinkUi asChild className='activeLink'>
-                                        <Link to='/'> Destinations </Link>
+                                        <Link to='/destinations'> Destinations </Link>
                                     </LinkUi>
                                 </Item>
-                                <Item>
+                                {/* <Item>
                                     <LinkUi asChild className='activeLink'>
                                         <Link to='/'> Offers </Link>
                                     </LinkUi>
-                                </Item>
+                                </Item> */}
                                 <Item>
                                     <LinkUi asChild className='activeLink'>
                                         <Link to='/about'> About us </Link>
@@ -62,7 +62,7 @@ export const Navbar = () => {
                                 </Item>
                                 <Item>
                                     <LinkUi asChild className='activeLink'>
-                                        <Link to='/about'> Blog </Link>
+                                        <Link to='/blog'> Blog </Link>
                                     </LinkUi>
                                 </Item>
                                 <Item>

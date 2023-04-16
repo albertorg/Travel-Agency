@@ -37,14 +37,14 @@ export const MobileMenu = ({ active, setActive }) => {
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/' onClick={handleActive}> Destinations </Link>
+              <Link to='/destinations' onClick={handleActive}> Destinations </Link>
             </LinkUi>
           </Item>
-          <Item className='border-list'>
+          {/* <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
               <Link to='/' onClick={handleActive}> Offers </Link>
             </LinkUi>
-          </Item>
+          </Item> */}
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
               <Link to='/about' onClick={handleActive}> About us </Link>
@@ -52,7 +52,7 @@ export const MobileMenu = ({ active, setActive }) => {
           </Item>
           <Item className='border-list'>
             <LinkUi asChild className='activeLink'>
-              <Link to='/about' onClick={handleActive}> Blog </Link>
+              <Link to='/blog' onClick={handleActive}> Blog </Link>
             </LinkUi>
           </Item>
           <Item className='border-list'>
