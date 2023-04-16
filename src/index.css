@@ -56,6 +56,7 @@ body {
   font-size: 18px;
   line-height: 32px;
   font-weight: 400;
+  /* height: 100dvh; */
 }
 
 /* ============ GENERAL STYLES ========= */
@@ -73,6 +74,10 @@ body {
 .small-container {
   width: var(--container-width-md);
   max-width: 736px;
+  margin: 0 auto;
+}
+
+.center {
   margin: 0 auto;
 }
 
