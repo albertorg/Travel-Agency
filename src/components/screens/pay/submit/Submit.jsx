@@ -5,14 +5,17 @@ import { useNavigate } from 'react-router-dom'
 import { BookingConfirmation, startCreateBooking } from '../../../../store/thunks/booking-thunks'
 import './styles.css'
 
-export const Submit = ({ room }) => {
+export const Submit = ({ room, validInfo }) => {
+
+  console.log(validInfo)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleClick = async() => {
-    await dispatch(BookingConfirmation())
+    if (!validInfo) return
 
+    await dispatch(BookingConfirmation())
     await dispatch(startCreateBooking())
 
     navigate('/booking/pay-done')

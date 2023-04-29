@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Loading } from './loading/Loading'
 import { SideBar } from './sideBar/SideBar'
@@ -15,13 +15,19 @@ import './styles.css'
 
 export const Pay = () => {
 
+  // forms status
+  const [isValidCardInfo, setIsValidCardInfo] = useState(false)
+  const [isValidPersonInfo, setIsValidPersonInfo] = useState(false)
+
   const { isLoading } = useSelector(state => state.hotels)
   const { checkingPayment } = useSelector(state => state.booking)
   const dispatch = useDispatch()
 
   const rateKey = localStorage.getItem('rateKey')
   const hotel = JSON.parse(localStorage.getItem('hotel'))
-  const room = hotel.rooms.find(room => room.rates[0].rateKey === rateKey)
+  const room = useMemo(() => {
+    return hotel.rooms.find(room => room.rates[0].rateKey === rateKey)
+  }, []) 
 
   useEffect(() => {
     // const check = JSON.stringify({
@@ -62,9 +68,9 @@ export const Pay = () => {
             <main>
               <PersonInfo />
               <HotelComunication />
-              <MultiPayment />
+              <MultiPayment setIsValidCardInfo={setIsValidCardInfo}/>
               <Privacy room={room} />
-              <Submit room={room} />
+              <Submit room={room} validInfo={ isValidCardInfo && isValidPersonInfo }/>
             </main>
           </div>
         </div>

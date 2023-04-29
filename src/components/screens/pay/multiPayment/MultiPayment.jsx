@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Radio, RadioGroup, useRadioState } from "ariakit/radio";
 import geoTrust from '../../../../assets/payment/geotrust_secure.svg'
 import visa from '../../../../assets/payment/visa.svg'
@@ -20,12 +20,21 @@ const formData = {
   cvc: ''
 }
 
-export const MultiPayment = () => {
+export const MultiPayment = ({ setIsValidCardInfo }) => {
 
   const { name, cardNumber, expiryDate, cvc, onInputChange } = useForm(formData)
   
   const radio = useRadioState()
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs()
+
+  useEffect(() => {
+    if (name.length > 4 && !meta.error) {
+     setIsValidCardInfo(true)
+    } else {
+      setIsValidCardInfo(false)
+    }
+  }, [name, meta.error, setIsValidCardInfo])
+  
 
   return (
     <section className='payment-section'>
