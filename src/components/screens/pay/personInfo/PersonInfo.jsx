@@ -8,16 +8,33 @@ import 'react-phone-number-input/style.css'
 import './styles.css'
 
 const formData = {
-  name: '',
-  surname: '',
-  email: ''
+  name: 'Julio',
+  surname: 'Cesar',
+  email: 'alberto@gmail.com'
 }
 
-export const PersonInfo = () => {
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  const [phoneNumber, setPhoneNumber] = useState('')
+const formValidations = {
+  name: [(value) => value.length > 2, 'Insert the name'],
+  surname: [(value) => value.length > 2, 'Insert your last name'],
+  email: [(value) => emailRegex.test(value), 'Insert a valid email'],
+}
+
+export const PersonInfo = ({ setIsValidPersonInfo, formSubmitted }) => {
+
+  const [phoneNumber, setPhoneNumber] = useState('+39 312 123 1233')
   const dispatch = useDispatch()
-  const { name, surname, email, onInputChange} = useForm(formData)
+  const { name, surname, email, onInputChange, isFormValid, nameValid, surnameValid, emailValid} = useForm(formData, formValidations)
+
+  useEffect(() => {
+    if (isFormValid && phoneNumber > 4) {
+      return setIsValidPersonInfo(true)
+    }
+
+    setIsValidPersonInfo(false)
+  }, [isFormValid, phoneNumber])
+  
 
   useEffect(() => {
     let phone = ''
@@ -57,6 +74,9 @@ export const PersonInfo = () => {
               value={name}
               onChange={onInputChange}
             />
+            {(nameValid && formSubmitted ) &&
+              <span className='errorMessage'>{nameValid}</span>
+            }
           </div>
           <div>
             <label htmlFor="surname">Surname</label>
@@ -66,7 +86,10 @@ export const PersonInfo = () => {
               name='surname'
               value={surname}
               onChange={onInputChange}
-              />
+            />
+            {(surnameValid && formSubmitted ) &&
+              <span className='errorMessage'>{surnameValid}</span>
+            }
           </div>
           <div>
             <label htmlFor="email">Email</label>
@@ -78,6 +101,9 @@ export const PersonInfo = () => {
               value={email}
               onChange={onInputChange}
             />
+            {(emailValid && formSubmitted) &&
+              <span className='errorMessage'>{emailValid}</span>
+            }
           </div>
           <div>
             <label htmlFor="phone">Phone</label>

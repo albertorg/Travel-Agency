@@ -5,14 +5,12 @@ import { useNavigate } from 'react-router-dom'
 import { BookingConfirmation, startCreateBooking } from '../../../../store/thunks/booking-thunks'
 import './styles.css'
 
-export const Submit = ({ room, validInfo }) => {
-
-  console.log(validInfo)
-
+export const Submit = ({ room, validInfo, setFormSubmitted }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleClick = async() => {
+    setFormSubmitted(true)
     if (!validInfo) return
 
     await dispatch(BookingConfirmation())

@@ -18,6 +18,7 @@ export const Pay = () => {
   // forms status
   const [isValidCardInfo, setIsValidCardInfo] = useState(false)
   const [isValidPersonInfo, setIsValidPersonInfo] = useState(false)
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
   const { isLoading } = useSelector(state => state.hotels)
   const { checkingPayment } = useSelector(state => state.booking)
@@ -27,7 +28,7 @@ export const Pay = () => {
   const hotel = JSON.parse(localStorage.getItem('hotel'))
   const room = useMemo(() => {
     return hotel.rooms.find(room => room.rates[0].rateKey === rateKey)
-  }, []) 
+  }, [rateKey, hotel.rooms]) 
 
   useEffect(() => {
     // const check = JSON.stringify({
@@ -66,11 +67,11 @@ export const Pay = () => {
             <SideBar hotel={hotel} room={room} />
 
             <main>
-              <PersonInfo />
+              <PersonInfo setIsValidPersonInfo={setIsValidPersonInfo} formSubmitted={formSubmitted}/>
               <HotelComunication />
               <MultiPayment setIsValidCardInfo={setIsValidCardInfo}/>
               <Privacy room={room} />
-              <Submit room={room} validInfo={ isValidCardInfo && isValidPersonInfo }/>
+              <Submit room={room} validInfo={isValidCardInfo && isValidPersonInfo} setFormSubmitted={setFormSubmitted}/>
             </main>
           </div>
         </div>

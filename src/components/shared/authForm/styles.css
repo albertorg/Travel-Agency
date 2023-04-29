@@ -163,7 +163,7 @@
 
 .errorMessage {
     margin-left: .5rem;
-    color: red;
+    color: red !important;
     font-size: .79rem;
 }
 
