@@ -46,18 +46,15 @@ export const ContactScreen = () => {
 
     if (!isFormValid) return
 
-    const resp = await execFunctionSendEmail(JSON.stringify({ name, email, message }))
-    
-    if (resp.ok) {
-      setActiveToast(true)
-      setTimeout(() => {
-        setActiveToast(false)
-      }, 1800)
+    setActiveToast(true)
+    setTimeout(() => {
+      setActiveToast(false)
+    }, 1800)
 
-      onResetForm()
-      setFormSubmitted(false)
-    }
-    
+    onResetForm()
+    setFormSubmitted(false)
+
+    await execFunctionSendEmail(JSON.stringify({ name, email, message }))
   }
 
   return (
