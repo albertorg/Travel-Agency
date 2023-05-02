@@ -6,7 +6,7 @@ export const PrivateRoute = ({ children }) => {
 
     const { status } = useSelector(state => state.auth)
 
-    return (status === 'authenticated')
+    return (status !== 'not-authenticated')
         ? children
         : <Navigate to='/' />
 }

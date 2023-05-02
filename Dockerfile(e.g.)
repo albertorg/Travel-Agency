@@ -1,0 +1,37 @@
+# Utilizamos una imagen de Node.js como base
+FROM node:18-alpine as build
+
+# Define las variables de entorno
+ENV REACT_APP_API_URL=
+ENV REACT_APP_GOOGLE_MAPS_API_KEY=
+ENV REACT_APP_APPWRITE_URL=
+ENV REACT_APP_APPWRITE_PROYECT_ID=
+ENV REACT_APP_SENDGRID_API_KEY=
+
+# Directorio de trabajo en el contenedor
+WORKDIR /app
+
+# Copiar archivo de dependencias
+COPY package*.json ./
+
+# Instalar dependencias
+RUN npm install 
+
+# Copiar todo el código fuente
+COPY . .
+
+# Generar el bulid de produccion
+RUN npm run build
+
+# Establece la imagen base para el servidor web
+FROM nginx:alpine
+
+# Copia los archivos necesarios
+ADD ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/build /var/www/app/
+
+# Expone el puerto
+EXPOSE 80
+
+# Inicia el servidor web
+CMD ["nginx", "-g", "daemon off;"]
