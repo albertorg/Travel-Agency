@@ -7,6 +7,7 @@ import { getAvailability } from '../../../store/thunks/hotels-thunks'
 import { EmptyCard } from './card-hotel-list/EmptyCard'
 import { Box, LinearProgress } from '@mui/material'
 import './styles.css'
+import { InfoFooter } from '../account/info-footer/InfoFooter'
 
 export const SearchScreen = () => {
 
@@ -57,7 +58,9 @@ export const SearchScreen = () => {
                     index={index} />
                 ))
               }
+              <li><InfoFooter /></li>
             </ul>
+            
           </div>
 
           <div className="map_container">
